@@ -1,0 +1,8 @@
+title: AI & LLM Engineering
+icon: sparkles
+description: Building real things with models — the differentiator for these roles.
+order: 5
+
+# Explicit ordering. Folders not listed here still render, appended alphabetically.
+subsections:
+  - agents

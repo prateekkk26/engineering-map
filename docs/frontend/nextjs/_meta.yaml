@@ -1,0 +1,24 @@
+title: Next.js
+description: App Router, the caching model, and what it takes to ship it.
+order: 3
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - app-router-mental-model
+  - rendering-strategies
+  - server-vs-client-components
+  - data-fetching-in-the-app-router
+  - the-nextjs-caching-model
+  - streaming-and-loading-ui
+  - server-actions
+  - route-handlers
+  - middleware-and-the-edge-runtime
+  - authentication-in-nextjs
+  - error-and-not-found-handling
+  - metadata-and-seo
+  - images-fonts-and-assets
+  - environment-config-and-secrets
+  - internationalised-routing
+  - bundle-and-payload-budgets
+  - deployment-runtimes-and-hosting
+  - migrating-pages-to-app-router

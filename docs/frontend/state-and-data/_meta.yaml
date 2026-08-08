@@ -1,0 +1,23 @@
+title: State & Data
+description: Where state lives, and how data reaches the UI without waterfalls.
+order: 4
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - state-taxonomy
+  - colocation-and-lifting-state
+  - url-as-state
+  - unidirectional-data-flow-and-flux
+  - client-state-libraries
+  - derived-state-and-selectors
+  - ui-state-machines
+  - server-state-and-cache-semantics
+  - data-fetching-patterns
+  - cache-normalisation-and-entity-shape
+  - optimistic-updates-and-rollback
+  - pagination-and-infinite-lists
+  - realtime-state-sync
+  - offline-and-local-first
+  - forms-and-validation
+  - graphql-rest-and-rpc-from-the-client
+  - api-contracts-and-end-to-end-types

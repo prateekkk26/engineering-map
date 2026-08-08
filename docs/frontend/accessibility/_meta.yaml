@@ -1,0 +1,16 @@
+title: Accessibility & i18n
+description: Semantics first, ARIA second, and the localisation that rides along with it.
+order: 13
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - semantic-html-and-the-accessibility-tree
+  - aria-and-when-not-to-use-it
+  - keyboard-navigation-and-focus-management
+  - accessible-forms-and-errors
+  - live-regions-and-dynamic-content
+  - visual-accessibility
+  - building-accessible-components
+  - testing-with-a-screen-reader
+  - wcag-and-the-legal-baseline
+  - internationalisation-and-rtl

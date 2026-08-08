@@ -1,0 +1,26 @@
+title: The Browser Platform
+description: What is actually happening underneath the framework.
+order: 5
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - critical-rendering-path
+  - dom-and-cssom-as-apis
+  - the-event-model
+  - layout-thrashing-and-forced-reflow
+  - compositing-and-gpu-layers
+  - the-observer-apis
+  - navigation-history-and-bfcache
+  - view-transitions-and-soft-navigation
+  - shadow-dom-and-web-components
+  - browser-storage
+  - http-caching
+  - fetch-cors-and-credentials
+  - http-versions-and-transport
+  - realtime-transports
+  - service-workers-and-offline
+  - web-workers-and-off-main-thread
+  - files-blobs-and-streams
+  - images-and-media-on-the-web
+  - device-and-permission-apis
+  - feature-detection-and-progressive-enhancement

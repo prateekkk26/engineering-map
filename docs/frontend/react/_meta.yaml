@@ -1,0 +1,30 @@
+title: React
+description: The model, the internals, and the parts that go wrong at scale.
+order: 2
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - react-mental-model
+  - elements-components-and-jsx
+  - reconciliation-and-keys
+  - when-components-rerender
+  - fiber-architecture
+  - hooks-rules-and-why
+  - state-updates-and-batching
+  - useeffect-mental-model
+  - you-might-not-need-an-effect
+  - refs-and-imperative-escape-hatches
+  - memoisation-usememo-usecallback-memo
+  - context-and-its-limits
+  - usereducer-and-ui-state-machines
+  - custom-hook-design
+  - concurrent-rendering
+  - suspense-and-streaming
+  - error-boundaries
+  - portals-and-rendering-outside-the-tree
+  - lists-and-virtualisation
+  - profiling-react-performance
+  - react-server-components
+  - the-use-hook
+  - react-19-actions
+  - react-compiler

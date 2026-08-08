@@ -1,0 +1,14 @@
+title: CSS Core Concepts
+description: Eight things worth knowing properly. No basics.
+order: 10
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - cascade-specificity-and-layers
+  - flexbox-and-grid-layout-models
+  - containing-blocks-stacking-and-formatting-contexts
+  - responsive-strategy-and-container-queries
+  - design-tokens-and-theming
+  - styling-architecture-tradeoffs
+  - animation-and-compositor-performance
+  - css-at-scale

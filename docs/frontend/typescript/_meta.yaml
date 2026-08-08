@@ -1,0 +1,19 @@
+title: TypeScript
+description: The type system as a design tool, not a syntax tax.
+order: 9
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - structural-typing-and-assignability
+  - narrowing-and-control-flow-analysis
+  - any-unknown-never-and-satisfies
+  - generics-and-constraints
+  - conditional-and-mapped-types
+  - template-literal-types-and-key-remapping
+  - infer-and-type-level-programming
+  - utility-types-in-practice
+  - branded-types-and-domain-modelling
+  - typing-react
+  - declaration-files-and-module-augmentation
+  - tsconfig-strictness-and-project-references
+  - runtime-validation-and-parse-dont-validate

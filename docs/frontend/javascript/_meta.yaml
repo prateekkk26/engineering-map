@@ -1,0 +1,22 @@
+title: JavaScript Deep Dive
+description: The language mechanics a senior is expected to explain, not just use.
+order: 1
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - execution-model-and-closures
+  - this-and-binding
+  - prototypes-and-classes
+  - event-loop
+  - promises-deep-dive
+  - generators-and-async-iteration
+  - scheduling-and-timers
+  - error-handling-in-javascript
+  - modules-esm-and-cjs
+  - coercion-and-equality
+  - property-descriptors-and-immutability
+  - iterables-and-collections
+  - proxies-and-reflection
+  - memory-and-garbage-collection
+  - engine-internals-and-optimisation
+  - utilities-from-scratch

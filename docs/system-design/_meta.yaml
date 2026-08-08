@@ -1,0 +1,9 @@
+title: System Design
+icon: network
+description: Designing systems at the whiteboard, including the AI-shaped ones.
+order: 4
+
+# Partially specified. Remaining subsections get added in Phase 2.
+# Highest-leverage subsection still to specify: ai-system-design.
+subsections:
+  - frontend-system-design

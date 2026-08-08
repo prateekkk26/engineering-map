@@ -1,0 +1,21 @@
+title: Frontend Architecture
+description: How a frontend stays workable across many people and many years.
+order: 11
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - rendering-architecture-choice
+  - component-api-design
+  - design-systems
+  - versioning-shared-ui
+  - documenting-ui-with-storybook
+  - theming-and-multi-tenant-ui
+  - module-boundaries-and-folder-structure
+  - monorepos-for-frontend
+  - micro-frontends
+  - bff-and-api-layering
+  - resilient-ui-error-handling
+  - frontend-observability
+  - analytics-and-event-taxonomy
+  - feature-flags-and-progressive-delivery
+  - large-scale-migrations

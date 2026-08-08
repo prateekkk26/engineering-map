@@ -1,0 +1,18 @@
+title: AI Product Frontends
+description: Building the UI on top of a model API — the practical round these companies actually run.
+order: 7
+
+# Why this is in `frontend` and not `ai`: per docs/_meta/SECTIONS.md, `ai` covers how the
+# pieces work. This covers building the interface on top of them.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - streaming-responses-in-the-ui
+  - chat-ui-architecture
+  - cancellation-and-abort
+  - rendering-model-output-safely
+  - tool-calls-and-agent-state-in-the-ui
+  - latency-and-perceived-speed-for-llm-uis
+  - error-retry-and-degraded-modes
+  - streaming-with-rsc-and-server-actions
+  - cost-telemetry-and-feedback-capture

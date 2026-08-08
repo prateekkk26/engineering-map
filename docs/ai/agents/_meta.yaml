@@ -1,0 +1,7 @@
+title: Agents
+description: When to build an agent, how the loop works, and how to keep it from going off the rails.
+order: 5
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - agent-vs-workflow

@@ -1,0 +1,21 @@
+title: Frontend Security
+description: The browser threat model, and the mistakes that actually ship.
+order: 8
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - the-browser-security-model
+  - xss-and-output-encoding
+  - content-security-policy
+  - injection-beyond-xss
+  - csrf-and-samesite-cookies
+  - cors-misconfigurations
+  - clickjacking-and-framing
+  - security-headers
+  - auth-token-storage
+  - oauth-and-oidc-in-the-browser
+  - server-action-and-rsc-authorisation
+  - client-side-data-exposure
+  - third-party-scripts-and-tag-managers
+  - dependency-supply-chain
+  - privacy-consent-and-gdpr

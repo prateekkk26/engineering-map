@@ -1,0 +1,27 @@
+title: Frontend Engineering
+icon: monitor
+description: The browser, the language, React, and what it takes to ship UI that holds up.
+order: 1
+
+# Explicit ordering. Folders not listed here still render, appended alphabetically.
+#
+# Order is authoring order, which is by interview leverage — see docs/_meta/SECTIONS.md § 1.
+# It doubles as a sensible reading order.
+#
+# Frontend system design deliberately lives at system-design/frontend-system-design,
+# so all design problems sit together.
+subsections:
+  - javascript
+  - react
+  - nextjs
+  - state-and-data
+  - browser-platform
+  - performance
+  - ai-interfaces
+  - security
+  - typescript
+  - css
+  - architecture
+  - testing
+  - accessibility
+  - tooling

@@ -1,0 +1,24 @@
+# Not a section — never appears on the home screen.
+#
+# Holds concepts that two or more sections would each want to own, so they exist
+# exactly once on disk and surface in several places via each topic's
+# `surfaced_in` frontmatter field.
+#
+# Rules for what qualifies, and the tie-breaker for borderline cases:
+#   docs/_meta/CONVENTIONS.md § 1
+
+title: Shared Concepts
+description: Cross-cutting topics owned by no single section.
+shared: true
+
+# Authored plus planned. Shared topics are created as the section that needs them
+# reaches them, rather than up front.
+topics:
+  - caching
+  - cache-invalidation
+  - concurrency-models
+  - error-handling
+  - testing-strategy
+  - security-fundamentals
+  - api-contracts
+  - observability-fundamentals

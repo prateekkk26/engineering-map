@@ -1,0 +1,19 @@
+title: Build, Tooling & Delivery
+description: The pipeline between your editor and a user's browser.
+order: 14
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - module-resolution-and-exports-maps
+  - how-bundlers-work
+  - transpilation-and-browser-targets
+  - tree-shaking-and-side-effects
+  - code-splitting-strategy
+  - package-management
+  - publishing-a-frontend-package
+  - linting-and-formatting-at-scale
+  - ci-cd-for-frontend
+  - cdn-and-edge-delivery
+  - source-maps-and-production-debugging
+  - systematic-frontend-debugging
+  - developer-experience

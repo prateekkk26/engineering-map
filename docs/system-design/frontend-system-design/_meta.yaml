@@ -1,0 +1,24 @@
+title: Frontend System Design
+description: The frontend design round — RADIO, the building blocks, and the prompts that keep coming up.
+order: 1
+
+# Lives here rather than in `frontend` so that all design problems sit together.
+# Cross-linked heavily into frontend/state-and-data, frontend/browser-platform,
+# frontend/performance and frontend/architecture.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - running-a-frontend-design-interview
+  - frontend-api-design
+  - machine-coding-classics
+  - design-an-autocomplete
+  - design-an-infinite-feed
+  - design-a-data-grid-dashboard
+  - design-a-multi-step-form
+  - design-a-file-uploader
+  - design-a-notification-system
+  - design-a-chat-application
+  - design-a-collaborative-editor
+  - design-an-analytics-sdk
+  - frontend-caching-and-offline-architecture
+  - design-a-design-system

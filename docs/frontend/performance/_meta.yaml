@@ -1,0 +1,22 @@
+title: Web Performance
+description: Measure first, then fix the thing that is actually slow.
+order: 6
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - core-web-vitals
+  - lab-vs-field-measurement
+  - profiling-with-devtools
+  - loading-strategy
+  - javascript-bundle-budgets
+  - hydration-cost-and-islands
+  - inp-and-long-tasks
+  - rendering-performance
+  - image-and-media-optimisation
+  - font-loading-strategy
+  - network-and-delivery
+  - asset-caching-strategy
+  - memory-in-long-lived-sessions
+  - perceived-performance
+  - performance-budgets-in-ci
+  - diagnosing-a-slow-page

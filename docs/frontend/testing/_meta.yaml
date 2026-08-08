@@ -1,0 +1,19 @@
+title: Frontend Testing
+description: What to test, at what level, without ending up with a suite you hate.
+order: 12
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - frontend-testing-strategy
+  - unit-testing-logic
+  - component-testing-with-rtl
+  - testing-hooks-and-state
+  - mocking-the-network-with-msw
+  - testing-async-and-suspense
+  - testing-server-components-and-actions
+  - e2e-with-playwright
+  - visual-regression-testing
+  - accessibility-in-tests
+  - test-data-and-factories
+  - flaky-tests-and-determinism
+  - frontend-tests-in-ci
