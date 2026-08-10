@@ -1,0 +1,16 @@
+title: Prompting & Context Engineering
+description: Deciding what goes into the context window, in what order, and how you keep that decision from rotting.
+order: 3
+
+# "Prompt engineering" as a craft is mostly gone; what replaced it is context
+# engineering — a budgeting and retrieval problem. The topics reflect that.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - prompting-fundamentals
+  - system-prompts-and-instruction-design
+  - few-shot-examples
+  - chain-of-thought-and-reasoning
+  - context-engineering
+  - context-rot-and-window-management
+  - prompt-versioning-and-iteration

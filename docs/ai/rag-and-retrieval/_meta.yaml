@@ -1,0 +1,13 @@
+title: RAG & Retrieval
+description: Getting the right few thousand tokens in front of the model, which is most of what makes a knowledge product work.
+order: 7
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - rag-in-one-picture
+  - chunking-strategies
+  - vector-stores-and-indexing
+  - hybrid-search-and-reranking
+  - evaluating-retrieval-quality
+  - citations-and-attribution
+  - when-you-dont-need-rag

@@ -1,0 +1,18 @@
+title: Working with the API
+description: The request/response surface you actually integrate against, and the four things that decide its cost and latency.
+order: 2
+
+# The server side of calling a model. The browser side of the same feature —
+# rendering the stream, cancelling it, showing tool calls — is
+# frontend/ai-interfaces.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - the-messages-api-shape
+  - streaming-and-server-sent-events
+  - structured-outputs
+  - reasoning-effort-and-thinking
+  - prompt-caching
+  - token-accounting-and-cost
+  - rate-limits-and-retries
+  - batch-and-async-processing

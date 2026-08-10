@@ -1,0 +1,15 @@
+title: AI Security
+description: The threat model that arrives with a model — untrusted text becoming instructions, and everything downstream of that.
+order: 10
+
+# Browser-side threats (XSS from rendered model output, CSP) live in
+# frontend/security; this is the model-layer threat model.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - prompt-injection
+  - the-lethal-trifecta
+  - handling-model-output-safely
+  - agent-permissions-and-blast-radius
+  - data-privacy-and-pii
+  - guardrails-and-refusals

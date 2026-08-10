@@ -1,0 +1,18 @@
+title: LLM Foundations
+description: What the model actually does, at exactly the depth an application engineer is expected to hold.
+order: 1
+
+# Deliberately not a machine-learning course. Every topic here exists because it
+# explains a behaviour you will have to reason about while building — see
+# docs/_meta/SECTIONS.md § 5, "how the pieces work".
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - how-llms-generate-text
+  - tokens-and-context-windows
+  - sampling-and-determinism
+  - embeddings-and-similarity
+  - hallucination-and-grounding
+  - prompting-vs-rag-vs-fine-tuning
+  - choosing-a-model
+  - multimodal-inputs

@@ -4,5 +4,22 @@ description: Building real things with models — the differentiator for these r
 order: 5
 
 # Explicit ordering. Folders not listed here still render, appended alphabetically.
+#
+# Order is authoring order, which is by interview leverage — see docs/_meta/SECTIONS.md § 5.
+# It doubles as a sensible reading order: how a model behaves, how you call it,
+# how you steer it, then the four things built on top (tools, agents, MCP, retrieval),
+# then the things that decide whether any of it survives production.
+#
+# The UI on top of a model API lives in frontend/ai-interfaces, not here.
 subsections:
+  - llm-foundations
+  - working-with-the-api
+  - prompting-and-context
+  - tool-use
   - agents
+  - mcp
+  - rag-and-retrieval
+  - evals-and-quality
+  - observability-and-cost
+  - ai-security
+  - ai-product-thinking

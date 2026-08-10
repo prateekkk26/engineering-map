@@ -98,7 +98,7 @@ Researched against published interview guides, question banks, and current senio
 
 **Also not here:** model training and fine-tuning internals. Awareness-level only — knowing when to reach for fine-tuning versus RAG versus prompting is in scope; how to actually train is not.
 
-**Status:** partially specified — `agents` exists as a sample.
+**Status:** **specified.** 11 subsections, 76 topics. Authored so far: `llm-foundations`, `working-with-the-api`, `prompting-and-context`, and `agents` — the foundations, in the order a reader needs them. The remaining seven subsections (`tool-use`, `mcp`, `rag-and-retrieval`, `evals-and-quality`, `observability-and-cost`, `ai-security`, `ai-product-thinking`) have their topic lists in `_meta.yaml` and are not yet written.
 
 ---
 

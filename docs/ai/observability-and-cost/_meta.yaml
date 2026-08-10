@@ -1,0 +1,11 @@
+title: Observability & Cost
+description: Seeing what your LLM feature actually did, what it cost, and how slow it was for the person waiting.
+order: 9
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - tracing-llm-applications
+  - unit-economics-of-an-llm-feature
+  - latency-budgets
+  - caching-strategies-for-llm-apps
+  - monitoring-quality-in-production

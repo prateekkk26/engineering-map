@@ -1,0 +1,14 @@
+title: AI Product Thinking
+description: The judgement half of the interview — what to build with a model, and what not to.
+order: 11
+
+# This is what the founder / hiring-manager round actually probes. See
+# docs/_meta/SECTIONS.md § 5 and PRD.md § 1.1.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - designing-for-nondeterminism
+  - ai-ux-patterns
+  - trust-transparency-and-citations
+  - when-not-to-use-an-llm
+  - shipping-and-iterating-on-ai-features

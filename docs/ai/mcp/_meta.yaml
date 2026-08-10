@@ -1,0 +1,11 @@
+title: Model Context Protocol
+description: The standard for plugging tools and data into a model, and when a plain HTTP call is still the better answer.
+order: 6
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - what-mcp-is
+  - mcp-primitives
+  - building-an-mcp-server
+  - transports-and-authorisation
+  - when-mcp-is-the-wrong-answer

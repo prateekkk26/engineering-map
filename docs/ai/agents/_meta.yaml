@@ -5,3 +5,9 @@ order: 5
 # Explicit ordering. Files not listed here still render, appended alphabetically.
 topics:
   - agent-vs-workflow
+  - the-agent-loop
+  - designing-an-agents-tool-surface
+  - agent-memory-and-state
+  - human-in-the-loop-and-approvals
+  - multi-agent-systems
+  - debugging-and-observing-agents

@@ -1,0 +1,12 @@
+title: Evals & Quality
+description: The part that separates a demo from a product — knowing whether a change made the thing better.
+order: 8
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - why-evals-are-the-real-work
+  - building-an-eval-set
+  - llm-as-judge
+  - regression-testing-prompts
+  - offline-and-online-evaluation
+  - evaluating-agent-trajectories

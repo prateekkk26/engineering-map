@@ -1,0 +1,15 @@
+title: Tool Use & Function Calling
+description: How a model reaches outside its own context, and why the tool surface is the part you actually design.
+order: 4
+
+# Tool use is the substrate agents are built on, so it comes first. The loop
+# that drives it repeatedly lives in `agents`.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - what-function-calling-actually-is
+  - designing-tool-schemas
+  - parallel-and-sequential-tool-calls
+  - tool-errors-and-recovery
+  - server-side-vs-client-side-tools
+  - tools-vs-structured-outputs
