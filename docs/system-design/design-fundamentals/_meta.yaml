@@ -1,0 +1,17 @@
+title: Design Fundamentals
+description: How to run the round — scope it, size it, draw it, and defend the choices.
+order: 1
+
+# This subsection is about the *interview* as much as the engineering. The single
+# most common failure in a design round is not ignorance, it's process: designing
+# before scoping, or drawing boxes with no numbers behind them.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - running-a-system-design-interview
+  - requirements-and-scoping
+  - back-of-the-envelope-estimation
+  - latency-numbers-worth-knowing
+  - drawing-the-high-level-design
+  - arguing-a-tradeoff
+  - how-design-rounds-are-failed

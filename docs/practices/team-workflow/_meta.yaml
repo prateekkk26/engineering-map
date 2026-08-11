@@ -1,0 +1,11 @@
+title: Team Workflow & Developer Experience
+description: How work is sized, sequenced, and made cheap to do — and how you'd know it isn't.
+order: 8
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - measuring-delivery-and-devex
+  - planning-estimation-and-scope
+  - shipping-incrementally
+  - local-environments-and-onboarding
+  - remote-and-async-collaboration

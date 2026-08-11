@@ -1,0 +1,21 @@
+title: Scalability
+description: What you do when one of everything stops being enough.
+order: 4
+
+# The moves, in the order you'd actually make them: get bigger, get stateless,
+# push reads off the primary, split the data, then deal with the fact that the
+# split is never even.
+#
+# Sharding as a distributed-systems argument lives here; sharding as a Postgres
+# feature is `data/scaling-data/partitioning-and-sharding`.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - vertical-vs-horizontal-scaling
+  - stateless-services-and-session-state
+  - scaling-reads
+  - sharding-and-partitioning
+  - hot-keys-and-load-imbalance
+  - rate-limiting-and-backpressure
+  - multi-region-architecture
+  - what-scale-actually-costs

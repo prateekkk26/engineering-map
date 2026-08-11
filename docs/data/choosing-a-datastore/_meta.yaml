@@ -1,0 +1,11 @@
+title: Choosing a Datastore
+description: What each family of store is actually good at, and why "Postgres until it hurts" is usually the right default.
+order: 5
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - relational-vs-document
+  - key-value-stores-and-redis
+  - full-text-search-engines
+  - oltp-vs-olap-and-the-warehouse
+  - object-storage-and-large-blobs

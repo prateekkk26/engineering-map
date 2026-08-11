@@ -1,0 +1,12 @@
+title: Scaling Data
+description: The moves you make when one database stops being enough — and the consistency you give up for each one.
+order: 6
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - replication-and-read-replicas
+  - partitioning-and-sharding
+  - denormalisation-and-materialised-views
+  - hot-rows-and-write-contention
+  - n-plus-one-and-query-patterns
+  - outbox-and-dual-write-consistency

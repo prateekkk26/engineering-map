@@ -1,0 +1,26 @@
+title: AI System Design
+description: Designing the systems these companies actually run — gateways, retrieval, agents, evals, and the bill.
+order: 8
+
+# The highest-leverage subsection in the map for the roles in PRD §1.1. The target
+# companies build on models, and their design rounds have moved with them: an
+# LLM gateway, RAG at scale, a multi-tenant agent platform, eval infrastructure.
+# Few candidates can do these, which is exactly why they are worth the pages.
+#
+# Boundary with `ai`: that section is how a piece works and how you call it; this
+# one is how the pieces get wired together for a lot of users, and what it costs.
+# Every page here links back to its `ai` counterpart rather than re-explaining it.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - designing-an-llm-gateway
+  - inference-serving-and-capacity
+  - streaming-at-scale
+  - rag-at-scale
+  - vector-search-infrastructure
+  - designing-an-agent-platform
+  - eval-and-experiment-infrastructure
+  - prompt-and-model-versioning
+  - multi-tenant-quotas-and-cost-control
+  - guardrails-and-abuse-in-the-architecture
+  - design-an-assistant-over-company-data

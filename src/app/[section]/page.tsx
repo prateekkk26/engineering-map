@@ -3,7 +3,13 @@ import { notFound } from "next/navigation";
 
 import { Breadcrumb } from "@/components/nav/Breadcrumb";
 import { SubsectionRow } from "@/components/section/SubsectionRow";
-import { getSection, getSections, getSubsectionCounts } from "@/lib/content";
+import { Page } from "@/components/shell/Page";
+import {
+  getSection,
+  getSections,
+  getSubsectionCounts,
+  getSubsectionTopics,
+} from "@/lib/content";
 
 /**
  * ② Section — PRD §4, "what's inside this subject?"
@@ -64,7 +70,7 @@ export default async function SectionPage({
   if (!section || !section.specified) notFound();
 
   return (
-    <main className="mx-auto min-h-dvh w-full max-w-2xl px-4 pb-16">
+    <Page>
       <Breadcrumb
         trail={[
           { label: "Engineering Map", href: "/" },
@@ -87,17 +93,25 @@ export default async function SectionPage({
           // subsection, because those are rows the reader will see there — a
           // "0 topics" label on a page that lists two is just wrong.
           const { written, planned } = getSubsectionCounts(subsection);
+          // Same reason the counts include them: a surfaced `_shared/` topic is
+          // a row on that page, so it belongs in both sides of the progress
+          // fraction. Its slug is outside the subsection's prefix, so it has to
+          // travel as a list.
+          const sharedSlugs = getSubsectionTopics(subsection)
+            .filter((topic) => topic.shared)
+            .map((topic) => topic.slug);
           return (
             <li key={subsection.slug}>
               <SubsectionRow
                 subsection={subsection}
                 written={written}
                 planned={planned}
+                sharedSlugs={sharedSlugs}
               />
             </li>
           );
         })}
       </ul>
-    </main>
+    </Page>
   );
 }

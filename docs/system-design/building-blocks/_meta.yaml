@@ -1,0 +1,21 @@
+title: Building Blocks
+description: The components every design is assembled from, and what each one actually buys you.
+order: 3
+
+# One page per box you might draw. Each answers the same three questions: what it
+# does, when reaching for it is right, and what it costs you operationally.
+#
+# Caching lives in `_shared/caching` and is surfaced here rather than duplicated —
+# frontend, backend and data all want a version of that argument.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - dns-and-load-balancing
+  - reverse-proxies-and-api-gateways
+  - cdn-and-edge-delivery
+  - message-queues-and-brokers
+  - event-logs-and-stream-processing
+  - object-storage
+  - search-engines
+  - background-jobs-and-schedulers
+  - picking-the-datastore-in-a-design

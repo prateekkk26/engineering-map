@@ -1,0 +1,15 @@
+title: Working with AI Coding Tools
+description: The workflow question these loops now ask out loud — how you use agents, and where you don't.
+order: 7
+
+# Flagged in SECTIONS.md §1 as a gap frontend couldn't fill: "how you work with AI
+# coding tools" is now a live interview question and a recurring JD line item.
+# This is where it lands. `ai/` covers how models work; this covers how you work.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - ai-assisted-coding-workflow
+  - specs-and-delegating-to-agents
+  - reviewing-ai-generated-code
+  - where-ai-coding-tools-fail
+  - talking-about-your-ai-workflow

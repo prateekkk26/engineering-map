@@ -1,0 +1,11 @@
+title: Code Review
+description: What review is actually for, and how to give and take feedback without burning a week.
+order: 2
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - what-code-review-is-for
+  - what-to-look-for-in-a-review
+  - giving-review-feedback
+  - receiving-feedback-and-disagreement
+  - keeping-changes-small

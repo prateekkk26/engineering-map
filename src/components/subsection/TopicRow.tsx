@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { TopicTitle } from "@/components/nav/TopicTitle";
+import { CoveredMark } from "@/components/progress/CoveredMark";
 import { TopicChips } from "@/components/topic/TopicChips";
 import type { Topic } from "@/lib/types";
 
@@ -25,12 +26,13 @@ export function TopicRow({ topic }: { topic: Topic }) {
       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
         {topic.summary}
       </p>
-      <div className="mt-2">
+      <div className="mt-2 flex items-center gap-3">
         <TopicChips
           level={topic.level}
           minutes={topic.minutes}
           shared={topic.shared}
         />
+        <CoveredMark slug={topic.slug} />
       </div>
     </Link>
   );

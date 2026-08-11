@@ -1,0 +1,12 @@
+title: Schema Design & Migrations
+description: Turning a product feature into tables, and changing those tables later without taking the product down.
+order: 4
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - designing-a-schema-for-a-feature
+  - primary-keys-and-identifiers
+  - modelling-time-and-timezones
+  - soft-deletes-and-audit-history
+  - zero-downtime-migrations
+  - multi-tenancy-data-models

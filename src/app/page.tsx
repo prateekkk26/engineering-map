@@ -1,4 +1,5 @@
 import { SectionList } from "@/components/home/SectionList";
+import { Page as Container } from "@/components/shell/Page";
 import { getSections } from "@/lib/content";
 import { buildSearchIndex } from "@/lib/search-index";
 
@@ -19,11 +20,13 @@ export default function Page() {
   const index = buildSearchIndex();
 
   return (
-    <main className="mx-auto min-h-dvh w-full max-w-2xl px-4 pb-16">
-      <h1 className="py-6 text-sm font-medium tracking-tight text-muted-foreground">
-        Engineering Map
+    <Container>
+      {/* The wordmark lives in the rail and the mobile top bar now, so the
+          heading here says what the page is instead of repeating it. */}
+      <h1 className="py-6 text-2xl leading-tight font-medium tracking-tight">
+        Everything in the map
       </h1>
       <SectionList sections={sections} index={index} />
-    </main>
+    </Container>
   );
 }

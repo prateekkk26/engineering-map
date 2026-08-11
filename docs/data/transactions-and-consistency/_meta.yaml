@@ -1,0 +1,11 @@
+title: Transactions & Consistency
+description: What happens when two requests touch the same row at the same time, and which anomalies your isolation level still allows.
+order: 2
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - acid-and-what-each-letter-buys
+  - isolation-levels-and-anomalies
+  - mvcc-and-snapshots
+  - locking-and-deadlocks
+  - optimistic-vs-pessimistic-concurrency

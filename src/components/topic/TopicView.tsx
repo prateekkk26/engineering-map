@@ -1,5 +1,7 @@
 import { Breadcrumb, type Crumb } from "@/components/nav/Breadcrumb";
 import { TopicTitle } from "@/components/nav/TopicTitle";
+import { CoveredToggle } from "@/components/progress/CoveredToggle";
+import { Page } from "@/components/shell/Page";
 import { LookItUp } from "@/components/topic/LookItUp";
 import { PrevNext } from "@/components/topic/PrevNext";
 import { RelatedTopics } from "@/components/topic/RelatedTopics";
@@ -36,7 +38,7 @@ export function TopicView({
   next?: Topic;
 }) {
   return (
-    <main className="mx-auto min-h-dvh w-full max-w-2xl px-4 pb-16">
+    <Page wide>
       <Breadcrumb trail={trail} />
 
       <header className="pb-8">
@@ -52,20 +54,43 @@ export function TopicView({
         </div>
       </header>
 
-      <TopicBody body={topic.body} />
+      {/* One grid, two placements. Below `xl` the aside is the second row and
+          reads exactly as it always has: prose, rule, links. At `xl` the same
+          markup becomes a sticky column beside the prose, so the reading
+          measure stays put and the links are in view while you read.
+          One instance either way — two would duplicate every link for a
+          screen reader. */}
+      {/* The prose column takes the leftover space but stops at 54rem. Past
+          that the extra width becomes gap, not line length — which is the
+          point of a rail: the links go to the edge of the window, the text
+          stays a comfortable measure. */}
+      <div className="grid gap-x-10 xl:grid-cols-[minmax(0,1fr)_18rem] xl:items-start xl:gap-x-12 2xl:grid-cols-[minmax(0,1fr)_20rem]">
+        <div className="min-w-0 xl:col-start-1 xl:row-start-1 xl:max-w-[54rem]">
+          <TopicBody body={topic.body} />
+        </div>
 
-      {/* One rule from §5 worth stating: resources and related links are never
-          written in the body. They come from frontmatter and are rendered
-          here, which is what keeps every page the same shape. */}
-      <div className="mt-10 space-y-6 border-t border-border pt-6">
-        <ResourceList resources={topic.resources} />
-        <RelatedTopics slugs={topic.related} />
-        <LookItUp topic={topic} sectionTitle={sectionTitle} />
-      </div>
+        {/* PRD §5 — resources and related links are never written in the body.
+            They come from frontmatter and are rendered here, which is what
+            keeps every page the same shape. */}
+        <aside
+          aria-label="Actions and links"
+          className="mt-10 space-y-6 border-t border-border pt-6 xl:sticky xl:top-6 xl:col-start-2 xl:row-start-1 xl:mt-0 xl:border-t-0 xl:pt-0"
+        >
+          <ResourceList resources={topic.resources} />
+          <RelatedTopics slugs={topic.related} />
+          <LookItUp topic={topic} sectionTitle={sectionTitle} />
+        </aside>
 
-      <div className="mt-10">
-        <PrevNext previous={previous} next={next} />
+        {/* Source order is the §5 block order — prose, links, prev/next — so
+            the small-screen page is unchanged. The placement classes only
+            move the aside sideways at `xl`. */}
+        <div className="mt-10 space-y-10 xl:col-start-1 xl:row-start-2 xl:max-w-[54rem]">
+          {/* After the reading, before the way out. Marking is the last thing
+              you do on the page, and prev/next is what you do after that. */}
+          <CoveredToggle slug={topic.slug} />
+          <PrevNext previous={previous} next={next} />
+        </div>
       </div>
-    </main>
+    </Page>
   );
 }

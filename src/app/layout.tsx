@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 
+import { AppShell } from "@/components/shell/AppShell";
+import { getNavTree } from "@/lib/nav-tree";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
@@ -24,9 +26,15 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // Read here, in a server component, so `docs/` is walked at build time and
+  // only the slim nav tree crosses into the client shell.
+  const tree = getNavTree();
+
   return (
     <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body>{children}</body>
+      <body className="min-h-dvh">
+        <AppShell tree={tree}>{children}</AppShell>
+      </body>
     </html>
   );
 }

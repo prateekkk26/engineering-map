@@ -1,6 +1,6 @@
 title: Frontend System Design
 description: The frontend design round — RADIO, the building blocks, and the prompts that keep coming up.
-order: 1
+order: 2
 
 # Lives here rather than in `frontend` so that all design problems sit together.
 # Cross-linked heavily into frontend/state-and-data, frontend/browser-platform,

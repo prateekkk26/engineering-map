@@ -1,0 +1,18 @@
+title: Low-Level Design
+description: Design below the service line — the classes, interfaces and state machines behind one box.
+order: 9
+
+# Small on purpose. These loops rarely run a dedicated OOD round, but "design the
+# module" appears inside the practical round and the deep dive constantly, and
+# `designing-a-class-api` is the page that most improves everyday code review.
+#
+# The frontend flavour of this — build a carousel, a virtualised list, a fetch
+# hook, live in an editor — is `frontend-system-design/machine-coding-classics`.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - object-oriented-design-in-an-interview
+  - designing-a-class-api
+  - state-machines-and-lifecycle-modelling
+  - concurrency-in-low-level-design
+  - low-level-design-classics

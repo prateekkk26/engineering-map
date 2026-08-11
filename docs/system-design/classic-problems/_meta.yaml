@@ -1,0 +1,25 @@
+title: Classic Problems
+description: The prompts that keep getting asked, each worked through to a defensible answer.
+order: 7
+
+# A problem bank, not a theory chapter. Every page follows the same shape as the
+# round itself: scope, estimate, high-level design, the one hard part, then the
+# follow-ups the interviewer will actually reach for.
+#
+# Chosen because they recur, and because each one owns a distinct hard part —
+# there is no second feed problem here. The frontend-flavoured versions of a few
+# of these (feed, chat, typeahead) live in `frontend-system-design`; these are the
+# backend halves, and the two link to each other.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - design-a-url-shortener
+  - design-a-rate-limiter
+  - design-a-news-feed
+  - design-a-chat-system
+  - design-a-notification-service
+  - design-a-file-storage-service
+  - design-typeahead-search
+  - design-a-payment-ledger
+  - design-a-metrics-pipeline
+  - design-a-nearby-places-service

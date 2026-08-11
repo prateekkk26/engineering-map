@@ -1,0 +1,11 @@
+title: Git & Version Control
+description: The model underneath the commands, and the branching argument every team has.
+order: 1
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - git-mental-model
+  - branching-strategies
+  - merge-rebase-and-history
+  - commit-and-pr-hygiene
+  - recovering-from-git-mistakes

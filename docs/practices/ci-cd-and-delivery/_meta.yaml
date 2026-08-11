@@ -1,0 +1,11 @@
+title: CI/CD & Delivery
+description: Getting a merged commit into production repeatedly, quickly, and without holding your breath.
+order: 3
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - continuous-integration-in-practice
+  - designing-a-pipeline
+  - environments-config-and-secrets
+  - releasing-and-versioning
+  - deploying-safely-in-practice

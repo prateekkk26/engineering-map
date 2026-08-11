@@ -3,5 +3,33 @@ icon: wrench
 description: How work actually gets done on a team, and the senior-level version of each.
 order: 7
 
-# Not yet specified. Subsections get added in Phase 2.
-subsections: []
+# Sized for the rounds that never call themselves "practices": the deep dive on
+# prior work, the behavioural round, and the hiring-manager conversation. Nobody
+# asks "explain CI" — they ask how your team ships, what happened when you broke
+# production, and how you decided the refactor was worth it. Each topic here is
+# the answer to one of those.
+#
+# Reading order is the subsection order: the path a change takes (commit, review,
+# pipeline), then what happens when it goes wrong in production, then the slower
+# work of keeping a codebase and a team healthy, then how you write and talk
+# about all of it, then the two things these loops have started asking about
+# explicitly — working with AI coding tools, and how work is planned at all.
+#
+# Boundaries: testing strategy is `_shared/testing-strategy`, because frontend
+# and backend each own a version of that argument. SLOs, error budgets and
+# progressive rollout as *design* concerns are
+# `system-design/reliability-and-operations`; what's here is the human half —
+# who gets paged, what they do first, what gets written afterwards. ADRs and
+# live-system migration as architecture are `system-design/architecture-decisions`.
+# Frontend-specific pipelines and DX are `frontend/tooling`.
+#
+# Explicit ordering. Folders not listed here still render, appended alphabetically.
+subsections:
+  - version-control
+  - code-review
+  - ci-cd-and-delivery
+  - incident-response
+  - quality-and-tech-debt
+  - technical-communication
+  - working-with-ai-tools
+  - team-workflow

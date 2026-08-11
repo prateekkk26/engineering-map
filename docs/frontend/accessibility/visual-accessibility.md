@@ -23,11 +23,11 @@ resources:
     source: MDN
     type: docs
     minutes: 10
-  - title: APCA
-    url: https://www.myndex.com/APCA/
-    source: Myndex
+  - title: Understanding Contrast (Minimum)
+    url: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html
+    source: W3C WAI
     type: docs
-    minutes: 25
+    minutes: 20
 ---
 
 ## In one line

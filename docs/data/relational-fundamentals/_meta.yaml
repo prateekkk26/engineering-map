@@ -1,0 +1,12 @@
+title: Relational Fundamentals
+description: The model, the query, and the two mechanisms — indexes and the planner — that decide whether it returns in 2ms or 2s.
+order: 1
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - relational-model-and-normalisation
+  - sql-that-earns-its-keep
+  - joins-and-join-algorithms
+  - indexes-and-how-they-work
+  - reading-a-query-plan
+  - constraints-and-data-integrity

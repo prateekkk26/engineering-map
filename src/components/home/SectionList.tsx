@@ -38,7 +38,9 @@ export function SectionList({
 
   return (
     <>
-      <div className="sticky top-0 z-10 bg-background pb-3">
+      {/* `top-12` clears the mobile top bar, which is sticky at the same edge.
+          On `lg` the rail replaces that bar, so the offset goes away. */}
+      <div className="sticky top-12 z-10 bg-background pb-3 lg:top-0">
         <div className="relative">
           <Search
             className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground"

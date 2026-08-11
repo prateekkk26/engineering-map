@@ -1,0 +1,18 @@
+title: Distributed Systems
+description: The theory you actually get asked about — consistency, consensus, ordering, and partial failure.
+order: 5
+
+# Deliberately the *vocabulary* layer, not the research layer. A senior product
+# engineer is expected to use these words precisely and know which guarantee they
+# are giving up; nobody in these loops asks you to prove Paxos correct.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - cap-and-pacelc
+  - consistency-models
+  - replication-and-quorums
+  - consensus-and-leader-election
+  - clocks-and-ordering
+  - idempotency-and-delivery-semantics
+  - distributed-transactions-and-sagas
+  - partial-failure-and-failure-detection

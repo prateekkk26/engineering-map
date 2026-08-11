@@ -1,0 +1,12 @@
+title: Postgres in Depth
+description: The database you will actually be using — its index types, its JSON support, and the two operational failures that bite everyone.
+order: 3
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - postgres-index-types
+  - jsonb-and-semi-structured-data
+  - connection-pooling
+  - vacuum-bloat-and-autovacuum
+  - row-level-security
+  - diagnosing-a-slow-postgres

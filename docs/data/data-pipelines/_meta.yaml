@@ -1,0 +1,13 @@
+title: Data Pipelines
+description: Getting data out of the product database and somewhere useful, without lying about it.
+order: 8
+
+# Awareness depth, not specialism. A product engineer is asked how analytics or
+# an embedding job gets fed, not to build a Spark cluster.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - batch-vs-streaming
+  - change-data-capture
+  - etl-vs-elt-and-the-warehouse
+  - idempotent-jobs-and-data-quality

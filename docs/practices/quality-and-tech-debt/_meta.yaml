@@ -1,0 +1,11 @@
+title: Quality & Tech Debt
+description: Naming the debt, arguing for the time to pay it, and changing code you didn't write.
+order: 5
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - what-tech-debt-actually-is
+  - making-the-case-for-paydown
+  - refactoring-safely
+  - working-in-unfamiliar-code
+  - keeping-a-codebase-healthy

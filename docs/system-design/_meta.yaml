@@ -3,7 +3,34 @@ icon: network
 description: Designing systems at the whiteboard, including the AI-shaped ones.
 order: 4
 
-# Partially specified. Remaining subsections get added in Phase 2.
-# Highest-leverage subsection still to specify: ai-system-design.
+# Sized for a senior *product* engineer who will be asked to design a system out
+# loud, not for a distributed-systems specialist. The test throughout is PRD §1.2:
+# which round asks this, and what does the question sound like? Anything that only
+# survives as trivia — Paxos proofs, CRDT internals, storage-engine internals —
+# is either absent or `level: deep`.
+#
+# Reading order is the subsection order. `design-fundamentals` first because it is
+# how you run the round at all; `frontend-system-design` second because it is the
+# round these loops actually schedule, and it reads fine before the infra chapters.
+# Then the infra ladder: the pieces, making them bigger, what breaks when they are
+# spread out, and keeping them up. Then the two problem banks — the classics, then
+# the AI-shaped ones, which are the highest-leverage pages in the map for these
+# roles. Then design below the service line, then the decisions themselves.
+#
+# Boundaries: implementation detail of one service is `backend`; database internals
+# are `data`; how a model works and how you call it is `ai` — this section is only
+# how the pieces get wired together at scale. Caching is `_shared/caching`,
+# surfaced into building-blocks rather than duplicated.
+#
+# Explicit ordering. Folders not listed here still render, appended alphabetically.
 subsections:
+  - design-fundamentals
   - frontend-system-design
+  - building-blocks
+  - scalability
+  - distributed-systems
+  - reliability-and-operations
+  - classic-problems
+  - ai-system-design
+  - low-level-design
+  - architecture-decisions

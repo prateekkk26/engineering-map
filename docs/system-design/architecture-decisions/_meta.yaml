@@ -1,0 +1,18 @@
+title: Architecture Decisions
+description: The recurring arguments — split or don't, events or calls, build or buy — and how to write the decision down.
+order: 10
+
+# These are deep-dive and hiring-manager round material more than whiteboard
+# material: you will be asked what you chose, why, and what it cost. The senior
+# signal is naming the constraint that decided it — team size, deadline, budget —
+# rather than reciting the general-case answer.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - monolith-vs-microservices
+  - drawing-service-boundaries
+  - event-driven-vs-request-response
+  - build-vs-buy
+  - architecture-decision-records
+  - migrating-a-live-system
+  - designing-under-constraints

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Breadcrumb } from "@/components/nav/Breadcrumb";
+import { ProgressMeter } from "@/components/progress/ProgressMeter";
+import { Page } from "@/components/shell/Page";
 import { TopicRow } from "@/components/subsection/TopicRow";
 import { TopicView } from "@/components/topic/TopicView";
 import {
@@ -150,7 +152,7 @@ export default async function SubsectionPage({
   const { written, planned } = getSubsectionCounts(subsection);
 
   return (
-    <main className="mx-auto min-h-dvh w-full max-w-2xl px-4 pb-16">
+    <Page>
       <Breadcrumb
         trail={[
           { label: "Engineering Map", href: "/" },
@@ -171,6 +173,12 @@ export default async function SubsectionPage({
             ? `${written} ${written === 1 ? "topic" : "topics"}`
             : `${written} of ${planned} topics written`}
         </p>
+        <ProgressMeter
+          prefix={subsection.slug}
+          total={topics.length}
+          extraSlugs={topics.filter((t) => t.shared).map((t) => t.slug)}
+          className="mt-3 max-w-sm"
+        />
       </header>
 
       <ul>
@@ -180,6 +188,6 @@ export default async function SubsectionPage({
           </li>
         ))}
       </ul>
-    </main>
+    </Page>
   );
 }

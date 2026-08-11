@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ProgressMeter } from "@/components/progress/ProgressMeter";
 import { cn } from "@/lib/utils";
 import type { Subsection } from "@/lib/types";
 
@@ -22,10 +23,13 @@ export function SubsectionRow({
   subsection,
   written,
   planned,
+  sharedSlugs,
 }: {
   subsection: Subsection;
   written: number;
   planned: number;
+  /** `_shared/` topics surfaced into this row's list, counted in `written`. */
+  sharedSlugs: readonly string[];
 }) {
   const body = (
     <div className="min-w-0 space-y-1">
@@ -38,6 +42,14 @@ export function SubsectionRow({
           ? `Not yet written · ${planned} planned`
           : countLine(written, planned)}
       </p>
+      {written > 0 ? (
+        <ProgressMeter
+          prefix={subsection.slug}
+          total={written}
+          extraSlugs={sharedSlugs}
+          className="pt-1"
+        />
+      ) : null}
     </div>
   );
 

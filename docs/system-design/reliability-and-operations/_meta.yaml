@@ -1,0 +1,21 @@
+title: Reliability & Operations
+description: Designing for the day it breaks — targets, containment, and what you can see from the outside.
+order: 6
+
+# The half of a design round most candidates skip and every interviewer notices.
+# "How do you know it's working, and what happens when it isn't" is the senior
+# signal in PRD §1.1's design and deep-dive rounds.
+#
+# Service-level implementation of the same ideas (health checks, structured logs,
+# the actual retry library) is `backend`. This is the design altitude.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - availability-slos-and-error-budgets
+  - failure-modes-and-blast-radius
+  - timeouts-retries-and-backoff
+  - circuit-breakers-and-bulkheads
+  - graceful-degradation-and-load-shedding
+  - observability-at-design-altitude
+  - rollouts-and-safe-deploys
+  - capacity-planning-and-autoscaling

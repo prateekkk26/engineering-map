@@ -68,9 +68,26 @@ Researched against published interview guides, question banks, and current senio
 
 **Not here:** how a service talks to its database (`backend`), sharding as a distributed-systems concept (`system-design`).
 
-> **Open question:** whether this stays separate from `backend` at all. Kept separate for now because Postgres depth is a distinct, deep, frequently-tested area — and because vector search sits naturally next to it and matters for the AI track.
+> **Open question:** whether this stays separate from `backend` at all. Kept separate for now because Postgres depth is a distinct, deep, frequently-tested area — and because vector search sits naturally next to it and matters for the AI track. Authoring it settled the question in favour of keeping it: almost none of these topics would have landed naturally in `backend`.
 
-**Status:** not yet specified.
+**Status:** **specified and authored.** 8 subsections, 41 topics, all written.
+
+Reading order is the subsection order: the model and the query, then what happens when two of them run at once, then the one database you will actually use, then designing and changing a schema, then picking something other than Postgres, then what breaks at volume, then vectors and pipelines.
+
+| # | Subsection | Topics | Covers |
+|---|---|---|---|
+| 1 | `relational-fundamentals` | 6 | Normalisation, SQL worth knowing, joins, indexes, query plans, constraints. |
+| 2 | `transactions-and-consistency` | 5 | ACID, isolation levels and their anomalies, MVCC, locks, optimistic vs pessimistic. |
+| 3 | `postgres-in-depth` | 6 | Index types, JSONB, pooling, vacuum, RLS, and a diagnosis procedure. |
+| 4 | `schema-design-and-migrations` | 6 | Feature to tables, keys, time, deletes, zero-downtime changes, multi-tenancy. |
+| 5 | `choosing-a-datastore` | 5 | Document, key-value, search, analytical, object storage — and when Postgres already does it. |
+| 6 | `scaling-data` | 6 | Replicas, partitioning, denormalisation, hot rows, N+1, dual writes. |
+| 7 | `vector-data` | 3 | pgvector, ANN recall, keeping embeddings in sync. |
+| 8 | `data-pipelines` | 4 | Batch vs streaming, CDC, ELT, idempotent jobs. |
+
+**Scoping decisions to note.** The section is written for a senior *product* engineer, not a DBA: Postgres is treated as the default and named throughout rather than kept generic, because that is what the target companies run. `vector-data` is deliberately only three topics and only the storage layer — chunking, hybrid search, reranking and retrieval quality stay in `ai/rag-and-retrieval`, and the two sides link to each other. `data-pipelines` is awareness depth, since these loops ask how analytics and embedding jobs get fed, not how to build a Spark cluster. Deliberately absent: query-language tutorials, ORM-specific guides, and database internals below the level where they change a decision — each failed the §0 test.
+
+Three topics are `level: deep` — `row-level-security`, `hot-rows-and-write-contention`, `change-data-capture` — real and occasionally asked, but follow-ups rather than expected knowledge.
 
 ---
 
@@ -84,7 +101,26 @@ Researched against published interview guides, question banks, and current senio
 
 **Note:** *AI system design* is the highest-leverage subsection in the entire map for the target roles — designing an LLM gateway, RAG at scale, a multi-tenant agent platform, eval infrastructure. Few candidates can do these, and the companies hiring for AI-forward roles ask about them.
 
-**Status:** one subsection specified — `frontend-system-design` (14 topics), authored as part of the frontend workstream. It holds the frontend design round: the RADIO framework, frontend API design, and the standard prompts (autocomplete, infinite feed, chat, collaborative editor, file uploader, data grid, notifications, analytics SDK, multi-step form, design system, offline architecture, machine-coding classics). It lives here rather than in `frontend` so that all design problems sit together. The rest of the section is not yet specified.
+**Status:** **specified.** 10 subsections, 87 topics. `frontend-system-design` was specified earlier as part of the frontend workstream and is its own authoring track; the other 9 subsections (73 topics) are the primary system-design workstream.
+
+Reading order is the subsection order. `design-fundamentals` first because it is how you run the round at all. `frontend-system-design` second because it is the round these loops actually schedule, and it reads fine before the infra chapters. Then the infra ladder — the pieces, making them bigger, what breaks once they are spread out, keeping them up. Then the two problem banks, classics then AI-shaped. Then design below the service line, then the decisions themselves.
+
+| # | Subsection | Topics | Covers |
+|---|---|---|---|
+| 1 | `design-fundamentals` | 7 | Scoping, estimation, latency numbers, drawing it, defending it. |
+| 2 | `frontend-system-design` | 14 | RADIO, frontend API design, and the standard frontend prompts. |
+| 3 | `building-blocks` | 9 | One page per box you'd draw, plus `_shared/caching`. |
+| 4 | `scalability` | 8 | Stateless services, read scaling, sharding, hot keys, multi-region, cost. |
+| 5 | `distributed-systems` | 8 | CAP, consistency models, quorums, consensus, ordering, sagas, partial failure. |
+| 6 | `reliability-and-operations` | 8 | SLOs, blast radius, retries, breakers, degradation, rollouts, capacity. |
+| 7 | `classic-problems` | 10 | The recurring prompts, each worked to a defensible answer. |
+| 8 | `ai-system-design` | 11 | Gateway, serving, streaming, RAG at scale, agents, evals, quotas, guardrails. |
+| 9 | `low-level-design` | 5 | OOD in an interview, class APIs, state machines, the classics. |
+| 10 | `architecture-decisions` | 7 | Monolith vs services, boundaries, events, build vs buy, ADRs, migration. |
+
+**Scoping decisions to note.** This is written for a senior *product* engineer who will have to design a system out loud, not for a distributed-systems specialist: `distributed-systems` is the vocabulary layer — use the words precisely, know which guarantee you're giving up — and deliberately stops short of proofs. `classic-problems` holds ten prompts chosen because each owns a *distinct* hard part; there is no second feed problem. `low-level-design` is only five topics because these loops rarely run a dedicated OOD round, but "design the module" shows up inside the practical round constantly. `ai-system-design` is the largest subsection and the reason the section matters for this search.
+
+Deliberately absent: consensus-algorithm internals beyond what leader election requires, storage-engine internals (LSM trees, B-tree implementation — `data` owns what a senior needs), Kubernetes and infrastructure-as-code specifics, and design problems whose hard part duplicates one already covered. Each failed the §0 test.
 
 ---
 
@@ -140,11 +176,28 @@ Three boundaries worth stating. The browser-facing half of HTTP — caching, COR
 
 > How work actually gets done on a team, and the senior-level version of each.
 
-**In scope:** git and collaboration, code review, CI/CD, documentation and technical communication, tech debt and refactoring, incident response, developer experience.
+**In scope:** git and collaboration, code review, CI/CD and delivery, incident response, tech debt and refactoring, documentation and technical communication, working with AI coding tools, team workflow and developer experience.
 
-**Not here:** testing strategy (`_shared/` — both frontend and backend own a version of that argument).
+**Not here:** testing strategy (`_shared/` — both frontend and backend own a version of that argument). SLOs, error budgets, and progressive rollout as *design* concerns (`system-design/reliability-and-operations`); ADRs and live-system migration as architecture (`system-design/architecture-decisions`); frontend-specific pipelines and DX (`frontend/tooling`). This section owns the human half of each — who gets paged, what they do first, what gets written afterwards.
 
-**Status:** not yet specified.
+**Status:** **specified and authored.** 8 subsections, 40 topics, all written.
+
+Reading order is the subsection order: the path a change takes (commit, review, pipeline), then what happens when it goes wrong in production, then the slower work of keeping a codebase healthy, then how you write and talk about all of it, then the two things these loops have started asking about explicitly — working with AI coding tools, and how work gets planned at all.
+
+| # | Subsection | Topics | Covers |
+|---|---|---|---|
+| 1 | `version-control` | 5 | The Git object model, branching strategies, rebase vs merge, PR hygiene, recovery. |
+| 2 | `code-review` | 5 | What review is for, what to look for, giving and taking feedback, splitting changes. |
+| 3 | `ci-cd-and-delivery` | 5 | CI as a practice, pipeline design, config and secrets, versioning, safe deploys. |
+| 4 | `incident-response` | 5 | Alerting, roles and severity, mitigation first, production debugging, postmortems. |
+| 5 | `quality-and-tech-debt` | 5 | Naming the debt, funding paydown, refactoring safely, unfamiliar code, health. |
+| 6 | `technical-communication` | 5 | Design docs, documentation, runbooks, async updates, non-engineer audiences. |
+| 7 | `working-with-ai-tools` | 5 | Workflow, delegating to agents, reviewing generated code, limits, the interview answer. |
+| 8 | `team-workflow` | 5 | DORA and DX, estimation, incremental shipping, local setup, remote and async. |
+
+**Scoping decisions to note.** Nothing here is asked as "explain CI" — these topics are the answers to the deep dive on prior work, the behavioural round, and the hiring-manager conversation, which is why the framing is consistently *what you did and how you decided* rather than tooling. `working-with-ai-tools` closes the gap flagged in §1: "how you work with AI coding tools" is a live interview question and a JD line item, and it lands here rather than in `frontend` or `ai` — `ai/` covers how models work, this covers how you work. Every topic is `level: core`; nothing in this section is a differentiator you can skip, because the questions are asked of every candidate.
+
+Deliberately absent: agile ceremony mechanics (standup formats, sprint rituals, story-point calibration), specific vendor tooling walkthroughs, and management-track topics — performance reviews, hiring, headcount. Each failed the §0 test for an individual-contributor loop.
 
 ---
 

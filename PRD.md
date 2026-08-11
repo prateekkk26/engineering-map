@@ -216,7 +216,9 @@ Some concepts genuinely belong to more than one section: security fundamentals, 
 
 Written down so they act as a constraint later, when the temptation to add things arrives.
 
-- **One column, always.** Max-width text, generous line height, large tap targets. This is a reading app.
+- **One column of reading, always.** Max-width text, generous line height, large tap targets. This is a reading app.
+- **The frame around it may use the screen.** On a phone the page is that single column and nothing else. On a laptop it sits in a persistent shell: a navigation rail on the left carrying the whole tree, and — on the topic page only, above 1280px — the Actions & links block moved into a rail on the right. The prose measure does not change between them; what changes is how much walking it takes to reach a page. The tree is 40-odd subsections deep now, and three clicks from wherever you are was the single biggest cost of using this on a laptop.
+- **Search is reachable from every page**, via ⌘K. §4 calls search the primary navigation path; it should not require going home first.
 - **Lists, not grids.** Grids look designed and read worse on a phone.
 - **Icons for recognition only** — one per section, one per resource type. A small consistent set, no decoration.
 - **No animation, no charts, no dashboard, no empty-state illustrations.**
@@ -236,7 +238,7 @@ The test for any proposed addition: *does this help me read and find things fast
 | **2** | Per-section subsection and topic specification, driven by Prateek section by section | Next |
 | **3** | The app — Next.js App Router + TypeScript + Tailwind, reading `docs/` at build time, statically generated, deployed to Vercel, installable to the home screen | |
 | **4** | Content authoring, **depth-first by subsection** — each subsection finished completely (meta, frontmatter, verified resources, prose) before the next begins. Section priority: Frontend → AI → System Design → Backend → Data → rest | |
-| **5** | Progress tracking — per-topic status and confidence, rolled up to subsection and section. Additive; static pages stay static | |
+| **5** | Progress tracking — per-topic status and confidence, rolled up to subsection and section. Additive; static pages stay static | Part shipped: the covered/not-covered bit, rollups on every level, and a `/progress` overview. Confidence rating and notes not built |
 
 ### Phase 3 technical notes
 
@@ -245,6 +247,13 @@ Next.js App Router + TypeScript + Tailwind, matching the existing `portfolio` pr
 ### Phase 5 technical notes
 
 Progress is keyed on the topic's full slug path (`section/subsection/topic`), not on a database row ID, so it survives content restructuring. Per topic: status (`not started` / `reading` / `done`), a 1–5 confidence rating, and free-text notes. Confidence rolls up into the subsection and section views, and the home page gains a "weakest areas" strip. Storage decision deferred to Phase 5 — the requirement is that it syncs between phone and laptop.
+
+**What was actually built first**, and why it is narrower than the paragraph above:
+
+- **One bit, not three states.** `covered` / `not covered`, set by hand on the topic page and by nothing else. `reading` is a state the app would have to infer from a page view, and an inferred number is not a number you can trust when deciding what to revise.
+- **No confidence rating yet.** It changes what the rollups mean — an average, not a count — so it waits until the count has been lived with. The store (`src/lib/progress.ts`) keys on slug and holds a value per topic, so adding a rating is a change to that value, not a migration.
+- **Storage is `localStorage`, with export/import on `/progress`.** The sync requirement is unmet and known: it needs a server, and Phase 3's "no server runtime" is worth more right now than automatic sync between two devices. Every read and write goes through one module, so the swap is confined to it.
+- **Rollups are counted by slug prefix**, not by shipping topic lists to the client — the denominators come from the same build-time counts the "written of planned" lines use.
 
 ---
 
@@ -257,4 +266,4 @@ To resolve as sections get specified.
 - [ ] Is `level: core | deep` the right axis, or should it be by round from §1.1 (screen / practical / design / deep-dive)? `core`/`deep` kept for now because a topic often serves more than one round.
 - [x] ~~How many topics per subsection before it should be split?~~ **Answered:** no fixed cap. A subsection splits when it stops describing one coherent area, not on a count. §1.2 governs what gets created; `CONVENTIONS.md` §4 holds the rule.
 - [ ] Should the search index cover full topic body text, or just titles and summaries? Body text is more useful and makes the index much bigger.
-- [ ] Phase 5: where does progress actually live? Options include a hosted database, a synced file, or browser storage with export.
+- [ ] Phase 5: where does progress actually live? **Interim answer:** browser storage with manual export/import, because it keeps the build static. Still open, because it does not sync — a hosted database or a synced file is what the requirement actually asks for.

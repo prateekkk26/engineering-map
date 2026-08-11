@@ -1,0 +1,13 @@
+title: Vector Data
+description: Storing embeddings next to the rows they describe — the database half of retrieval.
+order: 7
+
+# Deliberately narrow. Chunking, hybrid search, reranking and retrieval quality
+# are `ai/rag-and-retrieval`; this subsection is only the storage layer —
+# where the vectors live, how they stay correct, and what the index costs.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - vectors-in-postgres-with-pgvector
+  - ann-indexes-and-the-recall-tradeoff
+  - keeping-embeddings-in-sync
