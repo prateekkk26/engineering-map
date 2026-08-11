@@ -98,7 +98,11 @@ Researched against published interview guides, question banks, and current senio
 
 **Also not here:** model training and fine-tuning internals. Awareness-level only — knowing when to reach for fine-tuning versus RAG versus prompting is in scope; how to actually train is not.
 
-**Status:** **specified.** 11 subsections, 76 topics. Authored so far: `llm-foundations`, `working-with-the-api`, `prompting-and-context`, and `agents` — the foundations, in the order a reader needs them. The remaining seven subsections (`tool-use`, `mcp`, `rag-and-retrieval`, `evals-and-quality`, `observability-and-cost`, `ai-security`, `ai-product-thinking`) have their topic lists in `_meta.yaml` and are not yet written.
+**Status:** **specified and authored.** 11 subsections, 70 topics, all written.
+
+Reading order is the subsection order: how a model behaves (`llm-foundations`), how you call it (`working-with-the-api`), how you steer it (`prompting-and-context`), then the four things built on top (`tool-use`, `agents`, `mcp`, `rag-and-retrieval`), then the four that decide whether any of it survives production (`evals-and-quality`, `observability-and-cost`, `ai-security`, `ai-product-thinking`).
+
+Two deliberate boundaries: the UI on top of a model API is `frontend/ai-interfaces`, not here; and browser-side consequences of model output (XSS from rendered markdown, CSP) are `frontend/security`, while `ai-security` holds the model-layer threat model.
 
 ---
 
@@ -112,7 +116,23 @@ Researched against published interview guides, question banks, and current senio
 
 > **Weighting, now settled by evidence:** the loops in `PRD.md` §1.1 do not run heavy DSA rounds — the technical screen is live coding in a real editor on data transformation and UI components, not algorithm puzzles. This section stays deliberately small. Networking and concurrency earn their place regardless; they show up in system design and backend work constantly.
 
-**Status:** not yet specified.
+**Status:** **specified and authored.** 7 subsections, 39 topics, all written. That is deliberately a fifth of `frontend`'s size — the weighting note above is the reason.
+
+Reading order is the subsection order: how you talk about cost, what you store things in, what you do to them, then the three areas that are fundamentals in the "underneath everything" sense, then how to practise.
+
+| # | Subsection | Topics | Covers |
+|---|---|---|---|
+| 1 | `complexity` | 4 | Big-O, space tradeoffs, amortised vs average case, and when the notation lies. |
+| 2 | `data-structures` | 8 | Arrays through graphs, ending on how to justify the choice out loud. |
+| 3 | `algorithms` | 7 | Patterns, not a catalogue — recognition speed under time pressure. |
+| 4 | `concurrency` | 4 | Threads vs async I/O, races, locks, backpressure. Plus `_shared/concurrency-models`. |
+| 5 | `networking` | 8 | Names, packets, sockets, certificates, distance, and failure. |
+| 6 | `operating-systems` | 5 | Only what has plausibly paged someone at 3am. |
+| 7 | `problem-practice` | 3 | What actually gets asked, thinking out loud, and a practice protocol. |
+
+Three boundaries worth stating. The browser-facing half of HTTP — caching, CORS, versions and transports as the browser exposes them — stays in `frontend/browser-platform`; `networking` is the layer below it. `_shared/concurrency-models` is surfaced into `cs-fundamentals/concurrency` rather than duplicated. And per `PRD.md` §2 this app links out to problem sets rather than hosting them, which is why `problem-practice` holds the method and not the problems.
+
+**Scoping decisions to note.** `dynamic-programming` and `tries-and-prefix-search` are `level: deep` on purpose — real, occasionally asked, and not worth grinding for this target. Deliberately absent: sorting-algorithm implementations as separate pages, advanced graph algorithms beyond traversal and a named mention of Dijkstra, bit manipulation, and OS syllabus material with no operational consequence. Each failed the §0 test — no round asks it.
 
 ---
 

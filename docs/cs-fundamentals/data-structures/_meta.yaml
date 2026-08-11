@@ -1,0 +1,17 @@
+title: Data Structures
+description: What you store things in, what each one costs, and how to justify the choice out loud.
+order: 2
+
+# Ordered by how often they actually come up in a live-coding screen. The last
+# topic is the one the interview is really testing.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - arrays-and-dynamic-arrays
+  - hash-tables
+  - linked-structures-stacks-and-queues
+  - trees-and-traversal
+  - heaps-and-priority-queues
+  - graphs-and-representations
+  - tries-and-prefix-search
+  - choosing-a-data-structure

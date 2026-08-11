@@ -1,0 +1,10 @@
+title: Complexity & Analysis
+description: The vocabulary for saying how expensive something is — and knowing when the notation is lying to you.
+order: 1
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - big-o-and-asymptotic-analysis
+  - time-space-and-the-tradeoff
+  - amortised-and-average-case-analysis
+  - when-complexity-lies

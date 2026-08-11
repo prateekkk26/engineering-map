@@ -1,0 +1,17 @@
+title: Algorithm Patterns
+description: The handful of shapes that cover almost every problem a live-coding screen will hand you.
+order: 3
+
+# Patterns, not a catalogue of named algorithms. The point is recognition speed:
+# seeing "sorted array, find a pair" and reaching for two pointers without
+# deriving it from scratch under time pressure.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - hashing-and-frequency-counting
+  - two-pointers-and-sliding-window
+  - sorting-and-comparators
+  - binary-search-and-search-on-answer
+  - graph-traversal-bfs-and-dfs
+  - recursion-backtracking-and-memoisation
+  - dynamic-programming

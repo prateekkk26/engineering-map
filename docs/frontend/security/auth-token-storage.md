@@ -23,11 +23,11 @@ resources:
     source: OWASP
     type: docs
     minutes: 30
-  - title: JSON Web Token Cheat Sheet
-    url: https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html
-    source: OWASP
+  - title: Set-Cookie
+    url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie
+    source: MDN
     type: docs
-    minutes: 25
+    minutes: 20
 ---
 
 ## In one line

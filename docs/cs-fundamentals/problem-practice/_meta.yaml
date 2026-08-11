@@ -1,0 +1,12 @@
+title: Problem Practice
+description: A protocol for practising, and for thinking out loud while someone watches you type.
+order: 7
+
+# Deliberately three pages. Per PRD § 2 this app links out to problem sets and
+# does not host them; what belongs here is the method, not the problems.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - what-actually-gets-asked
+  - solving-a-problem-out-loud
+  - a-practice-protocol

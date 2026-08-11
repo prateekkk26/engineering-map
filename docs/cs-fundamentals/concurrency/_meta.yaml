@@ -1,0 +1,13 @@
+title: Concurrency & Parallelism
+description: What "at the same time" actually means on real hardware, and the bugs that only exist because of it.
+order: 4
+
+# _shared/concurrency-models surfaces here — it is the model-comparison topic
+# that frontend/javascript also wants, so it lives once in _shared.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - processes-threads-and-async-io
+  - race-conditions-and-atomicity
+  - locks-deadlock-and-contention
+  - backpressure-and-bounded-queues

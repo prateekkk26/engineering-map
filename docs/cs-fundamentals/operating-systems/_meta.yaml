@@ -1,0 +1,15 @@
+title: Operating Systems
+description: The parts of the OS you hit for real — memory limits, file descriptors, blocked I/O, throttled containers.
+order: 6
+
+# Scoped by the interview alignment test, not by a syllabus. No filesystem
+# internals, no page-replacement algorithm trivia. Everything here is something
+# that has plausibly paged a production engineer at 3am.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - processes-memory-and-the-kernel-boundary
+  - virtual-memory-and-the-memory-hierarchy
+  - file-descriptors-and-io-models
+  - scheduling-and-context-switching
+  - containers-and-resource-limits

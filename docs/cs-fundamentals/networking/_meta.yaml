@@ -1,0 +1,18 @@
+title: Networking
+description: What actually happens between your fetch call and someone else's server, and where it goes wrong.
+order: 5
+
+# The browser-facing half of HTTP — caching, CORS, versions and transports as the
+# browser exposes them — is frontend/browser-platform. This is the layer below:
+# names, packets, sockets, certificates, and the physics of distance.
+#
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+topics:
+  - what-happens-when-you-type-a-url
+  - dns-and-name-resolution
+  - tcp-udp-and-quic
+  - tls-and-certificates
+  - http-semantics-and-status-codes
+  - latency-bandwidth-and-the-speed-of-light
+  - proxies-cdns-and-the-network-edge
+  - network-failure-modes
