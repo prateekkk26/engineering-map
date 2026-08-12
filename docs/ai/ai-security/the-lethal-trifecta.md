@@ -17,7 +17,7 @@ resources:
     source: Simon Willison
     type: article
     minutes: 20
-    primary: true # unverified
+    primary: true
   - title: OWASP Top 10 for LLM Applications
     url: https://owasp.org/www-project-top-10-for-large-language-model-applications/
     source: OWASP

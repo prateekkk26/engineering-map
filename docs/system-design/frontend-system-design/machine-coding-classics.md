@@ -28,7 +28,7 @@ resources:
     url: https://www.30secondsofcode.org/js/p/1
     source: 30 Seconds of Code
     type: repo
-    minutes: 20 # unverified
+    minutes: 20
 ---
 
 ## In one line

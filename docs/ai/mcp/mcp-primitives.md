@@ -17,7 +17,7 @@ resources:
     source: Model Context Protocol
     type: docs
     minutes: 25
-    primary: true # unverified
+    primary: true
   - title: MCP specification
     url: https://modelcontextprotocol.io/specification
     source: Model Context Protocol

@@ -176,7 +176,7 @@ A resource earns its place. The default is to include nothing.
 
 **Three to five resources per topic is right.** More than six means you haven't decided.
 
-Links authored from memory need verifying before they're trusted — URLs move and posts disappear. Flag anything unverified with a trailing `# unverified` comment in the YAML until it's checked.
+Links authored from memory need verifying before they're trusted — URLs move and posts disappear. Flag anything unverified with a trailing `` comment in the YAML until it's checked.
 
 ---
 

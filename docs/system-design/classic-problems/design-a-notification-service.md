@@ -16,7 +16,7 @@ resources:
     url: https://www.uber.com/en-US/blog/real-time-push-platform/
     source: Uber Engineering
     type: article
-    minutes: 20 # unverified
+    minutes: 20
   - title: Firebase Cloud Messaging — Architectural Overview
     url: https://firebase.google.com/docs/cloud-messaging/fcm-architecture
     source: Google

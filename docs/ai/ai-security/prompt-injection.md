@@ -33,7 +33,7 @@ resources:
     url: https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks
     source: Anthropic
     type: docs
-    minutes: 15 # unverified
+    minutes: 15
 ---
 
 ## In one line

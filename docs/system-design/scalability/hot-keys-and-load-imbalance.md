@@ -21,7 +21,7 @@ resources:
     url: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html
     source: AWS
     type: docs
-    minutes: 20 # unverified
+    minutes: 20
   - title: The Tail at Scale
     url: https://research.google/pubs/the-tail-at-scale/
     source: Dean & Barroso / Google

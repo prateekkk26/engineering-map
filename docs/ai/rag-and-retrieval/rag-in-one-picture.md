@@ -27,7 +27,7 @@ resources:
     url: https://platform.openai.com/docs/guides/retrieval
     source: OpenAI
     type: docs
-    minutes: 15 # unverified
+    minutes: 15
   - title: What We've Learned From A Year of Building with LLMs
     url: https://applied-llms.org/
     source: Yan, Bernstein, Huyen, Husain, Shankar, Zhu

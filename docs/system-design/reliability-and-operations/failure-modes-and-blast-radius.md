@@ -27,7 +27,7 @@ resources:
     url: https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/reducing-scope-of-impact-with-cell-based-architecture.html
     source: AWS
     type: docs
-    minutes: 30 # unverified
+    minutes: 30
 ---
 
 ## In one line

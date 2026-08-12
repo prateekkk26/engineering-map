@@ -27,7 +27,7 @@ resources:
     url: https://blog.langchain.com/context-engineering-for-agents/
     source: LangChain
     type: article
-    minutes: 20 # unverified
+    minutes: 20
 ---
 
 ## In one line

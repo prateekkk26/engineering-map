@@ -16,7 +16,7 @@ resources:
     url: https://engineering.fb.com/2021/01/26/ml-applications/news-feed-ranking/
     source: Meta Engineering
     type: article
-    minutes: 25 # unverified
+    minutes: 25
   - title: Timelines at Scale
     url: https://www.infoq.com/presentations/Twitter-Timeline-Scalability/
     source: Raffi Krikorian / InfoQ

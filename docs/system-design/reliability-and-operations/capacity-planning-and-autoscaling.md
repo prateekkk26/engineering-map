@@ -21,7 +21,7 @@ resources:
     url: https://sre.google/sre-book/software-engineering-in-sre/
     source: Google SRE Book
     type: docs
-    minutes: 30 # unverified
+    minutes: 30
   - title: The USE Method
     url: https://www.brendangregg.com/usemethod.html
     source: Brendan Gregg

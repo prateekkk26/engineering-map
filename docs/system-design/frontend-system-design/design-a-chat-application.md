@@ -29,7 +29,7 @@ resources:
     url: https://www.nngroup.com/articles/response-times-3-important-limits/
     source: Nielsen Norman Group
     type: article
-    minutes: 15 # unverified
+    minutes: 15
 ---
 
 ## In one line

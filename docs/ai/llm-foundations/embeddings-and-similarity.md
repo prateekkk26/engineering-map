@@ -27,7 +27,7 @@ resources:
     url: https://platform.claude.com/docs/en/build-with-claude/embeddings
     source: Anthropic
     type: docs
-    minutes: 10 # unverified
+    minutes: 10
   - title: Massive Text Embedding Benchmark (MTEB) leaderboard
     url: https://huggingface.co/spaces/mteb/leaderboard
     source: Hugging Face

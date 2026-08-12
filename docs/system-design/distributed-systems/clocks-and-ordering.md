@@ -27,7 +27,7 @@ resources:
     url: https://blog.x.com/engineering/en_us/a/2010/announcing-snowflake
     source: Twitter Engineering
     type: article
-    minutes: 10 # unverified
+    minutes: 10
 ---
 
 ## In one line

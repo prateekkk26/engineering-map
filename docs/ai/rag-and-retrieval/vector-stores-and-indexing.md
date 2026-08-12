@@ -32,7 +32,7 @@ resources:
     url: https://supabase.com/docs/guides/ai/vector-columns
     source: Supabase
     type: docs
-    minutes: 15 # unverified
+    minutes: 15
 ---
 
 ## In one line

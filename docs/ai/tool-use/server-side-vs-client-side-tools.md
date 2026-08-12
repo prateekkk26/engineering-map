@@ -27,7 +27,7 @@ resources:
     url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool
     source: Anthropic
     type: docs
-    minutes: 10 # unverified
+    minutes: 10
 ---
 
 ## In one line

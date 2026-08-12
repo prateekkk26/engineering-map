@@ -22,7 +22,7 @@ resources:
     url: https://highscalability.com/how-whatsapp-grew-to-nearly-500-million-users-11000-cores-an/
     source: High Scalability
     type: article
-    minutes: 10 # unverified
+    minutes: 10
   - title: The WebSocket API
     url: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
     source: MDN

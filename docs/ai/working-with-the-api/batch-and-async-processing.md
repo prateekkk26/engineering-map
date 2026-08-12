@@ -27,7 +27,7 @@ resources:
     url: https://platform.claude.com/docs/en/api/creating-message-batches
     source: Anthropic
     type: docs
-    minutes: 10 # unverified
+    minutes: 10
 ---
 
 ## In one line

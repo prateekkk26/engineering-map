@@ -27,7 +27,7 @@ resources:
     url: https://github.com/tssovi/grokking-the-object-oriented-design-interview
     source: Community
     type: repo
-    minutes: 40 # unverified
+    minutes: 40
 ---
 
 ## In one line

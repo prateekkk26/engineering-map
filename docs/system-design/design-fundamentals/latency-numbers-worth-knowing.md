@@ -27,7 +27,7 @@ resources:
     url: https://highscalability.com/latency-is-everywhere-and-it-costs-you-sales-how-to-crush-it/
     source: High Scalability
     type: article
-    minutes: 20 # unverified
+    minutes: 20
 ---
 
 ## In one line

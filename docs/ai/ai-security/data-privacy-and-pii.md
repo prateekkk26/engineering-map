@@ -27,7 +27,7 @@ resources:
     url: https://www.edpb.europa.eu/our-work-tools/our-documents/opinion-board-art-64/opinion-282024-certain-data-protection-aspects_en
     source: European Data Protection Board
     type: docs
-    minutes: 40 # unverified
+    minutes: 40
 ---
 
 ## In one line

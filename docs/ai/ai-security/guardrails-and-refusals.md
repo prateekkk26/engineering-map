@@ -22,7 +22,7 @@ resources:
     url: https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
     source: Anthropic
     type: docs
-    minutes: 15 # unverified
+    minutes: 15
   - title: NeMo Guardrails
     url: https://github.com/NVIDIA/NeMo-Guardrails
     source: NVIDIA

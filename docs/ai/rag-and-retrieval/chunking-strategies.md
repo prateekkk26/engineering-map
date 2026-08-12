@@ -27,7 +27,7 @@ resources:
     url: https://python.langchain.com/docs/concepts/text_splitters/
     source: LangChain
     type: docs
-    minutes: 20 # unverified
+    minutes: 20
 ---
 
 ## In one line

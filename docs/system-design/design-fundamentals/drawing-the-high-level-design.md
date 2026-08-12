@@ -27,7 +27,7 @@ resources:
     url: https://www.workingsoftware.dev/software-architecture-documentation-the-ultimate-guide/
     source: Working Software
     type: article
-    minutes: 25 # unverified
+    minutes: 25
 ---
 
 ## In one line

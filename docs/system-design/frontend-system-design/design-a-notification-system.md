@@ -23,7 +23,7 @@ resources:
     url: https://web.dev/articles/push-notifications-permissions-ux
     source: web.dev
     type: article
-    minutes: 15 # unverified
+    minutes: 15
   - title: Server-Sent Events
     url: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
     source: MDN

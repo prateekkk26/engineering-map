@@ -17,7 +17,7 @@ resources:
     source: Anthropic
     type: article
     minutes: 20
-    primary: true # unverified
+    primary: true
   - title: Compaction
     url: https://platform.claude.com/docs/en/build-with-claude/compaction
     source: Anthropic

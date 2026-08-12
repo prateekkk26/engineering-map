@@ -21,7 +21,7 @@ resources:
     url: https://blog.x.com/engineering/en_us/a/2010/announcing-snowflake
     source: Twitter Engineering
     type: article
-    minutes: 10 # unverified
+    minutes: 10
     primary: true
   - title: Base62 and Short URL Encoding
     url: https://en.wikipedia.org/wiki/Base62

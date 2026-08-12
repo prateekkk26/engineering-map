@@ -27,7 +27,7 @@ resources:
     url: https://platform.claude.com/docs/en/test-and-evaluate/develop-tests
     source: Anthropic
     type: docs
-    minutes: 20 # unverified
+    minutes: 20
   - title: Evaluating the effectiveness of LLM-evaluators
     url: https://eugeneyan.com/writing/llm-evaluators/
     source: Eugene Yan

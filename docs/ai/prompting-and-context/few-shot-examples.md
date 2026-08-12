@@ -17,7 +17,7 @@ resources:
     source: Anthropic
     type: docs
     minutes: 15
-    primary: true # unverified
+    primary: true
   - title: Language Models are Few-Shot Learners
     url: https://arxiv.org/abs/2005.14165
     source: Brown et al.

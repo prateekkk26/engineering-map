@@ -22,7 +22,7 @@ resources:
     url: https://platform.claude.com/docs/en/test-and-evaluate/develop-tests
     source: Anthropic
     type: docs
-    minutes: 20 # unverified
+    minutes: 20
   - title: What We've Learned From A Year of Building with LLMs
     url: https://applied-llms.org/
     source: Yan, Bernstein, Huyen, Husain, Shankar, Zhu

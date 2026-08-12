@@ -23,7 +23,7 @@ resources:
     url: https://platform.claude.com/docs/en/test-and-evaluate/develop-tests
     source: Anthropic
     type: docs
-    minutes: 25 # unverified
+    minutes: 25
   - title: Patterns for Building LLM-based Systems
     url: https://eugeneyan.com/writing/llm-patterns/
     source: Eugene Yan

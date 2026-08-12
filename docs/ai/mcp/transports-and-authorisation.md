@@ -22,12 +22,12 @@ resources:
     url: https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization
     source: Model Context Protocol
     type: docs
-    minutes: 25 # unverified
+    minutes: 25
   - title: Remote MCP Servers
     url: https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/
     source: Cloudflare
     type: article
-    minutes: 20 # unverified
+    minutes: 20
 ---
 
 ## In one line

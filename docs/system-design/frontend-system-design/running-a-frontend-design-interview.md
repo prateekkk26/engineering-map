@@ -27,7 +27,7 @@ resources:
     url: https://www.frontendinterviewhandbook.com/front-end-system-design
     source: Front End Interview Handbook
     type: article
-    minutes: 20 # unverified
+    minutes: 20
   - title: Patterns.dev
     url: https://www.patterns.dev/
     source: Lydia Hallie & Addy Osmani

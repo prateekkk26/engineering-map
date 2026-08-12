@@ -24,11 +24,11 @@ resources:
     source: Donne Martin
     type: repo
     minutes: 60
-  - title: How to Approach a System Design Interview
-    url: https://blog.bytebytego.com/p/how-to-approach-a-system-design-interview
-    source: ByteByteGo
+  - title: Preparing for the Systems Design and Coding Interviews
+    url: https://blog.pragmaticengineer.com/preparing-for-the-systems-design-and-coding-interviews/
+    source: The Pragmatic Engineer
     type: article
-    minutes: 15 # unverified
+    minutes: 20
 ---
 
 ## In one line

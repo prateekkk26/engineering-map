@@ -22,7 +22,7 @@ resources:
     url: https://platform.claude.com/docs/en/test-and-evaluate/develop-tests
     source: Anthropic
     type: docs
-    minutes: 20 # unverified
+    minutes: 20
   - title: OpenAI Evals
     url: https://github.com/openai/evals
     source: OpenAI

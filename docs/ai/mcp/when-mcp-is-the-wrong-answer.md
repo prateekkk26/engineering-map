@@ -27,7 +27,7 @@ resources:
     url: https://www.anthropic.com/engineering/code-execution-with-mcp
     source: Anthropic
     type: article
-    minutes: 25 # unverified
+    minutes: 25
 ---
 
 ## In one line

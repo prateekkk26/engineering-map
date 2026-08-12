@@ -27,7 +27,7 @@ resources:
     url: https://platform.openai.com/docs/guides/streaming-responses
     source: OpenAI
     type: docs
-    minutes: 15 # unverified
+    minutes: 15
 ---
 
 ## In one line

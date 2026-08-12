@@ -22,7 +22,7 @@ resources:
     url: https://engineering.fb.com/2010/05/17/web/the-life-of-a-typeahead-query/
     source: Meta Engineering
     type: article
-    minutes: 20 # unverified
+    minutes: 20
   - title: Suggesters
     url: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters.html
     source: Elastic

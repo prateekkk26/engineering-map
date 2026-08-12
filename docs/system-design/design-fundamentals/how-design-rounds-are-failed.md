@@ -22,7 +22,7 @@ resources:
     url: https://blog.pragmaticengineer.com/system-design-interview-an-insiders-guide-review/
     source: The Pragmatic Engineer
     type: article
-    minutes: 20 # unverified
+    minutes: 20
   - title: Simple Made Easy
     url: https://www.infoq.com/presentations/Simple-Made-Easy/
     source: Rich Hickey / Strange Loop

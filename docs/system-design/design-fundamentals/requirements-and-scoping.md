@@ -16,7 +16,7 @@ resources:
     url: https://www.hellointerview.com/learn/system-design/in-a-hurry/key-technologies
     source: Hello Interview
     type: article
-    minutes: 15 # unverified
+    minutes: 15
   - title: Designing Data-Intensive Applications — Chapter 1, Reliable, Scalable, Maintainable
     url: https://dataintensive.net/
     source: Martin Kleppmann
@@ -26,7 +26,7 @@ resources:
     url: https://workingbackwards.com/concepts/working-backwards-pr-faq-process/
     source: Working Backwards
     type: article
-    minutes: 10 # unverified
+    minutes: 10
 ---
 
 ## In one line

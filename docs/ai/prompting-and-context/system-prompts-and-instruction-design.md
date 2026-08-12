@@ -17,7 +17,7 @@ resources:
     source: Anthropic
     type: docs
     minutes: 15
-    primary: true # unverified
+    primary: true
   - title: Claude Code best practices
     url: https://www.anthropic.com/engineering/claude-code-best-practices
     source: Anthropic

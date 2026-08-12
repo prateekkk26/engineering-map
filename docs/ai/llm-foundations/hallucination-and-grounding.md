@@ -17,12 +17,12 @@ resources:
     source: OpenAI
     type: article
     minutes: 30
-    primary: true # unverified
+    primary: true
   - title: Reduce hallucinations
     url: https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
     source: Anthropic
     type: docs
-    minutes: 10 # unverified
+    minutes: 10
   - title: Citations
     url: https://platform.claude.com/docs/en/build-with-claude/citations
     source: Anthropic

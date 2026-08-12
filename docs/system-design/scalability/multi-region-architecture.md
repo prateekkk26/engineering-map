@@ -16,7 +16,7 @@ resources:
     url: https://aws.amazon.com/solutions/implementations/multi-region-application-architecture/
     source: AWS
     type: docs
-    minutes: 25 # unverified
+    minutes: 25
   - title: Spanner — Google's Globally Distributed Database
     url: https://research.google/pubs/spanner-googles-globally-distributed-database-2/
     source: Google Research

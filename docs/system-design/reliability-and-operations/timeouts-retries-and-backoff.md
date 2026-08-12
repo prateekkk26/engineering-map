@@ -27,7 +27,7 @@ resources:
     url: https://medium.com/yandex/good-retry-bad-retry-an-incident-story-648072d3cee6
     source: Yandex
     type: article
-    minutes: 25 # unverified
+    minutes: 25
 ---
 
 ## In one line

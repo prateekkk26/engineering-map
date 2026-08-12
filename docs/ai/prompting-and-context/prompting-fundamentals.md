@@ -17,7 +17,7 @@ resources:
     source: Anthropic
     type: docs
     minutes: 25
-    primary: true # unverified
+    primary: true
   - title: Prompt Engineering Guide
     url: https://www.promptingguide.ai/
     source: DAIR.AI
