@@ -23,5 +23,9 @@ export default function manifest(): MetadataRoute.Manifest {
     // page itself still follows the system setting.
     background_color: "#ffffff",
     theme_color: "#ffffff",
+    // The same mark the tab uses. `sizes: "any"` is how a manifest says
+    // "scalable" — the launcher renders it at whatever the device wants
+    // instead of picking from a fixed set of PNGs.
+    icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml" }],
   };
 }

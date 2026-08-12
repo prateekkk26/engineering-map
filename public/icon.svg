@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!--
+    The tab icon: one node branching into two, the shape the whole site is —
+    section, subsection, topic.
+
+    A filled tile rather than a bare glyph, because a stroke-only mark
+    disappears against the browser's own tab colour. The palette is neutral to
+    match globals.css, and the two fills swap under prefers-color-scheme so the
+    tile stays legible in a dark tab strip as well as a light one. Media queries
+    inside an SVG favicon are honoured by current Chrome, Safari and Firefox;
+    where they are not, the light-mode tile is what shows, which is still a dark
+    mark on a light strip.
+  -->
+  <style>
+    .tile { fill: #0a0a0a }
+    .mark { stroke: #fafafa; fill: #fafafa }
+    @media (prefers-color-scheme: dark) {
+      .tile { fill: #fafafa }
+      .mark { stroke: #0a0a0a; fill: #0a0a0a }
+    }
+  </style>
+
+  <rect class="tile" width="32" height="32" rx="7" />
+
+  <!-- Elbows drawn as one path: out of the root, up and down the spine, into
+       each child. Round caps so the joins read as a single line at 16px. -->
+  <path
+    class="mark"
+    fill="none"
+    stroke-width="2.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M10 16h6.5V9.5H21M16.5 16v6.5H21"
+  />
+
+  <circle class="mark" cx="9.5" cy="16" r="3.4" />
+  <circle class="mark" cx="22.5" cy="9.5" r="2.8" />
+  <circle class="mark" cx="22.5" cy="22.5" r="2.8" />
+</svg>

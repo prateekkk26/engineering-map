@@ -7,7 +7,9 @@ import { Dialog } from "radix-ui";
 import { CircleDashed, Menu, Search } from "lucide-react";
 
 import { CommandPalette } from "@/components/shell/CommandPalette";
+import { Logo } from "@/components/shell/Logo";
 import { SidebarTree } from "@/components/shell/SidebarTree";
+import { SiteFooter } from "@/components/shell/SiteFooter";
 import type { NavTree } from "@/lib/nav-tree";
 
 /**
@@ -28,8 +30,9 @@ function SidebarHeader({ onSearch }: { onSearch: () => void }) {
     <div className="shrink-0 px-3 py-3">
       <Link
         href="/"
-        className="block rounded-md px-2 py-1 text-sm font-medium tracking-tight outline-none hover:bg-accent/60 focus-visible:ring-2 focus-visible:ring-ring"
+        className="flex items-center gap-2 rounded-md px-2 py-1 text-sm font-medium tracking-tight outline-none hover:bg-accent/60 focus-visible:ring-2 focus-visible:ring-ring"
       >
+        <Logo className="size-4 shrink-0" />
         Engineering Map
       </Link>
 
@@ -91,6 +94,7 @@ export function AppShell({
       <aside className="sticky top-0 hidden h-dvh flex-col border-r border-border bg-sidebar text-sidebar-foreground lg:flex">
         <SidebarHeader onSearch={() => setPaletteOpen(true)} />
         <SidebarTree tree={tree} />
+        <SiteFooter />
       </aside>
 
       <div className="min-w-0">
@@ -105,9 +109,10 @@ export function AppShell({
           </button>
           <Link
             href="/"
-            className="flex-1 truncate rounded-md px-1 py-1 text-sm font-medium tracking-tight outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="flex min-w-0 flex-1 items-center gap-2 rounded-md px-1 py-1 text-sm font-medium tracking-tight outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            Engineering Map
+            <Logo className="size-4 shrink-0" />
+            <span className="truncate">Engineering Map</span>
           </Link>
           <button
             type="button"
@@ -140,6 +145,7 @@ export function AppShell({
               }}
             />
             <SidebarTree tree={tree} />
+            <SiteFooter />
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>

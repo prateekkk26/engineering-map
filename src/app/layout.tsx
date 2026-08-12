@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Engineering Map",
   description:
     "A knowledge map for senior engineering interviews — browse a subject, drill down, follow the links out.",
+  // One SVG for the tab, shared with the manifest, rather than the usual pile
+  // of PNG sizes: the mark is three circles and a line, so it rasterises
+  // cleanly at every size a browser asks for.
+  icons: { icon: "/icon.svg" },
 };
 
 export const viewport: Viewport = {
