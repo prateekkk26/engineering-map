@@ -25,8 +25,8 @@ resources:
     source: MDN
     type: docs
     minutes: 20
-  - title: Designing for Streaming LLM Responses
-    url: https://www.nngroup.com/articles/streaming-ai-responses/
+  - title: "Response Times: The 3 Important Limits"
+    url: https://www.nngroup.com/articles/response-times-3-important-limits/
     source: Nielsen Norman Group
     type: article
     minutes: 15 # unverified

@@ -23,8 +23,8 @@ resources:
     source: PostgreSQL
     type: docs
     minutes: 25
-  - title: Postgres Monitoring
-    url: https://www.crunchydata.com/blog/optimizing-postgresql-performance-a-holistic-approach
+  - title: Demystifying Database Performance for Developers
+    url: https://www.crunchydata.com/blog/demystifying-database-performance-for-developers
     source: Crunchy Data
     type: article
     minutes: 20

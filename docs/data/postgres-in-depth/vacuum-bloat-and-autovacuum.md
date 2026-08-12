@@ -19,7 +19,7 @@ resources:
     minutes: 30
     primary: true
   - title: Autovacuum Tuning Basics
-    url: https://www.enterprisedb.com/blog/postgresql-autovacuum-tuning-basics
+    url: https://www.enterprisedb.com/blog/autovacuum-tuning-basics
     source: EDB
     type: article
     minutes: 20

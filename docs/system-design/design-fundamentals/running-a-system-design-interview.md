@@ -13,7 +13,7 @@ related:
 
 resources:
   - title: The System Design Interview — Delivery Framework
-    url: https://www.hellointerview.com/learn/system-design/in-a-hurry/delivery-framework
+    url: https://www.hellointerview.com/learn/system-design/in-a-hurry/delivery
     source: Hello Interview
     type: article
     minutes: 20

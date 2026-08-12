@@ -19,12 +19,12 @@ resources:
     minutes: 20
     primary: true
   - title: MCP — Authorization specification
-    url: https://modelcontextprotocol.io/specification/basic/authorization
+    url: https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization
     source: Model Context Protocol
     type: docs
     minutes: 25 # unverified
-  - title: OAuth 2.1 for MCP servers
-    url: https://blog.cloudflare.com/remote-model-context-server-tools/
+  - title: Remote MCP Servers
+    url: https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/
     source: Cloudflare
     type: article
     minutes: 20 # unverified

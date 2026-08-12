@@ -18,9 +18,9 @@ resources:
     type: article
     minutes: 20
     primary: true
-  - title: Scaling to 12 Million Concurrent Connections
-    url: https://blog.whatsapp.com/1-million-is-so-2011
-    source: WhatsApp
+  - title: How WhatsApp Grew to Nearly 500 Million Users on 11,000 Cores
+    url: https://highscalability.com/how-whatsapp-grew-to-nearly-500-million-users-11000-cores-an/
+    source: High Scalability
     type: article
     minutes: 10 # unverified
   - title: The WebSocket API

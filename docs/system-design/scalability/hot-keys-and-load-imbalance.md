@@ -17,10 +17,10 @@ resources:
     source: USENIX NSDI
     type: article
     minutes: 45
-  - title: Detecting and Mitigating Hot Keys
-    url: https://aws.amazon.com/blogs/database/detect-and-mitigate-hot-keys-in-amazon-dynamodb/
+  - title: Best Practices for Designing Partition Keys
+    url: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html
     source: AWS
-    type: article
+    type: docs
     minutes: 20 # unverified
   - title: The Tail at Scale
     url: https://research.google/pubs/the-tail-at-scale/

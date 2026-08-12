@@ -24,7 +24,7 @@ resources:
     type: docs
     minutes: 25
   - title: Change Data Capture
-    url: https://martinfowler.com/bliki/EventSourcing.html
+    url: https://martinfowler.com/eaaDev/EventSourcing.html
     source: Martin Fowler
     type: article
     minutes: 15

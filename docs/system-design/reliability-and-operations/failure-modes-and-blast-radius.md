@@ -23,8 +23,8 @@ resources:
     source: Richard Cook
     type: article
     minutes: 20
-  - title: Cell-Based Architecture
-    url: https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact/reducing-scope-of-impact.html
+  - title: Reducing the Scope of Impact with Cell-Based Architecture
+    url: https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/reducing-scope-of-impact-with-cell-based-architecture.html
     source: AWS
     type: docs
     minutes: 30 # unverified

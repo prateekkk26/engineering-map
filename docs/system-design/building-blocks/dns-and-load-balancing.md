@@ -18,9 +18,9 @@ resources:
     type: article
     minutes: 10
   - title: Introduction to Modern Network Load Balancing and Proxying
-    url: https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236
-    source: Matt Klein / Envoy
-    type: article
+    url: https://github.com/datawire/ambassador-docs/blob/master/docs/envoy/latest/concepts/modernlb.md
+    source: Matt Klein (mirror)
+    type: repo
     minutes: 35
     primary: true
   - title: Using Load Shedding to Avoid Overload

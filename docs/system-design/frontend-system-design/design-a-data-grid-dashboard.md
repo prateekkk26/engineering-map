@@ -19,8 +19,8 @@ resources:
     type: docs
     minutes: 25
     primary: true
-  - title: TanStack Table — Guide
-    url: https://tanstack.com/table/latest/docs/introduction
+  - title: TanStack Table — Overview
+    url: https://tanstack.com/table/latest/docs/overview
     source: TanStack
     type: docs
     minutes: 30

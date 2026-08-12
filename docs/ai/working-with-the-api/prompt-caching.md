@@ -24,7 +24,7 @@ resources:
     type: docs
     minutes: 10
   - title: Pricing
-    url: https://platform.claude.com/docs/en/pricing
+    url: https://platform.claude.com/docs/en/about-claude/pricing
     source: Anthropic
     type: docs
     minutes: 10

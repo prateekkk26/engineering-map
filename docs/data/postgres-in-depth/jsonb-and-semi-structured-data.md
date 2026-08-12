@@ -23,8 +23,8 @@ resources:
     source: PostgreSQL
     type: docs
     minutes: 25
-  - title: When to use JSONB in your database design
-    url: https://www.crunchydata.com/blog/using-jsonb-in-postgres-how-to-effectively-store-index-json-data-in-postgresql
+  - title: Indexing JSONB in Postgres
+    url: https://www.crunchydata.com/blog/indexing-jsonb-in-postgres
     source: Crunchy Data
     type: article
     minutes: 15

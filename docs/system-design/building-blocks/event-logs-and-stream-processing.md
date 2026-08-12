@@ -13,8 +13,8 @@ related:
 
 resources:
   - title: The Log — What Every Software Engineer Should Know About Real-Time Data's Unifying Abstraction
-    url: https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
-    source: Jay Kreps / LinkedIn
+    url: https://web.archive.org/web/20240105095933/https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
+    source: Jay Kreps (archived)
     type: article
     minutes: 45
     primary: true

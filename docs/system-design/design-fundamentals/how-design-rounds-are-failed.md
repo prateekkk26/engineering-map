@@ -19,7 +19,7 @@ resources:
     minutes: 15
     primary: true
   - title: On Interviewing for Systems Design
-    url: https://blog.pragmaticengineer.com/system-design-interview-an-insiders-guide/
+    url: https://blog.pragmaticengineer.com/system-design-interview-an-insiders-guide-review/
     source: The Pragmatic Engineer
     type: article
     minutes: 20 # unverified

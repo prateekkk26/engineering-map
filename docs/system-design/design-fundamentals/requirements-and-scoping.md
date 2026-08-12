@@ -22,9 +22,9 @@ resources:
     source: Martin Kleppmann
     type: book
     primary: true
-  - title: Working Backwards from the Customer
-    url: https://aws.amazon.com/blogs/enterprise-strategy/working-backwards-a-new-version-of-an-old-idea/
-    source: AWS
+  - title: The Working Backwards PR/FAQ Process
+    url: https://workingbackwards.com/concepts/working-backwards-pr-faq-process/
+    source: Working Backwards
     type: article
     minutes: 10 # unverified
 ---

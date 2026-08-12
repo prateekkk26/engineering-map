@@ -19,7 +19,7 @@ resources:
     minutes: 15
     primary: true
   - title: Pricing
-    url: https://platform.claude.com/docs/en/pricing
+    url: https://platform.claude.com/docs/en/about-claude/pricing
     source: Anthropic
     type: docs
     minutes: 10

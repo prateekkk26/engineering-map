@@ -12,8 +12,8 @@ related:
   - data/relational-fundamentals/constraints-and-data-integrity
 
 resources:
-  - title: Data Modeling — the Blueprint
-    url: https://www.crunchydata.com/blog/data-modeling-for-postgres-and-the-cloud
+  - title: Thinking Fast vs. Slow With Your Data in Postgres
+    url: https://www.crunchydata.com/blog/thinking-fast-vs-slow-with-your-data-in-postgres
     source: Crunchy Data
     type: article
     minutes: 20

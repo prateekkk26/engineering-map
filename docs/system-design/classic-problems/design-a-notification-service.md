@@ -12,9 +12,9 @@ related:
   - system-design/frontend-system-design/design-a-notification-system
 
 resources:
-  - title: Building a Notification System
-    url: https://blog.bytebytego.com/p/design-a-notification-system
-    source: ByteByteGo
+  - title: Uber's Real-Time Push Platform
+    url: https://www.uber.com/en-US/blog/real-time-push-platform/
+    source: Uber Engineering
     type: article
     minutes: 20 # unverified
   - title: Firebase Cloud Messaging — Architectural Overview

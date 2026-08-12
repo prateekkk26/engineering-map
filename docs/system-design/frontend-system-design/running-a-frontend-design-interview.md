@@ -13,7 +13,7 @@ related:
 
 resources:
   - title: Front End System Design Playbook — RADIO Framework
-    url: https://www.greatfrontend.com/front-end-system-design-playbook/framework-radio
+    url: https://www.greatfrontend.com/front-end-system-design-playbook/framework
     source: GreatFrontEnd
     type: article
     minutes: 25

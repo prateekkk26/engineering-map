@@ -13,9 +13,9 @@ related:
   - system-design/distributed-systems/idempotency-and-delivery-semantics
 
 resources:
-  - title: Best Practices for Multi-Step Forms
-    url: https://web.dev/learn/forms/multi-step-form
-    source: web.dev
+  - title: Question Pages — One Thing per Page
+    url: https://design-system.service.gov.uk/patterns/question-pages/
+    source: GOV.UK Design System
     type: docs
     minutes: 20
     primary: true
