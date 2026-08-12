@@ -1,0 +1,13 @@
+title: AI-Specific Rounds
+description: The three places an AI-forward loop probes your relationship with models rather than your code.
+order: 5
+
+# Deliberately narrow. "How do you use AI coding tools day to day" is already
+# answered in practices/working-with-ai-tools/talking-about-your-ai-workflow, and
+# "should this be an LLM at all" in ai/ai-product-thinking/when-not-to-use-an-llm.
+# What's left, and only lives here, is how the *loop* probes it: narrating your
+# model experience, surviving the practical round, and having a defensible view.
+topics:
+  - the-ai-experience-question
+  - the-practical-ai-round
+  - having-a-view-on-the-hype

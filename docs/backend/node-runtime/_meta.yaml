@@ -1,0 +1,15 @@
+title: The Node Runtime
+description: What actually executes your handler — one thread, an event loop, and the four ways people accidentally stop it.
+order: 3
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+#
+# `frontend/javascript/event-loop` covers the language-level model in a browser
+# and `_shared/concurrency-models` covers the family of models; these topics are
+# the server consequences — a blocked loop is every request, not one tab.
+topics:
+  - the-node-event-loop-on-a-server
+  - streams-and-backpressure
+  - errors-in-async-node
+  - memory-and-leaks-in-node
+  - scaling-one-node-process

@@ -1,0 +1,18 @@
+title: Auth
+description: Proving who is calling and deciding what they may do — the half of a service that is never "just a library".
+order: 2
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+#
+# Reading order: the distinction people blur, then the two ways to carry
+# identity (cookies, tokens), then the protocol everyone delegates to, then
+# authorization proper, then the two callers that aren't a browser at all —
+# other services, and the human who lost their password.
+topics:
+  - authentication-vs-authorization
+  - sessions-and-cookies
+  - jwt-and-when-not-to-use-it
+  - oauth2-and-oidc-server-side
+  - authorization-models-and-multi-tenancy
+  - api-keys-and-service-to-service-auth
+  - credentials-mfa-and-account-recovery

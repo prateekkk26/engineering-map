@@ -56,7 +56,26 @@ Researched against published interview guides, question banks, and current senio
 
 **Not here:** database internals (`data`), system-level architecture across many services (`system-design`), CI/CD pipelines (`practices`).
 
-**Status:** not yet specified.
+**Status:** **specified and authored.** 8 subsections, 48 topics, all written, plus `_shared/idempotency` and `_shared/caching` surfaced in.
+
+Reading order is the subsection order — the order you'd actually build a service. The contract it offers, who may call it, what runs it, the work that outlives a request, the work pushed back to the client, what running it in production involves, how you see inside it, and how it gets attacked.
+
+| # | Subsection | Topics | Covers |
+|---|---|---|---|
+| 1 | `api-design` | 10 | Resources, validators, errors, pagination, versioning, limits, GraphQL/RPC, webhooks. |
+| 2 | `auth` | 7 | Sessions, JWTs, OAuth/OIDC, authorization models, machine callers, credentials. |
+| 3 | `node-runtime` | 5 | The event loop on a server, streams, async errors, leaks, using more than one core. |
+| 4 | `async-work` | 6 | Queues, retries, idempotent consumers, schedules, long-running AI jobs. |
+| 5 | `realtime` | 5 | Transport choice, SSE, WebSockets, proxying a model stream, connection fanout. |
+| 6 | `services-in-production` | 6 | Serverless vs servers, config, pools, HTTP clients, uploads, SIGTERM. |
+| 7 | `observability` | 5 | Structured logs, RED metrics, tracing, probes, and what telemetry costs. |
+| 8 | `backend-security` | 4 | Injection, SSRF, secrets, and personal data. |
+
+**Boundaries, because three sections are adjacent.** `data` owns the database; this section owns *talking to* one — pooling, transactions from application code, uploads to object storage. `system-design` owns reliability at design altitude — SLOs, blast radius, circuit breakers as a box on a diagram — so the implementation-level halves live here instead: the timeout you set on `fetch`, the readiness probe you fail first, the shutdown handler you write. `practices` owns the human half of operations. One duplicate was found and removed during authoring: HTTP methods and status codes are already `cs-fundamentals/networking`, so `api-design` carries only the server-authoring remainder — emitting validators and using `If-Match` for concurrency.
+
+**Scoping decisions to note.** Written for a senior full-stack engineer at an AI-forward product company, not a backend specialist: Node and Postgres are named throughout rather than kept generic, and three topics exist purely because this is what those companies' backends actually do — `realtime/proxying-an-llm-stream`, `async-work/long-running-ai-jobs`, and `api-design/rate-limits-and-quotas` with token and cost quotas alongside request limits. `backend-security` is deliberately four topics: the browser threat model is `frontend/security` and the model layer is `ai/ai-security`, so what remains is the server's own surface.
+
+Two topics are `level: deep` — `node-runtime/memory-and-leaks-in-node` and `realtime/scaling-connections-and-fanout` — real, and follow-ups rather than expected knowledge. Deliberately absent: framework tutorials (Express versus Fastify as a topic), Kubernetes and infrastructure-as-code, gRPC internals, message-broker internals, and microservice decomposition. Each failed the §0 test or belongs to an adjacent section.
 
 ---
 
@@ -205,11 +224,24 @@ Deliberately absent: agile ceremony mechanics (standup formats, sprint rituals, 
 
 > The half of the loop that isn't technical, and where senior candidates most often lose.
 
-**In scope:** what "senior" actually means in scope and influence, a STAR story bank drawn from real projects, common behavioral prompts, technical communication, AI-specific behavioral questions, the reverse interview, compensation and levelling, positioning and outreach.
+**In scope:** what "senior" actually means in scope and influence, the method for building a STAR story bank, common behavioral prompts, technical communication as it's assessed in the loop, the AI-specific rounds, the reverse interview, compensation and levelling, positioning and outreach.
 
-> **Open question:** whether this belongs in the app at all. The story bank in particular is personal, specific, and not really *reference* material — it may want to be a private document rather than a page next to `Event Loop`. Deferred until the technical sections are real.
+**Not here:** how to work with AI coding tools day to day (`practices/working-with-ai-tools` — including the "talk about your AI workflow" answer), design docs and runbooks as a craft (`practices/technical-communication`), giving and receiving review feedback (`practices/code-review`), whether a feature should use a model at all (`ai/ai-product-thinking`), and the UI mechanics the practical round tests (`frontend/ai-interfaces`).
 
-**Status:** not yet specified.
+> **Open question — resolved.** It belongs, but only the reference half. The *method* for building a story bank is reference material and lives here; the stories themselves are personal, stay out of the repo, and `story-bank/` teaches the technique rather than holding them.
+
+**Status:** **specified.** 8 subsections, 32 topics.
+
+| # | Subsection | Topics | Covers |
+|---|---|---|---|
+| 1 | `what-senior-means` | 5 | Scope, ownership, influence, judgement, and the rubric you're scored against. |
+| 2 | `story-bank` | 5 | STAR, sourcing and tagging stories, tailoring, impact numbers, I vs we. |
+| 3 | `common-questions` | 6 | Conflict, failure, ambiguity, feedback, mentoring, hardest problem. |
+| 4 | `technical-communication` | 4 | Deep dive, thinking out loud, non-engineers, writing that's graded. |
+| 5 | `ai-behavioral` | 3 | Narrating model experience, the practical AI round, having a view. |
+| 6 | `the-reverse-interview` | 3 | Questions that signal seniority, startup diligence, red flags. |
+| 7 | `comp-and-levelling` | 3 | Levelling, negotiation, US/EU remote employment structures. |
+| 8 | `positioning-and-outreach` | 3 | The positioning line, CV and LinkedIn, why this company. |
 
 ---
 

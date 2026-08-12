@@ -1,0 +1,16 @@
+title: Realtime & Streaming
+description: Pushing data to a client that is already connected — and the connection state that makes it the hardest thing to scale.
+order: 5
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+#
+# The client half of this is `frontend/ai-interfaces` and
+# `frontend/browser-platform`; this is the server half. `proxying-an-llm-stream`
+# is the topic these loops actually ask about, because it is the backend
+# every AI product has.
+topics:
+  - choosing-a-realtime-transport
+  - server-sent-events-from-a-service
+  - websockets-in-production
+  - proxying-an-llm-stream
+  - scaling-connections-and-fanout

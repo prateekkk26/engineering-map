@@ -1,0 +1,15 @@
+title: Backend Security
+description: The four things that get a service breached once the browser-side controls are already in place.
+order: 8
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+#
+# `frontend/security` owns the browser threat model — XSS, CSP, CORS, token
+# storage. `ai/ai-security` owns prompt injection and the model layer. This is
+# the server's own attack surface, and it is deliberately four topics: the ones
+# that actually appear in these loops and in real postmortems.
+topics:
+  - injection-and-untrusted-input
+  - ssrf-and-outbound-requests
+  - secrets-and-key-management
+  - pii-encryption-and-data-protection

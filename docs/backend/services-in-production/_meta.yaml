@@ -1,0 +1,18 @@
+title: Services in Production
+description: Where the code runs, what it holds open, and how it behaves on the way up and the way down.
+order: 6
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+#
+# Implementation altitude on purpose. `practices/ci-cd-and-delivery` owns the
+# pipeline and environment parity; `system-design/reliability-and-operations`
+# owns rollouts and degradation as design decisions. What is left, and what is
+# actually asked in a practical round, is this: the runtime model, the pool, the
+# HTTP client, the upload, and SIGTERM.
+topics:
+  - serverless-vs-long-running-services
+  - service-startup-and-configuration
+  - connection-management-and-pooling
+  - calling-other-services
+  - file-uploads-and-object-storage
+  - graceful-shutdown-and-draining

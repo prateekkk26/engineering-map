@@ -1,0 +1,16 @@
+title: Async Work
+description: Everything that shouldn't happen inside the request — queues, workers, schedules, and the retry that ran your job twice.
+order: 4
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+#
+# `system-design/building-blocks` owns the queue as a box on a diagram. These
+# topics are the code on both ends of it: what you enqueue, what the worker
+# does, and what happens the second time the same message arrives.
+topics:
+  - when-work-leaves-the-request
+  - queues-and-workers
+  - retries-backoff-and-dead-letters
+  - idempotent-consumers
+  - scheduled-and-recurring-jobs
+  - long-running-ai-jobs

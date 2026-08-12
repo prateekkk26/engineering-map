@@ -16,6 +16,7 @@ shared: true
 topics:
   - caching
   - cache-invalidation
+  - idempotency
   - concurrency-models
   - error-handling
   - testing-strategy

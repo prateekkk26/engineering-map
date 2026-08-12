@@ -1,0 +1,16 @@
+title: Observability
+description: The three signals a service emits, and instrumenting them so the question you didn't anticipate is still answerable.
+order: 7
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+#
+# `system-design/reliability-and-operations/observability-at-design-altitude`
+# argues for it; `practices/incident-response` uses it at 3am. This is the
+# instrumentation itself — what you log, what you count, what you propagate,
+# and what it costs.
+topics:
+  - structured-logging
+  - metrics-and-the-red-method
+  - tracing-and-context-propagation
+  - health-checks-and-readiness
+  - observability-cost-and-cardinality

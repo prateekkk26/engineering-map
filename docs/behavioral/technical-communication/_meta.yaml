@@ -1,0 +1,12 @@
+title: Technical Communication
+description: Explaining your own work under follow-up, thinking out loud, and the writing that gets graded.
+order: 4
+
+# Craft-level writing guidance — design docs, runbooks, READMEs — lives in
+# practices/technical-communication. What's here is the interview surface: the
+# rounds where communication *is* the thing being scored.
+topics:
+  - the-deep-dive-round
+  - thinking-out-loud-while-coding
+  - explaining-to-non-engineers
+  - writing-as-a-hiring-signal

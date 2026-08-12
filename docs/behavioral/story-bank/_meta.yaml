@@ -1,0 +1,12 @@
+title: The Story Bank
+description: How to build and tell the eight or so stories that answer every behavioural question you'll get.
+order: 2
+
+# The stories themselves are personal and stay out of this repo — see the note in
+# ../_meta.yaml. These topics are the method for building and telling them.
+topics:
+  - star-and-how-it-fails
+  - building-the-story-bank
+  - choosing-and-tailoring-a-story
+  - quantifying-impact
+  - i-versus-we

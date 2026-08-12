@@ -3,5 +3,27 @@ icon: server
 description: Services — how they're designed, secured, kept running, and observed.
 order: 2
 
-# Not yet specified. Subsections get added in Phase 2.
-subsections: []
+# Explicit ordering. Folders not listed here still render, appended alphabetically.
+#
+# Order is the order you'd actually build a service: the contract it offers
+# (api-design), who is allowed to call it (auth), what runs it (node-runtime),
+# the work that outlives a request (async-work), the work pushed back to the
+# client (realtime), what running it in production actually involves
+# (services-in-production), how you see inside it (observability), and the ways
+# it gets attacked (backend-security).
+#
+# Boundaries, because three other sections are adjacent:
+#   - `data` owns the database itself. This section owns talking to one.
+#   - `system-design` owns reliability at design altitude — SLOs, blast radius,
+#     circuit breakers as a box on a diagram. This section owns the code:
+#     the timeout you actually set, the shutdown handler you actually write.
+#   - `practices` owns the human half — who gets paged, what gets written after.
+subsections:
+  - api-design
+  - auth
+  - node-runtime
+  - async-work
+  - realtime
+  - services-in-production
+  - observability
+  - backend-security

@@ -8,8 +8,8 @@ tags: [caching, performance, distributed-systems]
 # Shared topics declare where they should surface. They live once, appear in many.
 surfaced_in:
   - frontend/performance
-  - backend/caching
-  - data/postgres
+  - backend/api-design
+  - data/postgres-in-depth
   - system-design/building-blocks
 
 related:

@@ -1,0 +1,21 @@
+title: API Design
+description: The contract a service offers — its shape, its errors, and how it changes without breaking the clients you can't deploy.
+order: 1
+
+# Explicit ordering. Files not listed here still render, appended alphabetically.
+#
+# Reading order: the shape, the protocol underneath it, what comes in, what goes
+# wrong, how you hand back a lot of rows, how it changes, how you protect it,
+# then the three alternatives to plain REST and the one case where the server
+# calls you.
+topics:
+  - resource-modelling-and-rest
+  - conditional-requests-and-api-caching
+  - request-validation-and-parsing
+  - api-errors-clients-can-act-on
+  - pagination-filtering-and-sorting
+  - versioning-and-evolving-an-api
+  - rate-limits-and-quotas
+  - graphql-when-it-earns-its-place
+  - rpc-and-end-to-end-typed-apis
+  - webhooks-and-callbacks

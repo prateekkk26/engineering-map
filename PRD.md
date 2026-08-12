@@ -93,7 +93,7 @@ Starting set. Expect this to be reshaped as sections get specified in detail.
 | System Design | `system-design` | Design fundamentals, distributed systems, classic and AI system design |
 | AI & LLM Engineering | `ai` | LLM fundamentals, tool use, agents, MCP, RAG, evals |
 | CS Fundamentals | `cs-fundamentals` | Complexity, data structures, algorithm patterns, networking |
-| Engineering Practices | `practices` | Testing strategy, CI/CD, code review, incident response |
+| Engineering Practices | `practices` | Git, code review, CI/CD, incidents, tech debt, writing, AI tooling |
 | Behavioral & Senior Signals | `behavioral` | Story bank, communication, the reverse interview |
 
 ---
@@ -262,7 +262,7 @@ Progress is keyed on the topic's full slug path (`section/subsection/topic`), no
 To resolve as sections get specified.
 
 - [ ] Are the eight primary sections in section 3 the right cut? In particular: does `data` stay separate from `backend`, and does `cs-fundamentals` earn its place given the target companies weight DSA lightly?
-- [ ] Should `behavioral` live in this app at all, or is it a different kind of artifact (a private story bank) that doesn't belong next to technical reference?
+- [x] ~~Should `behavioral` live in this app at all, or is it a different kind of artifact (a private story bank) that doesn't belong next to technical reference?~~ **Answered:** it lives here, but only the reference half. `behavioral/story-bank` covers how to build and tell the stories; the stories themselves are personal, stay out of the repo, and are kept in a private document.
 - [ ] Is `level: core | deep` the right axis, or should it be by round from §1.1 (screen / practical / design / deep-dive)? `core`/`deep` kept for now because a topic often serves more than one round.
 - [x] ~~How many topics per subsection before it should be split?~~ **Answered:** no fixed cap. A subsection splits when it stops describing one coherent area, not on a count. §1.2 governs what gets created; `CONVENTIONS.md` §4 holds the rule.
 - [ ] Should the search index cover full topic body text, or just titles and summaries? Body text is more useful and makes the index much bigger.

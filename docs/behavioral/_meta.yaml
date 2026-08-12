@@ -3,6 +3,24 @@ icon: users
 description: The half of the loop that isn't technical, and where senior candidates most often lose.
 order: 8
 
-# Not yet specified. Subsections get added in Phase 2.
-# Open question in PRD §9: whether this belongs in the app at all.
-subsections: []
+# Explicit ordering. Folders not listed here still render, appended alphabetically.
+#
+# Order is the order you'd actually work through it: what the level means, then
+# the raw material (stories), then the questions that ask for them, then how you
+# talk while being watched. The last four are the rounds that aren't really
+# "behavioural" but live in the same half of the loop — AI judgement, the
+# questions you ask back, comp, and how you got in the door at all.
+#
+# PRD §9 asked whether this section belongs in the app. Resolved: yes, for the
+# reference material — what the level means, how the questions are scored, how
+# to build a story bank. The story bank *itself* stays private and out of the
+# repo; `story-bank/` teaches the method, it does not hold the stories.
+subsections:
+  - what-senior-means
+  - story-bank
+  - common-questions
+  - technical-communication
+  - ai-behavioral
+  - the-reverse-interview
+  - comp-and-levelling
+  - positioning-and-outreach
