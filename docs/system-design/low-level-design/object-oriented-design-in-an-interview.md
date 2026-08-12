@@ -10,6 +10,7 @@ related:
   - system-design/low-level-design/designing-a-class-api
   - system-design/low-level-design/low-level-design-classics
   - system-design/design-fundamentals/requirements-and-scoping
+  - system-design/low-level-design/concurrency-in-low-level-design
 
 resources:
   - title: SOLID Principles

@@ -10,6 +10,7 @@ related:
   - ai/llm-foundations/how-llms-generate-text
   - ai/working-with-the-api/token-accounting-and-cost
   - ai/prompting-and-context/context-engineering
+  - ai/llm-foundations/multimodal-inputs
 
 resources:
   - title: "Let's build the GPT Tokenizer"

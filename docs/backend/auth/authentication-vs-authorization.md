@@ -10,6 +10,7 @@ related:
   - backend/auth/authorization-models-and-multi-tenancy
   - frontend/security/server-action-and-rsc-authorisation
   - backend/backend-security/injection-and-untrusted-input
+  - backend/auth/credentials-mfa-and-account-recovery
 
 resources:
   - title: Authorization Cheat Sheet

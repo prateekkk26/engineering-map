@@ -10,6 +10,7 @@ related:
   - frontend/architecture/versioning-shared-ui
   - frontend/tooling/package-management
   - frontend/tooling/ci-cd-for-frontend
+  - frontend/architecture/micro-frontends
 
 resources:
   - title: Turborepo

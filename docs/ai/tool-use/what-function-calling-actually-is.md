@@ -10,6 +10,8 @@ related:
   - ai/agents/the-agent-loop
   - ai/tool-use/designing-tool-schemas
   - ai/working-with-the-api/the-messages-api-shape
+  - ai/tool-use/parallel-and-sequential-tool-calls
+  - ai/tool-use/server-side-vs-client-side-tools
 
 resources:
   - title: Tool use overview

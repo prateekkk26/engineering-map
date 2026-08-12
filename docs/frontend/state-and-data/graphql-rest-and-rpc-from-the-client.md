@@ -10,6 +10,7 @@ related:
   - frontend/state-and-data/api-contracts-and-end-to-end-types
   - frontend/state-and-data/cache-normalisation-and-entity-shape
   - frontend/architecture/bff-and-api-layering
+  - backend/api-design/graphql-when-it-earns-its-place
 
 resources:
   - title: GraphQL — Best Practices

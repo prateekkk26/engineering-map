@@ -10,6 +10,7 @@ related:
   - data/scaling-data/partitioning-and-sharding
   - system-design/scalability/hot-keys-and-load-imbalance
   - system-design/distributed-systems/distributed-transactions-and-sagas
+  - system-design/classic-problems/design-a-nearby-places-service
 
 resources:
   - title: Designing Data-Intensive Applications — Chapter 6, Partitioning

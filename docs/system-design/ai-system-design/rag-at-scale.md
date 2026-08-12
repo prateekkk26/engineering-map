@@ -10,6 +10,7 @@ related:
   - ai/rag-and-retrieval/rag-in-one-picture
   - ai/rag-and-retrieval/hybrid-search-and-reranking
   - system-design/ai-system-design/vector-search-infrastructure
+  - system-design/ai-system-design/design-an-assistant-over-company-data
 
 resources:
   - title: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks

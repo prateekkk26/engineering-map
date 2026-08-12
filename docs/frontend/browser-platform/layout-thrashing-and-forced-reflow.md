@@ -10,6 +10,7 @@ related:
   - frontend/browser-platform/critical-rendering-path
   - frontend/browser-platform/compositing-and-gpu-layers
   - frontend/performance/rendering-performance
+  - frontend/browser-platform/the-observer-apis
 
 resources:
   - title: Avoid large, complex layouts and layout thrashing

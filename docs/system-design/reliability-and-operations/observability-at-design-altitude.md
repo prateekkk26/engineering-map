@@ -10,6 +10,7 @@ related:
   - system-design/reliability-and-operations/availability-slos-and-error-budgets
   - ai/observability-and-cost/tracing-llm-applications
   - system-design/distributed-systems/partial-failure-and-failure-detection
+  - _shared/observability-fundamentals
 
 resources:
   - title: Monitoring Distributed Systems

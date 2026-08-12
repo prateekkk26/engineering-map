@@ -10,6 +10,7 @@ related:
   - frontend/security/client-side-data-exposure
   - frontend/security/third-party-scripts-and-tag-managers
   - frontend/ai-interfaces/cost-telemetry-and-feedback-capture
+  - ai/ai-security/data-privacy-and-pii
 
 resources:
   - title: What is GDPR?

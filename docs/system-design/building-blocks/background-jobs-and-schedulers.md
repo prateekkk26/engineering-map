@@ -10,6 +10,7 @@ related:
   - system-design/building-blocks/message-queues-and-brokers
   - system-design/distributed-systems/idempotency-and-delivery-semantics
   - data/data-pipelines/idempotent-jobs-and-data-quality
+  - backend/async-work/scheduled-and-recurring-jobs
 
 resources:
   - title: Reliable Cron Across the Planet

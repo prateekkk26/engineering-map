@@ -10,6 +10,7 @@ related:
   - cs-fundamentals/problem-practice/what-actually-gets-asked
   - cs-fundamentals/data-structures/choosing-a-data-structure
   - system-design/frontend-system-design/running-a-frontend-design-interview
+  - behavioral/technical-communication/thinking-out-loud-while-coding
 
 resources:
   - title: How to Solve It

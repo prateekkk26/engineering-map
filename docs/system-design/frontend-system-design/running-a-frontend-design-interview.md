@@ -10,6 +10,11 @@ related:
   - system-design/design-fundamentals/running-a-system-design-interview
   - system-design/design-fundamentals/how-design-rounds-are-failed
   - system-design/frontend-system-design/frontend-api-design
+  - system-design/frontend-system-design/design-a-data-grid-dashboard
+  - system-design/frontend-system-design/design-a-design-system
+  - system-design/frontend-system-design/design-a-multi-step-form
+  - system-design/frontend-system-design/design-an-analytics-sdk
+  - system-design/frontend-system-design/frontend-caching-and-offline-architecture
 
 resources:
   - title: Front End System Design Playbook — RADIO Framework

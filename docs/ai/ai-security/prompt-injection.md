@@ -10,6 +10,7 @@ related:
   - ai/ai-security/the-lethal-trifecta
   - ai/ai-security/handling-model-output-safely
   - frontend/security/xss-and-output-encoding
+  - ai/ai-security/guardrails-and-refusals
 
 resources:
   - title: Prompt injection

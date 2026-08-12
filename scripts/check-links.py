@@ -31,7 +31,18 @@ UA = {
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36",
     "Accept": "*/*",
 }
-CTX = ssl.create_default_context()
+# A stock python.org install on macOS ships no root certificates, so a verifying
+# context fails every HTTPS request with URLError and reports the whole corpus as
+# dead. Use certifi's roots when they're installed; otherwise skip verification —
+# this checker only asks whether a URL still resolves, and sends nothing.
+try:
+    import certifi
+
+    CTX = ssl.create_default_context(cafile=certifi.where())
+except ImportError:
+    CTX = ssl.create_default_context()
+    CTX.check_hostname = False
+    CTX.verify_mode = ssl.CERT_NONE
 
 # url -> [(topic slug, is_primary)]
 owners = collections.defaultdict(list)
@@ -70,7 +81,10 @@ def check(url):
                     continue
                 if code:
                     return url, code  # a real HTTP answer, not a network blip
-                last = type(e).__name__
+                # Keep the message, not just the class — "certificate verify
+                # failed" and "nodename nor servname provided" are the same
+                # URLError and want completely different fixes.
+                last = f"{type(e).__name__}: {getattr(e, 'reason', e)}"
         time.sleep(2 + attempt * 3)
     return url, last
 

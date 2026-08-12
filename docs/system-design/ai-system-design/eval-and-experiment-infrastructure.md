@@ -10,6 +10,7 @@ related:
   - ai/evals-and-quality/why-evals-are-the-real-work
   - ai/evals-and-quality/llm-as-judge
   - ai/evals-and-quality/offline-and-online-evaluation
+  - system-design/ai-system-design/prompt-and-model-versioning
 
 resources:
   - title: Your AI Product Needs Evals

@@ -10,6 +10,7 @@ related:
   - system-design/building-blocks/reverse-proxies-and-api-gateways
   - ai/observability-and-cost/unit-economics-of-an-llm-feature
   - system-design/ai-system-design/multi-tenant-quotas-and-cost-control
+  - system-design/ai-system-design/inference-serving-and-capacity
 
 resources:
   - title: Rate Limits

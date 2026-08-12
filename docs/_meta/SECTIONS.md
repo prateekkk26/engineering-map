@@ -2,7 +2,7 @@
 
 What each primary section covers, and — more usefully — what it *doesn't*, so topics land in the right place.
 
-Subsection lists below are **placeholders**. Each section gets specified properly in Phase 2, one at a time. A section marked *not yet specified* has a `_meta.yaml` and an empty folder, and that's correct for now.
+Every section below is specified and authored: 8 sections, 82 subsections, 573 topics including `_shared/`. The per-section tables are the shipped structure, not a plan.
 
 ---
 
@@ -14,7 +14,7 @@ Subsection lists below are **placeholders**. Each section gets specified properl
 
 **Not here:** general testing philosophy (`_shared/`), API design (`backend`), caching as a concept (`_shared/` — though HTTP caching specifically lives here), **frontend system design** (`system-design/frontend-system-design` — the design problems live with the other design problems).
 
-**Status:** **specified.** 14 subsections, 207 topics. Authoring runs depth-first in the order below.
+**Status:** **specified and authored.** 14 subsections, 207 topics, all written.
 
 | # | Subsection | Topics | Covers |
 |---|---|---|---|
@@ -44,7 +44,7 @@ Researched against published interview guides, question banks, and current senio
 - **The senior signal, explicitly** — every guide says the same thing: the differentiator is not getting a working answer, it's **optimisations, performance, accessibility, and i18n** raised unprompted, plus tradeoff reasoning that survives follow-up. That is why `performance`, `accessibility`, and `security` are full subsections rather than footnotes.
 - **JD requirements that recur** — React/Next.js/TypeScript, SSR and caching for performance, reusable component libraries across teams, accessibility and cross-browser support, GraphQL consumption, Redux/Zustand-class state libraries, and increasingly *agentic coding workflow* (specs, delegating subtasks to AI tools).
 
-**Noted gap, not frontend's to fill:** "how you work with AI coding tools" is now a live interview question and a JD line item. It belongs in `practices`, not here — flagged for when that section is specified.
+**Noted gap, not frontend's to fill:** "how you work with AI coding tools" is now a live interview question and a JD line item. It belongs in `practices`, not here — closed by `practices/working-with-ai-tools`.
 
 ---
 
@@ -120,7 +120,7 @@ Three topics are `level: deep` — `row-level-security`, `hot-rows-and-write-con
 
 **Note:** *AI system design* is the highest-leverage subsection in the entire map for the target roles — designing an LLM gateway, RAG at scale, a multi-tenant agent platform, eval infrastructure. Few candidates can do these, and the companies hiring for AI-forward roles ask about them.
 
-**Status:** **specified.** 10 subsections, 87 topics. `frontend-system-design` was specified earlier as part of the frontend workstream and is its own authoring track; the other 9 subsections (73 topics) are the primary system-design workstream.
+**Status:** **specified and authored.** 10 subsections, 87 topics, all written. `frontend-system-design` was specified earlier as part of the frontend workstream and was authored as its own track; the other 9 subsections (73 topics) were the primary system-design workstream.
 
 Reading order is the subsection order. `design-fundamentals` first because it is how you run the round at all. `frontend-system-design` second because it is the round these loops actually schedule, and it reads fine before the infra chapters. Then the infra ladder — the pieces, making them bigger, what breaks once they are spread out, keeping them up. Then the two problem banks, classics then AI-shaped. Then design below the service line, then the decisions themselves.
 
@@ -156,6 +156,20 @@ Deliberately absent: consensus-algorithm internals beyond what leader election r
 **Status:** **specified and authored.** 11 subsections, 70 topics, all written.
 
 Reading order is the subsection order: how a model behaves (`llm-foundations`), how you call it (`working-with-the-api`), how you steer it (`prompting-and-context`), then the four things built on top (`tool-use`, `agents`, `mcp`, `rag-and-retrieval`), then the four that decide whether any of it survives production (`evals-and-quality`, `observability-and-cost`, `ai-security`, `ai-product-thinking`).
+
+| # | Subsection | Topics | Covers |
+|---|---|---|---|
+| 1 | `llm-foundations` | 8 | What the model actually does, at application-engineer depth. |
+| 2 | `working-with-the-api` | 8 | The request/response surface, and what decides its cost and latency. |
+| 3 | `prompting-and-context` | 7 | What goes in the window, in what order, and how to stop it rotting. |
+| 4 | `tool-use` | 6 | How a model reaches outside its context; designing the tool surface. |
+| 5 | `agents` | 7 | When to build one, how the loop works, keeping it on the rails. |
+| 6 | `mcp` | 5 | The standard for plugging in tools and data — and when HTTP is still better. |
+| 7 | `rag-and-retrieval` | 7 | Getting the right few thousand tokens in front of the model. |
+| 8 | `evals-and-quality` | 6 | Knowing whether a change made the thing better. |
+| 9 | `observability-and-cost` | 5 | What it did, what it cost, how slow it was for the person waiting. |
+| 10 | `ai-security` | 6 | Untrusted text becoming instructions, and everything downstream. |
+| 11 | `ai-product-thinking` | 5 | What to build with a model, and what not to. |
 
 Two deliberate boundaries: the UI on top of a model API is `frontend/ai-interfaces`, not here; and browser-side consequences of model output (XSS from rendered markdown, CSP) are `frontend/security`, while `ai-security` holds the model-layer threat model.
 
@@ -230,7 +244,7 @@ Deliberately absent: agile ceremony mechanics (standup formats, sprint rituals, 
 
 > **Open question — resolved.** It belongs, but only the reference half. The *method* for building a story bank is reference material and lives here; the stories themselves are personal, stay out of the repo, and `story-bank/` teaches the technique rather than holding them.
 
-**Status:** **specified.** 8 subsections, 32 topics.
+**Status:** **specified and authored.** 8 subsections, 32 topics, all written.
 
 | # | Subsection | Topics | Covers |
 |---|---|---|---|
@@ -249,6 +263,6 @@ Deliberately absent: agile ceremony mechanics (standup formats, sprint rituals, 
 
 Not a section — it never appears on the home screen. It holds concepts two or more sections would each want to own, so they exist once and surface in several places via `surfaced_in`.
 
-Current and likely candidates: caching, idempotency, testing strategy, error handling, security fundamentals, API contracts, concurrency models.
+Authored: `caching`, `cache-invalidation`, `idempotency`, `concurrency-models`, `error-handling`, `testing-strategy`, `security-fundamentals`, `api-contracts`, `observability-fundamentals`. Nine topics, each surfaced into two or three subsections.
 
 The rule for what qualifies, and the tie-breaker for borderline cases, is in `CONVENTIONS.md` § 1.

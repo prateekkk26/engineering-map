@@ -11,10 +11,11 @@
  * only for titles and summaries, so the smaller index ships and the question
  * stays open.
  *
- * The result is serialised into the client bundle as props rather than fetched.
- * At 19 authored topics it is a few KB, and PRD §7 says no loading spinners on
- * content. Revisit as a fetched JSON file when the tree passes a couple of
- * hundred topics.
+ * The result is served as a static `/search-index.json` route and fetched by the
+ * command palette on first open, rather than serialised into every page's props.
+ * That switch happened when the tree passed a couple of hundred topics: at 573
+ * it is ~227KB, which is worth one fetch behind a ⌘K press and is not worth
+ * shipping inside the payload of every page that renders the shell.
  */
 
 import {

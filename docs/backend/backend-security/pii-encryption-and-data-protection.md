@@ -10,6 +10,7 @@ related:
   - frontend/security/privacy-consent-and-gdpr
   - data/schema-design-and-migrations/soft-deletes-and-audit-history
   - backend/observability/structured-logging
+  - ai/ai-security/data-privacy-and-pii
 
 resources:
   - title: GDPR — full text

@@ -10,6 +10,7 @@ related:
   - behavioral/story-bank/building-the-story-bank
   - behavioral/story-bank/quantifying-impact
   - behavioral/what-senior-means/what-the-interviewer-is-scoring
+  - behavioral/story-bank/i-versus-we
 
 resources:
   - title: Interviewing at Amazon — STAR in practice

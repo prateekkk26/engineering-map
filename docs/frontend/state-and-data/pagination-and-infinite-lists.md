@@ -10,6 +10,7 @@ related:
   - frontend/react/lists-and-virtualisation
   - frontend/state-and-data/url-as-state
   - system-design/frontend-system-design/design-an-infinite-feed
+  - backend/api-design/pagination-filtering-and-sorting
 
 resources:
   - title: Infinite Queries

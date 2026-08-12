@@ -10,6 +10,7 @@ related:
   - system-design/design-fundamentals/requirements-and-scoping
   - system-design/design-fundamentals/how-design-rounds-are-failed
   - system-design/frontend-system-design/running-a-frontend-design-interview
+  - system-design/design-fundamentals/drawing-the-high-level-design
 
 resources:
   - title: The System Design Interview — Delivery Framework

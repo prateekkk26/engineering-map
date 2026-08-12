@@ -8,6 +8,7 @@ tags: [agents, architecture, llm]
 
 related:
   - _shared/caching
+  - ai/agents/multi-agent-systems
 
 resources:
   - title: Building effective agents

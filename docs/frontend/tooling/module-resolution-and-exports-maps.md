@@ -10,6 +10,7 @@ related:
   - frontend/javascript/modules-esm-and-cjs
   - frontend/tooling/publishing-a-frontend-package
   - frontend/typescript/tsconfig-strictness-and-project-references
+  - frontend/typescript/declaration-files-and-module-augmentation
 
 resources:
   - title: Package entry points

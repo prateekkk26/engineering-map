@@ -10,6 +10,7 @@ related:
   - system-design/distributed-systems/idempotency-and-delivery-semantics
   - system-design/building-blocks/event-logs-and-stream-processing
   - cs-fundamentals/concurrency/backpressure-and-bounded-queues
+  - backend/async-work/when-work-leaves-the-request
 
 resources:
   - title: Amazon SQS Developer Guide — How Queues Work

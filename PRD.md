@@ -1,7 +1,7 @@
 # Knowledge Map — Product Requirements
 
-**Status:** Phase 1 (structure)
-**Last updated:** 2026-08-08
+**Status:** Phases 1–4 complete; Phase 5 partial
+**Last updated:** 2026-08-12
 
 ---
 
@@ -234,10 +234,10 @@ The test for any proposed addition: *does this help me read and find things fast
 
 | Phase | Scope | Status |
 |---|---|---|
-| **1** | PRD, `docs/` skeleton, `_meta/` (template + conventions + section index), section `_meta.yaml` files, sample topics proving the contract | In progress |
-| **2** | Per-section subsection and topic specification, driven by Prateek section by section | Next |
-| **3** | The app — Next.js App Router + TypeScript + Tailwind, reading `docs/` at build time, statically generated, deployed to Vercel, installable to the home screen | |
-| **4** | Content authoring, **depth-first by subsection** — each subsection finished completely (meta, frontmatter, verified resources, prose) before the next begins. Section priority: Frontend → AI → System Design → Backend → Data → rest | |
+| **1** | PRD, `docs/` skeleton, `_meta/` (template + conventions + section index), section `_meta.yaml` files, sample topics proving the contract | Done |
+| **2** | Per-section subsection and topic specification, driven by Prateek section by section | Done — 8 sections, 82 subsections |
+| **3** | The app — Next.js App Router + TypeScript + Tailwind, reading `docs/` at build time, statically generated, deployed to Vercel, installable to the home screen | Done — 661 static pages |
+| **4** | Content authoring, **depth-first by subsection** — each subsection finished completely (meta, frontmatter, verified resources, prose) before the next begins. Section priority: Frontend → AI → System Design → Backend → Data → rest | Done — 573 topics, all written. Resources verified by `npm run check:links` |
 | **5** | Progress tracking — per-topic status and confidence, rolled up to subsection and section. Additive; static pages stay static | Part shipped: the covered/not-covered bit, rollups on every level, and a `/progress` overview. Confidence rating and notes not built |
 
 ### Phase 3 technical notes
@@ -261,9 +261,9 @@ Progress is keyed on the topic's full slug path (`section/subsection/topic`), no
 
 To resolve as sections get specified.
 
-- [ ] Are the eight primary sections in section 3 the right cut? In particular: does `data` stay separate from `backend`, and does `cs-fundamentals` earn its place given the target companies weight DSA lightly?
+- [x] ~~Are the eight primary sections in section 3 the right cut?~~ **Answered by authoring them.** `data` stays separate — almost none of its 41 topics would have landed naturally in `backend`. `cs-fundamentals` earns its place at a deliberate 39 topics, a fifth of `frontend`, because networking and concurrency carry it even though DSA is weighted lightly. See `SECTIONS.md` §3 and §6.
 - [x] ~~Should `behavioral` live in this app at all, or is it a different kind of artifact (a private story bank) that doesn't belong next to technical reference?~~ **Answered:** it lives here, but only the reference half. `behavioral/story-bank` covers how to build and tell the stories; the stories themselves are personal, stay out of the repo, and are kept in a private document.
 - [ ] Is `level: core | deep` the right axis, or should it be by round from §1.1 (screen / practical / design / deep-dive)? `core`/`deep` kept for now because a topic often serves more than one round.
 - [x] ~~How many topics per subsection before it should be split?~~ **Answered:** no fixed cap. A subsection splits when it stops describing one coherent area, not on a count. §1.2 governs what gets created; `CONVENTIONS.md` §4 holds the rule.
-- [ ] Should the search index cover full topic body text, or just titles and summaries? Body text is more useful and makes the index much bigger.
+- [ ] Should the search index cover full topic body text, or just titles and summaries? **Still open.** Titles, summaries and tags ship today — 227KB as a fetched `/search-index.json` route at 573 topics. Body text would multiply that by roughly an order of magnitude, so the question is now whether the index stays a single fetched file at all.
 - [ ] Phase 5: where does progress actually live? **Interim answer:** browser storage with manual export/import, because it keeps the build static. Still open, because it does not sync — a hosted database or a synced file is what the requirement actually asks for.

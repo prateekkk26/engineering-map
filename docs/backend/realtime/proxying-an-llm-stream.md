@@ -10,6 +10,7 @@ related:
   - frontend/ai-interfaces/streaming-responses-in-the-ui
   - frontend/ai-interfaces/cancellation-and-abort
   - ai/working-with-the-api/streaming-and-server-sent-events
+  - backend/async-work/long-running-ai-jobs
 
 resources:
   - title: Streaming messages

@@ -14,6 +14,7 @@ related:
   - frontend/testing/frontend-testing-strategy
   - practices/quality-and-tech-debt/refactoring-safely
   - practices/ci-cd-and-delivery/continuous-integration-in-practice
+  - frontend/testing/unit-testing-logic
 
 resources:
   - title: The Practical Test Pyramid

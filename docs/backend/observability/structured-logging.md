@@ -10,6 +10,7 @@ related:
   - backend/observability/tracing-and-context-propagation
   - backend/api-design/api-errors-clients-can-act-on
   - practices/incident-response/debugging-production-systems
+  - _shared/observability-fundamentals
 
 resources:
   - title: Pino — logging in Node.js

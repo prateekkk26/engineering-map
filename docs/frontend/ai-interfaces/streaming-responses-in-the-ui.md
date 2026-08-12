@@ -10,6 +10,7 @@ related:
   - frontend/ai-interfaces/chat-ui-architecture
   - frontend/browser-platform/files-blobs-and-streams
   - frontend/ai-interfaces/cancellation-and-abort
+  - frontend/ai-interfaces/streaming-with-rsc-and-server-actions
 
 resources:
   - title: Streaming Messages

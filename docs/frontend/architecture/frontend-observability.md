@@ -10,6 +10,7 @@ related:
   - frontend/performance/lab-vs-field-measurement
   - frontend/architecture/resilient-ui-error-handling
   - frontend/tooling/source-maps-and-production-debugging
+  - _shared/observability-fundamentals
 
 resources:
   - title: Web Vitals

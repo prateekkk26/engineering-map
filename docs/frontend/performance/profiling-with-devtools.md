@@ -10,6 +10,7 @@ related:
   - frontend/react/profiling-react-performance
   - frontend/performance/diagnosing-a-slow-page
   - frontend/browser-platform/layout-thrashing-and-forced-reflow
+  - frontend/javascript/engine-internals-and-optimisation
 
 resources:
   - title: Analyze runtime performance

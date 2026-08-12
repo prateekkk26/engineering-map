@@ -10,6 +10,8 @@ related:
   - _shared/testing-strategy
   - frontend/testing/component-testing-with-rtl
   - frontend/testing/e2e-with-playwright
+  - frontend/testing/unit-testing-logic
+  - frontend/testing/testing-server-components-and-actions
 
 resources:
   - title: The Testing Trophy
