@@ -114,7 +114,14 @@ const components: Components = {
   ),
 };
 
-function Prose({ markdown, lead }: { markdown: string; lead: boolean }) {
+/**
+ * One block of topic prose, through the component map above.
+ *
+ * Exported so the home page's sample can render a real lead paragraph with the
+ * same pipeline the topic page uses — a second renderer would drift, and
+ * rendering the markdown as plain text showed the backticks.
+ */
+export function Prose({ markdown, lead }: { markdown: string; lead: boolean }) {
   return (
     <div className={cn("text-sm", lead && "text-base leading-relaxed")}>
       <Markdown remarkPlugins={[remarkGfm]} components={components}>

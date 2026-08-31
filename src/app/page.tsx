@@ -1,32 +1,39 @@
+import { Hero } from "@/components/home/Hero";
+import { HowItWorks } from "@/components/home/HowItWorks";
+import { SamplePreview } from "@/components/home/SamplePreview";
 import { SectionList } from "@/components/home/SectionList";
+import { StatsLine } from "@/components/home/StatsLine";
 import { Page as Container } from "@/components/shell/Page";
 import { getSections } from "@/lib/content";
 import { buildSearchIndex } from "@/lib/search-index";
+import { getSiteStats } from "@/lib/stats";
 
 /**
- * Home — PRD §4 ①, "what can I learn?"
+ * Home — PRD §4 ①, and the one page allowed to explain itself.
  *
- * A wordmark, a search box, and a single vertical list of section cards.
- * Nothing else: no dashboard, no charts, no hero. The test for anything that
- * wants to be added here is PRD §7 — does it help me read and find things
- * faster?
+ * §4 used to end "Nothing else. No dashboard, no charts, no hero section",
+ * written when there was a single reader who already knew what this was. It is
+ * now the only page a stranger lands on cold, so it answers what the map is
+ * before showing them the eight cards. PRD §10 records the exemption and its
+ * boundary: it does not travel to any other route.
  *
- * Server component: the filesystem read and validation happen here, at build
- * time, and only the finished tree and the slim search index cross into the
- * client.
+ * Everything above the section list is a server component, so the client
+ * boundary is still `SectionList` and still crossed once.
  */
 export default function Page() {
   const sections = getSections();
   const index = buildSearchIndex();
+  const stats = getSiteStats();
 
   return (
     <Container>
-      {/* The wordmark lives in the rail and the mobile top bar now, so the
-          heading here says what the page is instead of repeating it. */}
-      <h1 className="py-6 text-2xl leading-tight font-medium tracking-tight">
-        Everything in the map
-      </h1>
+      <Hero stats={stats} />
+      <StatsLine stats={stats} className="pb-8" />
+
       <SectionList sections={sections} index={index} />
+
+      <HowItWorks />
+      <SamplePreview />
     </Container>
   );
 }

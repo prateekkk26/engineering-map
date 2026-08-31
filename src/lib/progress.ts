@@ -13,8 +13,9 @@ import { useCallback, useSyncExternalStore } from "react";
  * **Keyed on the topic slug** (`frontend/javascript/event-loop`), per PRD §9's
  * Phase 5 note and CONVENTIONS §1: the slug is the topic's identity, so a mark
  * survives a topic moving folders only if the slug is what moved with it. When
- * a slug really does change, the old key is orphaned rather than wrong —
- * `pruneProgress` clears those out against the search index.
+ * a slug really does change, the old key is orphaned rather than wrong — the
+ * rollups clamp against the server's count, so an orphan is invisible rather
+ * than off by one.
  *
  * **Storage is `localStorage`.** PRD §9 leaves the Phase 5 decision open and
  * asks for phone/laptop sync, which needs a server this app deliberately does
@@ -169,8 +170,10 @@ export function useToggleCovered(slug: string): () => void {
  * already counted the files.
  *
  * Clamped, because an orphaned slug from renamed content would otherwise read
- * as "25 of 24". `pruneProgress` is the actual fix; this keeps the number sane
- * until it runs.
+ * as "25 of 24". Clamping is the whole fix: there was a `pruneProgress` that
+ * reconciled the store against the search index, but it existed only as a
+ * button on `/progress` asking the reader to garbage-collect, and the number it
+ * corrected was already correct here.
  */
 export function useCoveredCount(
   prefix: string,
@@ -223,20 +226,6 @@ export function importProgress(raw: string): number {
   }
   write(merged);
   return added;
-}
-
-/** Drops marks whose topic no longer exists. Returns how many went. */
-export function pruneProgress(validSlugs: Iterable<string>): number {
-  const valid = new Set(validSlugs);
-  const current = getSnapshot();
-  const next: Record<string, string> = {};
-  let dropped = 0;
-  for (const [slug, at] of Object.entries(current)) {
-    if (valid.has(slug)) next[slug] = at;
-    else dropped += 1;
-  }
-  if (dropped > 0) write(next);
-  return dropped;
 }
 
 export function resetProgress() {

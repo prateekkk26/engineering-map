@@ -20,7 +20,7 @@ export function CoveredMark({ slug }: { slug: string }) {
   return (
     <span
       className="inline-flex items-center gap-1 text-xs text-muted-foreground"
-      title="You've marked this covered"
+      title="Marked as covered in this browser"
     >
       <Check className="size-3.5" strokeWidth={2.5} aria-hidden />
       Covered

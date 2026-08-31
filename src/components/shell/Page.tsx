@@ -1,3 +1,4 @@
+import { SiteFooter } from "@/components/shell/SiteFooter";
 import { cn } from "@/lib/utils";
 
 /**
@@ -28,14 +29,20 @@ export function Page({
   className?: string;
 }) {
   return (
-    <main
-      className={cn(
-        "mx-auto w-full max-w-4xl px-4 pb-16",
-        wide && "xl:max-w-none xl:px-8 2xl:max-w-[104rem]",
-        className,
-      )}
-    >
-      {children}
-    </main>
+    <>
+      <main
+        className={cn(
+          "mx-auto w-full max-w-4xl px-4 pb-16",
+          wide && "xl:max-w-none xl:px-8 2xl:max-w-[104rem]",
+          className,
+        )}
+      >
+        {children}
+      </main>
+      {/* A sibling of `<main>`, not a child, so it is a landmark of its own and
+          not part of the page's content. It takes `wide` for the same reason
+          the main column does: on a topic page the two have to line up. */}
+      <SiteFooter wide={wide} />
+    </>
   );
 }

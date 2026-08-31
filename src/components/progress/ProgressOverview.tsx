@@ -1,14 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 
+import { Button } from "@/components/ui/button";
 import { surface } from "@/lib/interactive";
 import {
   coveredCount,
   exportProgress,
   importProgress,
-  pruneProgress,
   resetProgress,
   useCoveredCount,
   useProgress,
@@ -95,27 +95,47 @@ function SectionRow({ section }: { section: SectionProgress }) {
 }
 
 /**
- * The manual-sync panel. `localStorage` is per-browser, so a phone and a laptop
- * hold two independent sets until one is pasted into the other — see the
- * storage note in `lib/progress.ts` for why that is the trade for now.
+ * Moving marks between browsers.
+ *
+ * `localStorage` is per-origin and per-browser, so a phone and a laptop hold
+ * two independent sets — see the storage note in `lib/progress.ts` for why that
+ * is the trade for now.
+ *
+ * This used to be a raw JSON `<textarea>` with copy-and-paste instructions, a
+ * "clean up moved topics" button, and a `window.confirm`. That was a
+ * maintenance console for the one person who wrote it. A file download and a
+ * file picker say the same thing without explaining JSON to anyone, and the
+ * prune is gone: `useCoveredCount` already clamps, so an orphaned mark is
+ * invisible, and no reader should be asked to garbage-collect.
  */
-function TransferPanel({ indexUrl }: { indexUrl: string }) {
-  const [draft, setDraft] = useState("");
+function TransferPanel() {
   const [note, setNote] = useState<string>();
   const [open, setOpen] = useState(false);
+  const [confirming, setConfirming] = useState(false);
+  const picker = useRef<HTMLInputElement>(null);
 
-  async function onPrune() {
+  function onExport() {
+    const blob = new Blob([exportProgress()], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "engineering-map-progress.json";
+    link.click();
+    // Revoked on the next tick rather than immediately: the click is
+    // synchronous but the browser reads the blob after this frame.
+    setTimeout(() => URL.revokeObjectURL(url), 0);
+    setNote("Downloaded. Open it on the other device with Import.");
+  }
+
+  async function onImport(file: File | undefined) {
+    if (!file) return;
     try {
-      const response = await fetch(indexUrl);
-      const entries: { slug: string }[] = await response.json();
-      const dropped = pruneProgress(entries.map((entry) => entry.slug));
+      const added = importProgress(await file.text());
+      setNote(`Imported — ${added} new mark${added === 1 ? "" : "s"}.`);
+    } catch (error) {
       setNote(
-        dropped === 0
-          ? "Nothing to clean up — every mark points at a topic that exists."
-          : `Cleared ${dropped} mark${dropped === 1 ? "" : "s"} for topics that no longer exist.`,
+        error instanceof Error ? error.message : "That file could not be read.",
       );
-    } catch {
-      setNote("Couldn't load the topic index to check against.");
     }
   }
 
@@ -125,85 +145,66 @@ function TransferPanel({ indexUrl }: { indexUrl: string }) {
         type="button"
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
-        className="text-sm font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="rounded text-sm font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
-        Move progress between devices {open ? "−" : "+"}
+        Move progress between devices {open ? "\u2212" : "+"}
       </button>
 
       {open ? (
         <div className="mt-3 space-y-3">
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Marks are stored in this browser. Copy the export from one device
-            and paste it into the other — importing merges, so neither side
-            loses anything.
+            Your marks live in this browser and nowhere else. Export them to a
+            file here, then import that file on the other device — importing
+            merges, so neither side loses anything.
           </p>
 
           <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              onClick={() => {
-                setDraft(exportProgress());
-                setNote("Exported below — copy it.");
-              }}
-              className="rounded-md px-3 py-1.5 text-sm ring-1 ring-border outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              Export
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                try {
-                  const added = importProgress(draft);
-                  setNote(
-                    `Imported — ${added} new mark${added === 1 ? "" : "s"}.`,
-                  );
-                } catch (error) {
-                  setNote(
-                    error instanceof Error ? error.message : "Import failed.",
-                  );
-                }
-              }}
-              disabled={draft.trim() === ""}
-              className="rounded-md px-3 py-1.5 text-sm ring-1 ring-border outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-40"
-            >
-              Import what&rsquo;s below
-            </button>
-            <button
-              type="button"
-              onClick={onPrune}
-              className="rounded-md px-3 py-1.5 text-sm ring-1 ring-border outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              Clean up moved topics
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                // Deliberately a confirm: this is the only destructive control
-                // in the app, and the data behind it cannot be re-derived.
-                if (
-                  window.confirm(
-                    "Clear every mark in this browser? This cannot be undone.",
-                  )
-                ) {
-                  resetProgress();
-                  setNote("Cleared.");
-                }
-              }}
-              className="rounded-md px-3 py-1.5 text-sm text-muted-foreground ring-1 ring-border outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              Clear all
-            </button>
-          </div>
+            <Button variant="outline" size="sm" onClick={onExport}>
+              Export to a file
+            </Button>
 
-          <textarea
-            value={draft}
-            onChange={(event) => setDraft(event.target.value)}
-            spellCheck={false}
-            rows={6}
-            aria-label="Progress data"
-            placeholder="Exported progress appears here, or paste an export to import."
-            className="w-full rounded-md bg-transparent p-2 font-mono text-xs ring-1 ring-border outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          />
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => picker.current?.click()}
+            >
+              Import a file
+            </Button>
+            <input
+              ref={picker}
+              type="file"
+              accept="application/json,.json"
+              className="sr-only"
+              onChange={(event) => {
+                void onImport(event.target.files?.[0]);
+                // Cleared so re-picking the same file fires `change` again.
+                event.target.value = "";
+              }}
+            />
+
+            {/* Two clicks rather than `window.confirm`. This is the only
+                destructive control in the app and the data cannot be
+                re-derived, so it needs a confirmation — but a native dialog was
+                the one piece of browser chrome in the whole site and read as a
+                bug. */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-muted-foreground"
+              onClick={() => {
+                if (!confirming) {
+                  setConfirming(true);
+                  return;
+                }
+                resetProgress();
+                setConfirming(false);
+                setNote("Cleared.");
+              }}
+              onBlur={() => setConfirming(false)}
+            >
+              {confirming ? "Really clear everything?" : "Clear all"}
+            </Button>
+          </div>
 
           {note ? (
             <p aria-live="polite" className="text-xs text-muted-foreground">
@@ -219,11 +220,9 @@ function TransferPanel({ indexUrl }: { indexUrl: string }) {
 export function ProgressOverview({
   sections,
   totals,
-  indexUrl = "/search-index.json",
 }: {
   sections: SectionProgress[];
   totals: { written: number; planned: number; minutes: number };
-  indexUrl?: string;
 }) {
   const ready = useProgressReady();
   const progress = useProgress();
@@ -283,7 +282,7 @@ export function ProgressOverview({
         ))}
       </ul>
 
-      <TransferPanel indexUrl={indexUrl} />
+      <TransferPanel />
     </div>
   );
 }

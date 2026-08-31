@@ -9,7 +9,6 @@ import { CircleDashed, Menu, Search } from "lucide-react";
 import { CommandPalette } from "@/components/shell/CommandPalette";
 import { Logo } from "@/components/shell/Logo";
 import { SidebarTree } from "@/components/shell/SidebarTree";
-import { SiteFooter } from "@/components/shell/SiteFooter";
 import { PROGRESS_ENABLED } from "@/lib/flags";
 import type { NavTree } from "@/lib/nav-tree";
 
@@ -99,7 +98,6 @@ export function AppShell({
       <aside className="sticky top-0 hidden h-dvh flex-col border-r border-border bg-sidebar text-sidebar-foreground lg:flex">
         <SidebarHeader onSearch={() => setPaletteOpen(true)} />
         <SidebarTree tree={tree} />
-        <SiteFooter />
       </aside>
 
       <div className="min-w-0">
@@ -155,7 +153,6 @@ export function AppShell({
               }}
             />
             <SidebarTree tree={tree} />
-            <SiteFooter />
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>

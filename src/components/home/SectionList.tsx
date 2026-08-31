@@ -41,6 +41,9 @@ export function SectionList({
       {/* `top-12` clears the mobile top bar, which is sticky at the same edge.
           On `lg` the rail replaces that bar, so the offset goes away. */}
       <div className="sticky top-12 z-10 bg-background pb-3 lg:top-0">
+        {/* Promoted to the page's primary control now that a hero sits above
+            it. PRD §4 calls search the primary navigation path; on the one page
+            a stranger lands on cold it should look like it. */}
         <div className="relative">
           <Search
             className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground"
@@ -52,7 +55,7 @@ export function SectionList({
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search every topic…"
             aria-label="Search every topic"
-            className="h-11 pl-9"
+            className="h-12 rounded-lg pl-9 text-base ring-1 ring-border focus-visible:ring-2 focus-visible:ring-ring"
           />
         </div>
       </div>
