@@ -38,36 +38,22 @@ export function SubsectionRow({
         {subsection.description}
       </p>
       <p className="text-xs text-muted-foreground tabular-nums">
-        {written === 0
-          ? `Not yet written · ${planned} planned`
-          : countLine(written, planned)}
+        {countLine(written, planned)}
       </p>
-      {written > 0 ? (
-        <ProgressMeter
-          prefix={subsection.slug}
-          total={written}
-          extraSlugs={sharedSlugs}
-          className="pt-1"
-        />
-      ) : null}
+      <ProgressMeter
+        prefix={subsection.slug}
+        total={written}
+        extraSlugs={sharedSlugs}
+        className="pt-1"
+      />
     </div>
   );
-
-  const shell = "block rounded-lg p-4 ring-1 ring-border";
-
-  // Same rule as an unspecified section on the home page: the row renders,
-  // because the planned subsections are part of the claim about what a senior
-  // should know — but it is not a link, because a link to an empty topic list
-  // is the dead end PRD §7 exists to prevent.
-  if (written === 0) {
-    return <div className={cn(shell, "opacity-60")}>{body}</div>;
-  }
 
   return (
     <Link
       href={`/${subsection.slug}`}
       className={cn(
-        shell,
+        "block rounded-lg p-4 ring-1 ring-border",
         "outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring",
       )}
     >

@@ -1,7 +1,12 @@
 # Knowledge Map — Product Requirements
 
-**Status:** Phases 1–4 complete; Phase 5 partial
-**Last updated:** 2026-08-12
+**Status:** Phases 1–5 complete; Phase 6 (public) in progress
+**Last updated:** 2026-08-31
+
+> **Amended when this went public.** §1, §2, §4 and §7 were written for a
+> private, single-reader tool and have been revised. What changed and why is in
+> §10 — read that before arguing with anything here. The content model (§3,
+> §5, §6) is unchanged and remains the schema of record.
 
 ---
 
@@ -11,7 +16,9 @@ Preparing for senior engineering interviews means holding a wide surface area in
 
 **Goal:** a simple, readable knowledge map that can be browsed from a phone. Pick a subject, drill down, read what a concept is and why it matters, and follow curated links out for depth.
 
-**Who it's for:** one person — Prateek. Not a product, not a community resource. Optimising for one reader means it can be opinionated.
+**Who it's for:** engineers preparing for senior and staff-leaning interviews at AI-forward product companies — and anyone who wants a map of the surface area rather than another list of links.
+
+It was written for one reader, and that is the reason it is good: an opinionated map that says *this is what matters and here is the best thing to read about it* is only possible when nobody has to be placated. **Authoring stays single-reader; the audience does not.** The rule in §6 — write for yourself, six months from now, on a phone, with ten minutes — is unchanged.
 
 **Done looks like:** the interview alignment test in §1.2 passes for every section — nothing that could reasonably be asked in the target loops is missing a page. Each page says what the concept is and why it matters, and points at the best material for going deeper. Reachable in three taps or one search, from a phone, on a train.
 
@@ -61,8 +68,8 @@ Named explicitly so they don't creep back in later:
 
 - **No quizzes, flashcards, or spaced repetition.** This is a reading and reference tool. Self-testing happens elsewhere.
 - **No drills or practice problems.** Links out to them, yes. Hosting them, no.
-- **No gamification** — no streaks, badges, XP, or "you're on fire" messaging.
-- **No social features.** Single user.
+- **No gamification** — no streaks, badges, XP, leaderboards, or "you're on fire" messaging. Progress is a count of what is left to read, never a score.
+- **No accounts, no comments, no per-reader server state.** A single site-wide like count and a visitor number are public signals, not scores, and they live in §10's rules. Nothing about a reader is stored on a server.
 - **No CMS or admin UI.** Content is markdown files edited in an editor and committed to git.
 - **No AI features in the initial build.** Possible much later; not part of the product definition.
 
@@ -104,7 +111,9 @@ Starting set. Expect this to be reshaped as sections get specified in detail.
 
 A single vertical list of section cards. Each card shows an icon, the title, a one-line description, and a count (`6 subsections · 48 topics`).
 
-Nothing else. No dashboard, no charts, no hero section.
+Home is the one exemption to that austerity, because it is the only page a stranger lands on cold. It carries a heading, a short statement of what the map is, one line of honest counts, the search field, the section list, and — at the very bottom, below the list — the support line. Nothing more: no dashboard, no charts, no testimonials, no feature grid.
+
+**Every other route stays a reading surface.** The exemption does not travel.
 
 A search box sits at the top and filters across every topic title and summary in the tree, so a concept you already know the name of is one search away instead of three taps. Search is the primary navigation path for anything you're looking for on purpose; browsing is for discovering what you didn't know was there.
 
@@ -221,12 +230,13 @@ Written down so they act as a constraint later, when the temptation to add thing
 - **Search is reachable from every page**, via ⌘K. §4 calls search the primary navigation path; it should not require going home first.
 - **Lists, not grids.** Grids look designed and read worse on a phone.
 - **Icons for recognition only** — one per section, one per resource type. A small consistent set, no decoration.
-- **No animation, no charts, no dashboard, no empty-state illustrations.**
+- **No charts, no dashboard, no empty-state illustrations.** Animation only where it explains a state change — a drawer that slides is telling you where it came from; nothing else moves.
+- **One accent hue, on a closed list of things.** The palette is otherwise achromatic. The accent is permitted on focus rings, the active nav row, the primary resource on a topic page, the support button, and link hover — and nowhere else. Adding a sixth use means amending this line.
 - **Respect system light/dark.** No theme switcher.
 - **Every screen reachable in three taps or one search.**
 - **Fast over fancy.** Statically generated; no loading spinners on content.
 
-The test for any proposed addition: *does this help me read and find things faster?* If not, it doesn't go in.
+The test for any proposed addition: *does this help someone read and find things faster?* If not, it doesn't go in — with the two named exemptions in §10, which are the price of the site being public and are confined to home, `/about` and the footer.
 
 ---
 
@@ -267,3 +277,32 @@ To resolve as sections get specified.
 - [x] ~~How many topics per subsection before it should be split?~~ **Answered:** no fixed cap. A subsection splits when it stops describing one coherent area, not on a count. §1.2 governs what gets created; `CONVENTIONS.md` §4 holds the rule.
 - [ ] Should the search index cover full topic body text, or just titles and summaries? **Still open.** Titles, summaries and tags ship today — 227KB as a fetched `/search-index.json` route at 573 topics. Body text would multiply that by roughly an order of magnitude, so the question is now whether the index stays a single fetched file at all.
 - [ ] Phase 5: where does progress actually live? **Interim answer:** browser storage with manual export/import, because it keeps the build static. Still open, because it does not sync — a hosted database or a synced file is what the requirement actually asks for.
+
+---
+
+## 10. What changed when this went public
+
+The map was written for one reader and is now open to anyone. Four decisions in this document were made under the private assumption and no longer hold. They are listed here rather than quietly edited away, because the reasoning is what stops them being re-litigated every time someone has an idea.
+
+| Was | Now | Why |
+|---|---|---|
+| §1 "one person — Prateek. Not a product, not a community resource." | A public reference, still authored for one reader | The content stopped being private the day the repo went public. Authoring for one reader is what makes it opinionated; that stays. Pretending nobody else reads it only meant the site explained nothing to the people who did. |
+| §2 "No social features. Single user." | No accounts, no comments, no per-reader server state — but one site-wide like count and a visitor number | A single aggregate is a signal, not a social feature. Nothing about an individual reader is stored anywhere. |
+| §4 "Nothing else. No dashboard, no charts, no hero section." | Home explains what the map is | Home is the only page a stranger lands on cold. Every other route is unchanged. |
+| §7 "The test: does this help *me* read and find things faster?" | Same test, "someone" instead of "me", plus the two exemptions below | The test was always the right test. Only the pronoun was wrong. |
+
+### The two exemptions, and their boundary
+
+**Counts** — a site-wide like count and a visitor number. They appear in the footer and on home. They never appear on a topic page.
+
+**Support** — one link to a pay-what-you-want checkout. It appears on home below the section list, on `/about`, and in the footer. It never appears on a topic page, never in the navigation rail, and never in a modal or interstitial.
+
+**The boundary is the topic page.** 573 of them, and they are the entire reason anyone is here. A support ask or a counter on a reading page is the single change that would turn this from a reference into a content farm. If a future idea wants to put something there, the answer is no.
+
+### Everything optional is a flag
+
+Progress tracking, analytics, the counts and the support link are each behind a build-time flag, all defaulting to off. A missing or misspelled variable means the feature is absent, never that it leaked. `src/lib/flags.ts` is the only place they are read.
+
+### What did not change
+
+The information architecture (§3), the topic page contract (§5), the content model (§6), and every authoring rule in `docs/_meta/CONVENTIONS.md`. Those were never about who was reading.

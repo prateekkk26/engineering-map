@@ -29,7 +29,6 @@ export type SectionProgress = {
   planned: number;
   /** Summed `minutes` frontmatter across authored topics. */
   minutes: number;
-  specified: boolean;
 };
 
 function hours(minutes: number): string {
@@ -57,57 +56,39 @@ function SectionRow({ section }: { section: SectionProgress }) {
       <div className="flex items-baseline justify-between gap-3">
         <h2 className="font-medium">{section.title}</h2>
         <span className="shrink-0 text-xs text-muted-foreground tabular-nums">
-          {section.specified
-            ? ready
-              ? `${covered} / ${section.written}`
-              : " "
-            : "not yet written"}
+          {ready ? `${covered} / ${section.written}` : " "}
         </span>
       </div>
 
-      {section.specified ? (
-        <>
-          <div
-            className="mt-2 h-1 w-full overflow-hidden rounded-full bg-border"
-            role="progressbar"
-            aria-valuemin={0}
-            aria-valuemax={section.written}
-            aria-valuenow={ready ? covered : undefined}
-            aria-label={`${section.title}: ${covered} of ${section.written} topics covered`}
-          >
-            <div
-              className="h-full rounded-full bg-foreground/70 transition-[width] duration-300"
-              style={{ width: `${ready ? percent : 0}%` }}
-            />
-          </div>
-          <p className="mt-2 text-xs text-muted-foreground tabular-nums">
-            {ready
-              ? `${percent}% covered · about ${hours(remaining)} of reading left`
-              : " "}
-            {section.planned > section.written
-              ? ` · ${section.planned - section.written} more planned`
-              : ""}
-          </p>
-        </>
-      ) : (
-        <p className="mt-2 text-xs text-muted-foreground">
-          Not specified yet — nothing to cover until it is written.
-        </p>
-      )}
+      <div
+        className="mt-2 h-1 w-full overflow-hidden rounded-full bg-border"
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={section.written}
+        aria-valuenow={ready ? covered : undefined}
+        aria-label={`${section.title}: ${covered} of ${section.written} topics covered`}
+      >
+        <div
+          className="h-full rounded-full bg-foreground/70 transition-[width] duration-300"
+          style={{ width: `${ready ? percent : 0}%` }}
+        />
+      </div>
+      <p className="mt-2 text-xs text-muted-foreground tabular-nums">
+        {ready
+          ? `${percent}% covered · about ${hours(remaining)} of reading left`
+          : " "}
+        {section.planned > section.written
+          ? ` · ${section.planned - section.written} more planned`
+          : ""}
+      </p>
     </>
   );
-
-  const shell = "block rounded-lg p-4 ring-1 ring-border";
-
-  if (!section.specified) {
-    return <div className={cn(shell, "opacity-60")}>{body}</div>;
-  }
 
   return (
     <Link
       href={`/${section.slug}`}
       className={cn(
-        shell,
+        "block rounded-lg p-4 ring-1 ring-border",
         "outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring",
       )}
     >

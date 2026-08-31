@@ -47,8 +47,6 @@ export type NavSection = {
   title: string;
   /** A lucide name, already validated by the loader against `icons.tsx`. */
   icon: string;
-  /** False for the sections that have not been through Phase 2 at all. */
-  specified: boolean;
   subsections: NavSubsection[];
 };
 
@@ -73,7 +71,6 @@ export function getNavTree(): NavTree {
     slug: section.slug,
     title: section.title,
     icon: section.icon,
-    specified: section.specified,
     subsections: section.subsections.map<NavSubsection>((subsection) => {
       const { written, planned } = getSubsectionCounts(subsection);
       return {

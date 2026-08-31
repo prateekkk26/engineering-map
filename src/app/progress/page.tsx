@@ -40,7 +40,6 @@ export default function ProgressPage() {
         subsection.topics.reduce((sum, topic) => sum + topic.minutes, 0),
       0,
     ),
-    specified: section.specified,
   }));
 
   // `_shared/` topics are not in any section's count (they are not in a
