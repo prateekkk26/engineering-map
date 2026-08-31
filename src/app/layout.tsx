@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { AppShell } from "@/components/shell/AppShell";
+import { SITE_URL } from "@/lib/flags";
 import { getNavTree } from "@/lib/nav-tree";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -14,10 +15,35 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 // system monospace, which is a second typeface nobody chose.
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
+const DESCRIPTION =
+  "A knowledge map for senior engineering interviews — browse a subject, drill down, follow the links out.";
+
 export const metadata: Metadata = {
-  title: "Engineering Map",
-  description:
-    "A knowledge map for senior engineering interviews — browse a subject, drill down, follow the links out.",
+  // Required before anything else here: without it every relative URL in
+  // `openGraph.images` warns at build and unfurls as a broken preview.
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Engineering Map",
+    // Replaces the `— Engineering Map` suffix each route used to append by
+    // hand, which is one page away from being forgotten.
+    template: "%s — Engineering Map",
+  },
+  description: DESCRIPTION,
+  applicationName: "Engineering Map",
+  authors: [{ name: "Prateek Rawat" }],
+  openGraph: {
+    type: "website",
+    siteName: "Engineering Map",
+    locale: "en_US",
+    url: "/",
+    title: "Engineering Map",
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Engineering Map",
+    description: DESCRIPTION,
+  },
   // One SVG for the tab, shared with the manifest, rather than the usual pile
   // of PNG sizes: the mark is three circles and a line, so it rasterises
   // cleanly at every size a browser asks for.

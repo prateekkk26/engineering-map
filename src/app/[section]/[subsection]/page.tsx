@@ -7,6 +7,7 @@ import { Meter } from "@/components/progress/Meter";
 import { Page } from "@/components/shell/Page";
 import { TopicRow } from "@/components/subsection/TopicRow";
 import { TopicView } from "@/components/topic/TopicView";
+import { pageMetadata } from "@/lib/metadata";
 import {
   SHARED_SECTION_TITLE,
   getSection,
@@ -88,19 +89,23 @@ export async function generateMetadata({
   if (section === SHARED) {
     const topic = getTopic(`${SHARED}/${subsection}`);
     return topic
-      ? {
-          title: `${plainTitle(topic.title)} — Engineering Map`,
+      ? pageMetadata({
+          title: plainTitle(topic.title),
           description: topic.summary,
-        }
+          kicker: SHARED_SECTION_TITLE,
+          path: `/${topic.slug}`,
+        })
       : {};
   }
 
   const found = getSubsection(section, subsection);
   return found
-    ? {
-        title: `${found.title} — Engineering Map`,
+    ? pageMetadata({
+        title: found.title,
         description: found.description,
-      }
+        kicker: getSection(section)?.title,
+        path: `/${found.slug}`,
+      })
     : {};
 }
 

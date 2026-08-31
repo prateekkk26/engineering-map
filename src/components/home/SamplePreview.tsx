@@ -33,15 +33,16 @@ export function SamplePreview() {
   if (!lead) return null;
 
   return (
-    <section aria-labelledby="sample" className="pb-10">
-      <h2
-        id="sample"
-        className="text-xs font-medium tracking-wide text-muted-foreground uppercase"
-      >
-        What a page looks like
+    <section aria-labelledby="sample" className="py-16">
+      <h2 id="sample" className="text-2xl font-medium tracking-tight">
+        This is what a page looks like
       </h2>
+      <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+        Not a summary of a summary. Every topic opens with one sentence that
+        commits to an answer, then says why it matters and where to read more.
+      </p>
 
-      <div className="mt-4 rounded-lg p-5 ring-1 ring-border">
+      <div className="mt-6 rounded-lg bg-background p-6 ring-1 ring-border">
         <h3 className="text-lg leading-snug font-medium tracking-tight">
           <TopicTitle>{topic.title}</TopicTitle>
         </h3>

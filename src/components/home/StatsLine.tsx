@@ -1,4 +1,5 @@
 import { formatCount, formatHours, type SiteStats } from "@/lib/stats";
+import { cn } from "@/lib/utils";
 
 /**
  * The counts, as one line.
@@ -25,9 +26,12 @@ function Figure({ value, label }: { value: string; label: string }) {
 export function StatsLine({
   stats,
   className,
+  align = "start",
 }: {
   stats: SiteStats;
   className?: string;
+  /** The hero centres it; every other placement reads as a left-aligned line. */
+  align?: "start" | "center";
 }) {
   return (
     <p
@@ -35,7 +39,12 @@ export function StatsLine({
       // A list of facts about one thing, read as a sentence. The separators are
       // decoration, so they are hidden rather than announced.
     >
-      <span className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+      <span
+        className={cn(
+          "flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground",
+          align === "center" && "justify-center",
+        )}
+      >
         <Figure value={formatCount(stats.topics)} label="topics" />
         <span aria-hidden>·</span>
         <Figure value={formatCount(stats.subsections)} label="subsections" />

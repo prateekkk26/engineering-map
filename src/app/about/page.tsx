@@ -17,7 +17,7 @@ import { formatCount, getSiteStats } from "@/lib/stats";
  * paraphrased — it is the whole reason the map is 573 topics and not 5,000.
  */
 export const metadata: Metadata = {
-  title: "About — Engineering Map",
+  title: "About",
   description:
     "What this map is, how the topics were chosen, and how the site is built.",
 };

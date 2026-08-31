@@ -24,7 +24,7 @@ import { PROGRESS_ENABLED } from "@/lib/flags";
  * about what has been covered exists in the prerendered HTML.
  */
 export const metadata: Metadata = {
-  title: "Progress — Engineering Map",
+  title: "Progress",
   description: "How much of the map you've covered, and what's left.",
 };
 

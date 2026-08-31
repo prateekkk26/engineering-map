@@ -1,39 +1,69 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
 import { Hero } from "@/components/home/Hero";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { SamplePreview } from "@/components/home/SamplePreview";
-import { SectionList } from "@/components/home/SectionList";
-import { StatsLine } from "@/components/home/StatsLine";
-import { Page as Container } from "@/components/shell/Page";
+import { SectionGrid } from "@/components/home/SectionGrid";
+import { SiteFooter } from "@/components/shell/SiteFooter";
+import { buttonVariants } from "@/components/ui/button";
 import { getSections } from "@/lib/content";
-import { buildSearchIndex } from "@/lib/search-index";
 import { getSiteStats } from "@/lib/stats";
 
 /**
- * Home — PRD §4 ①, and the one page allowed to explain itself.
+ * The landing page — PRD §4 ①, and the one route allowed to explain itself.
  *
  * §4 used to end "Nothing else. No dashboard, no charts, no hero section",
- * written when there was a single reader who already knew what this was. It is
- * now the only page a stranger lands on cold, so it answers what the map is
- * before showing them the eight cards. PRD §10 records the exemption and its
- * boundary: it does not travel to any other route.
+ * written when there was a single reader who already knew what this was. This
+ * is now the only page someone arrives at from a link, so it answers what the
+ * map is before showing them a single subsection name. PRD §10 records the
+ * exemption and its boundary: it does not travel to any other route.
  *
- * Everything above the section list is a server component, so the client
- * boundary is still `SectionList` and still crossed once.
+ * It renders without the navigation rail — see the note in `AppShell` — so it
+ * lays out its own full-width sections and closes with the footer itself rather
+ * than going through `Page`.
+ *
+ * The order is an argument, in the order someone actually asks it: what is
+ * this, what is in it, is the writing any good, how do I use it, where do I
+ * start.
  */
 export default function Page() {
   const sections = getSections();
-  const index = buildSearchIndex();
   const stats = getSiteStats();
 
   return (
-    <Container>
+    <>
       <Hero stats={stats} />
-      <StatsLine stats={stats} className="pb-8" />
+      <SectionGrid sections={sections} />
 
-      <SectionList sections={sections} index={index} />
+      <div className="border-y border-border bg-accent/20">
+        <div className="mx-auto w-full max-w-5xl px-5">
+          <SamplePreview />
+        </div>
+      </div>
 
-      <HowItWorks />
-      <SamplePreview />
-    </Container>
+      <div className="mx-auto w-full max-w-5xl px-5">
+        <HowItWorks />
+      </div>
+
+      <section className="mx-auto w-full max-w-5xl px-5 pt-4 pb-20 text-center">
+        <h2 className="text-2xl font-medium tracking-tight text-balance">
+          Start with whatever you are worst at.
+        </h2>
+        <p className="mx-auto mt-2 max-w-lg text-sm leading-relaxed text-muted-foreground">
+          The whole map is open — no account, no paywall, nothing to sign up
+          for. Press ⌘K anywhere to search all of it.
+        </p>
+        <Link
+          href="/map"
+          className={`${buttonVariants({ variant: "brand", size: "lg" })} mt-6`}
+        >
+          Browse the map
+          <ArrowRight aria-hidden />
+        </Link>
+      </section>
+
+      <SiteFooter className="max-w-5xl px-5" />
+    </>
   );
 }

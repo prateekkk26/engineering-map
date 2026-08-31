@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { TopicView } from "@/components/topic/TopicView";
+import { pageMetadata } from "@/lib/metadata";
 import {
   getSection,
   getSections,
@@ -71,10 +72,15 @@ export async function generateMetadata({
   const { section, subsection, topic } = await params;
   const found = getTopic(`${section}/${subsection}/${topic}`);
   if (!found) return {};
-  return {
-    title: `${plainTitle(found.title)} — Engineering Map`,
+  const owner = getSubsection(section, subsection);
+  return pageMetadata({
+    title: plainTitle(found.title),
     description: found.summary,
-  };
+    kicker: [getSection(section)?.title, owner?.title]
+      .filter(Boolean)
+      .join(" › "),
+    path: `/${found.slug}`,
+  });
 }
 
 export default async function TopicPage({

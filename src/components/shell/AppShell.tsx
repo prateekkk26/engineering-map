@@ -7,6 +7,7 @@ import { Dialog } from "radix-ui";
 import { CircleDashed, Menu, Search } from "lucide-react";
 
 import { CommandPalette } from "@/components/shell/CommandPalette";
+import { LandingHeader } from "@/components/shell/LandingHeader";
 import { Logo } from "@/components/shell/Logo";
 import { SidebarTree } from "@/components/shell/SidebarTree";
 import { PROGRESS_ENABLED } from "@/lib/flags";
@@ -79,6 +80,25 @@ export function AppShell({
   const [paletteOpen, setPaletteOpen] = useState(false);
 
   /**
+   * The landing page is not a reading page, so it does not get the reading
+   * frame.
+   *
+   * The rail exists to make 74 subsections reachable while you are already deep
+   * in the tree. On the one page someone arrives at from a link, before they
+   * know what any of those words mean, it is a wall of unexplained vocabulary
+   * competing with the sentence that explains the site — and it also caps the
+   * page at a single column when the landing wants the full width.
+   *
+   * So `/` renders bare: its own header, no rail, no drawer. `/map` is the
+   * browsable index and carries the shell like every other page.
+   *
+   * Matched on the pathname rather than split into a route group, because the
+   * palette's state lives here and both layouts need it. ⌘K works on the
+   * landing exactly as it does everywhere else.
+   */
+  const landing = pathname === "/";
+
+  /**
    * The drawer is open *for a particular page*.
    *
    * Storing the path it was opened at, rather than a boolean plus an effect
@@ -92,6 +112,16 @@ export function AppShell({
 
   const setDrawerOpen = (open: boolean) =>
     setOpenedAt(open ? pathname : undefined);
+
+  if (landing) {
+    return (
+      <>
+        <LandingHeader onSearch={() => setPaletteOpen(true)} />
+        {children}
+        <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} />
+      </>
+    );
+  }
 
   return (
     <div className="lg:grid lg:grid-cols-[19rem_minmax(0,1fr)] 2xl:grid-cols-[21rem_minmax(0,1fr)]">

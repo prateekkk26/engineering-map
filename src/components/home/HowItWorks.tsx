@@ -30,18 +30,15 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section aria-labelledby="how" className="py-10">
-      <h2
-        id="how"
-        className="text-xs font-medium tracking-wide text-muted-foreground uppercase"
-      >
+    <section aria-labelledby="how" className="py-16">
+      <h2 id="how" className="text-2xl font-medium tracking-tight">
         How to use it
       </h2>
-      <ul className="mt-4 grid gap-6 sm:grid-cols-3">
+      <ul className="mt-6 grid gap-8 sm:grid-cols-3">
         {steps.map(({ icon: Icon, title, body }) => (
           <li key={title}>
-            <Icon className="size-4 text-muted-foreground" aria-hidden />
-            <h3 className="mt-2 text-sm font-medium">{title}</h3>
+            <Icon className="size-5 text-muted-foreground" aria-hidden />
+            <h3 className="mt-3 font-medium">{title}</h3>
             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
               {body}
             </p>

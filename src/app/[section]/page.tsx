@@ -12,6 +12,7 @@ import {
   getSubsectionTopics,
 } from "@/lib/content";
 import { PROGRESS_ENABLED } from "@/lib/flags";
+import { pageMetadata } from "@/lib/metadata";
 
 /**
  * ② Section — PRD §4, "what's inside this subject?"
@@ -57,10 +58,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const section = getSection((await params).section);
   if (!section) return {};
-  return {
-    title: `${section.title} — Engineering Map`,
+  return pageMetadata({
+    title: section.title,
     description: section.description,
-  };
+    path: `/${section.slug}`,
+  });
 }
 
 export default async function SectionPage({

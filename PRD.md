@@ -288,7 +288,8 @@ The map was written for one reader and is now open to anyone. Four decisions in 
 |---|---|---|
 | §1 "one person — Prateek. Not a product, not a community resource." | A public reference, still authored for one reader | The content stopped being private the day the repo went public. Authoring for one reader is what makes it opinionated; that stays. Pretending nobody else reads it only meant the site explained nothing to the people who did. |
 | §2 "No social features. Single user." | No accounts, no comments, no per-reader server state — but one site-wide like count and a visitor number | A single aggregate is a signal, not a social feature. Nothing about an individual reader is stored anywhere. |
-| §4 "Nothing else. No dashboard, no charts, no hero section." | Home explains what the map is | Home is the only page a stranger lands on cold. Every other route is unchanged. |
+| §4 "Nothing else. No dashboard, no charts, no hero section." | `/` is a landing page; `/map` is the list it used to be | Home is the only page a stranger arrives at from a link. Splitting the two means neither has to compromise: the landing can explain, and the index can stay a list. |
+| §7 "Lists, not grids" and the persistent rail | Both still hold — except on `/` | The rail is a reading tool: 74 subsection names are useful once you know what they mean and are a wall of vocabulary before that. The landing drops it, lays out full width, and shows the eight sections as a grid because it is a chooser, not something to read. |
 | §7 "The test: does this help *me* read and find things faster?" | Same test, "someone" instead of "me", plus the two exemptions below | The test was always the right test. Only the pronoun was wrong. |
 
 ### The two exemptions, and their boundary
@@ -297,7 +298,9 @@ The map was written for one reader and is now open to anyone. Four decisions in 
 
 **Support** — one link to a pay-what-you-want checkout. It appears on home below the section list, on `/about`, and in the footer. It never appears on a topic page, never in the navigation rail, and never in a modal or interstitial.
 
-**The boundary is the topic page.** 573 of them, and they are the entire reason anyone is here. A support ask or a counter on a reading page is the single change that would turn this from a reference into a content farm. If a future idea wants to put something there, the answer is no.
+**The boundary is `/`.** The landing page may explain, centre, use the full width, run a grid, and carry the support ask. Every other route — `/map`, the section, subsection and topic pages — is a reading surface under §7 exactly as it was.
+
+**And the harder boundary is the topic page.** 573 of them, and they are the entire reason anyone is here. A support ask or a counter on a reading page is the single change that would turn this from a reference into a content farm. If a future idea wants to put something there, the answer is no.
 
 ### Everything optional is a flag
 
