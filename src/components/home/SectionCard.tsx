@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Meter } from "@/components/progress/Meter";
 import { iconFor } from "@/lib/icons";
+import { surface } from "@/lib/interactive";
 import { cn } from "@/lib/utils";
 import type { Section } from "@/lib/types";
 
@@ -46,7 +47,7 @@ export function SectionCard({ section }: { section: Section }) {
   return (
     <Link
       href={`/${section.slug}`}
-      className="flex flex-row items-start gap-3 rounded-lg p-4 outline-none ring-1 ring-border hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
+      className={surface({ level: "card", className: "flex flex-row items-start gap-3" })}
     >
       {/* `createElement` rather than assigning to `<Icon />`: the icon comes
           from a lookup, and react-hooks/static-components reads a capitalised

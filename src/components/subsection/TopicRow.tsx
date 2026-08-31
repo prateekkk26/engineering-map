@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TopicTitle } from "@/components/nav/TopicTitle";
 import { Mark } from "@/components/progress/Mark";
 import { TopicChips } from "@/components/topic/TopicChips";
+import { surface } from "@/lib/interactive";
 import type { Topic } from "@/lib/types";
 
 /**
@@ -18,7 +19,7 @@ export function TopicRow({ topic }: { topic: Topic }) {
   return (
     <Link
       href={`/${topic.slug}`}
-      className="block rounded-lg p-4 outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
+      className={surface({ level: "line" })}
     >
       <h2 className="font-medium leading-snug">
         <TopicTitle>{topic.title}</TopicTitle>

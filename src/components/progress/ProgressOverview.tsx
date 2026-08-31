@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
+import { surface } from "@/lib/interactive";
 import {
   coveredCount,
   exportProgress,
@@ -13,7 +14,6 @@ import {
   useProgress,
   useProgressReady,
 } from "@/lib/progress";
-import { cn } from "@/lib/utils";
 
 /**
  * One row's worth of server-side facts. Everything here is content state
@@ -87,10 +87,7 @@ function SectionRow({ section }: { section: SectionProgress }) {
   return (
     <Link
       href={`/${section.slug}`}
-      className={cn(
-        "block rounded-lg p-4 ring-1 ring-border",
-        "outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring",
-      )}
+      className={surface({ level: "row" })}
     >
       {body}
     </Link>

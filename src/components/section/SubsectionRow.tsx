@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Meter } from "@/components/progress/Meter";
-import { cn } from "@/lib/utils";
+import { surface } from "@/lib/interactive";
 import type { Subsection } from "@/lib/types";
 
 /**
@@ -52,10 +52,7 @@ export function SubsectionRow({
   return (
     <Link
       href={`/${subsection.slug}`}
-      className={cn(
-        "block rounded-lg p-4 ring-1 ring-border",
-        "outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring",
-      )}
+      className={surface({ level: "row" })}
     >
       {body}
     </Link>

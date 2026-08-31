@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Breadcrumb } from "@/components/nav/Breadcrumb";
+import { PageHeader } from "@/components/nav/PageHeader";
 import { Meter } from "@/components/progress/Meter";
 import { Page } from "@/components/shell/Page";
 import { TopicRow } from "@/components/subsection/TopicRow";
@@ -161,25 +162,28 @@ export default async function SubsectionPage({
         ]}
       />
 
-      <header className="pb-4">
-        <h1 className="text-2xl leading-tight font-medium tracking-tight text-balance">
-          {subsection.title}
-        </h1>
-        <p className="mt-2 leading-relaxed text-muted-foreground">
-          {subsection.description}
-        </p>
-        <p className="mt-2 text-xs text-muted-foreground tabular-nums">
-          {written === planned
-            ? `${written} ${written === 1 ? "topic" : "topics"}`
-            : `${written} of ${planned} topics written`}
-        </p>
-        <Meter
-          prefix={subsection.slug}
-          total={topics.length}
-          extraSlugs={topics.filter((t) => t.shared).map((t) => t.slug)}
-          className="mt-3 max-w-sm"
-        />
-      </header>
+      <PageHeader
+        tone="subsection"
+        lead={subsection.description}
+        className="pb-4"
+        chips={
+          <>
+            <p className="text-xs text-muted-foreground tabular-nums">
+              {written === planned
+                ? `${written} ${written === 1 ? "topic" : "topics"}`
+                : `${written} of ${planned} topics written`}
+            </p>
+            <Meter
+              prefix={subsection.slug}
+              total={topics.length}
+              extraSlugs={topics.filter((t) => t.shared).map((t) => t.slug)}
+              className="mt-3 max-w-sm"
+            />
+          </>
+        }
+      >
+        {subsection.title}
+      </PageHeader>
 
       <ul>
         {topics.map((topic) => (

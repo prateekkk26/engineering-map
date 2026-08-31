@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 
 import { AppShell } from "@/components/shell/AppShell";
 import { getNavTree } from "@/lib/nav-tree";
@@ -7,6 +7,12 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+
+// A large share of topic titles carry a backticked identifier — `this` and
+// Function Binding, Promises, `async`/`await` & Combinators — so inline code
+// appears in almost every list in the app. Without this it rendered in the
+// system monospace, which is a second typeface nobody chose.
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
   title: "Engineering Map",
@@ -35,7 +41,10 @@ export default function RootLayout({
   const tree = getNavTree();
 
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html
+      lang="en"
+      className={cn("font-sans", geist.variable, geistMono.variable)}
+    >
       <body className="min-h-dvh">
         <AppShell tree={tree}>{children}</AppShell>
       </body>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Breadcrumb } from "@/components/nav/Breadcrumb";
+import { PageHeader } from "@/components/nav/PageHeader";
 import { SubsectionRow } from "@/components/section/SubsectionRow";
 import { Page } from "@/components/shell/Page";
 import {
@@ -79,14 +80,9 @@ export default async function SectionPage({
         ]}
       />
 
-      <header className="pb-6">
-        <h1 className="text-2xl leading-tight font-medium tracking-tight text-balance">
-          {section.title}
-        </h1>
-        <p className="mt-2 leading-relaxed text-muted-foreground">
-          {section.description}
-        </p>
-      </header>
+      <PageHeader tone="section" lead={section.description} className="pb-6">
+        {section.title}
+      </PageHeader>
 
       <ul className="space-y-2">
         {section.subsections.map((subsection) => {

@@ -1,4 +1,5 @@
 import { Breadcrumb, type Crumb } from "@/components/nav/Breadcrumb";
+import { PageHeader } from "@/components/nav/PageHeader";
 import { TopicTitle } from "@/components/nav/TopicTitle";
 import { Toggle } from "@/components/progress/Toggle";
 import { Page } from "@/components/shell/Page";
@@ -41,18 +42,19 @@ export function TopicView({
     <Page wide>
       <Breadcrumb trail={trail} />
 
-      <header className="pb-8">
-        <h1 className="text-2xl leading-tight font-medium tracking-tight text-balance">
-          <TopicTitle>{topic.title}</TopicTitle>
-        </h1>
-        <div className="mt-3">
+      <PageHeader
+        tone="topic"
+        className="pb-8"
+        chips={
           <TopicChips
             level={topic.level}
             minutes={topic.minutes}
             shared={topic.shared}
           />
-        </div>
-      </header>
+        }
+      >
+        <TopicTitle>{topic.title}</TopicTitle>
+      </PageHeader>
 
       {/* One grid, two placements. Below `xl` the aside is the second row and
           reads exactly as it always has: prose, rule, links. At `xl` the same

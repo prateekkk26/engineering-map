@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { TopicTitle } from "@/components/nav/TopicTitle";
 import { resolveRelated } from "@/lib/content";
+import { surface } from "@/lib/interactive";
 
 /**
  * PRD §5 — "internal links to siblings and across sections, so `Caching` in
@@ -33,7 +34,7 @@ export function RelatedTopics({ slugs }: { slugs: string[] }) {
             {topic ? (
               <Link
                 href={`/${slug}`}
-                className="block rounded-lg p-3 text-sm leading-snug outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
+                className={surface({ level: "inset", className: "text-sm leading-snug" })}
               >
                 <TopicTitle>{topic.title}</TopicTitle>
               </Link>

@@ -1,5 +1,6 @@
 import { MessageSquare, Search } from "lucide-react";
 
+import { surface } from "@/lib/interactive";
 import type { Topic } from "@/lib/types";
 
 /**
@@ -40,7 +41,7 @@ function ActionRow({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="flex items-center gap-3 rounded-lg p-3 outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
+      className={surface({ level: "inset", className: "flex items-center gap-3" })}
     >
       <Icon className="size-4 shrink-0 text-muted-foreground" aria-hidden />
       <span className="min-w-0">

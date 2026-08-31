@@ -40,8 +40,8 @@ function ancestorsOf(pathname: string): string[] {
 
 function rowClasses(active: boolean): string {
   return cn(
-    "flex min-w-0 flex-1 items-center gap-2 rounded-md px-2 py-1.5 text-left outline-none hover:bg-accent/60 focus-visible:ring-2 focus-visible:ring-ring",
-    active && "bg-accent font-medium text-accent-foreground",
+    "flex min-w-0 flex-1 items-center gap-2 rounded-md border-l-2 border-transparent px-2 py-1.5 text-left outline-none hover:bg-accent/60 focus-visible:ring-2 focus-visible:ring-ring",
+    active && "border-brand bg-accent font-medium text-accent-foreground",
   );
 }
 

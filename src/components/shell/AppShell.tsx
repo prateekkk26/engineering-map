@@ -137,10 +137,15 @@ export function AppShell({
           of those are worth reimplementing. */}
       <Dialog.Root open={drawerOpen} onOpenChange={setDrawerOpen}>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 z-40 bg-black/40 lg:hidden" />
+          {/* The one animation in the app, and PRD §7 allows it because it is
+              explaining a state change rather than decorating one: a panel that
+              slides in from the left is telling you where it came from and
+              where dismissing it will put it back. `tw-animate-css` supplies
+              the keyframes; Radix supplies the data-state. */}
+          <Dialog.Overlay className="fixed inset-0 z-40 bg-black/40 duration-200 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0 lg:hidden" />
           <Dialog.Content
             aria-describedby={undefined}
-            className="fixed inset-y-0 left-0 z-50 flex w-[19rem] max-w-[85vw] flex-col bg-sidebar text-sidebar-foreground shadow-xl outline-none lg:hidden"
+            className="fixed inset-y-0 left-0 z-50 flex w-[19rem] max-w-[85vw] flex-col bg-sidebar text-sidebar-foreground shadow-xl outline-none duration-200 data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:animate-in data-[state=open]:slide-in-from-left lg:hidden"
           >
             <Dialog.Title className="sr-only">Navigation</Dialog.Title>
             <SidebarHeader
