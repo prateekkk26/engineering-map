@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ProgressMeter } from "@/components/progress/ProgressMeter";
+import { Meter } from "@/components/progress/Meter";
 import { cn } from "@/lib/utils";
 import type { Subsection } from "@/lib/types";
 
@@ -40,7 +40,7 @@ export function SubsectionRow({
       <p className="text-xs text-muted-foreground tabular-nums">
         {countLine(written, planned)}
       </p>
-      <ProgressMeter
+      <Meter
         prefix={subsection.slug}
         total={written}
         extraSlugs={sharedSlugs}

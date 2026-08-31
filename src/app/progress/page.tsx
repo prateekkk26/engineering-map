@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import { Breadcrumb } from "@/components/nav/Breadcrumb";
 import {
@@ -7,6 +8,7 @@ import {
 } from "@/components/progress/ProgressOverview";
 import { Page } from "@/components/shell/Page";
 import { getSections, getSharedTopics } from "@/lib/content";
+import { PROGRESS_ENABLED } from "@/lib/flags";
 
 /**
  * The one place that answers "how far in am I, and how much is left?"
@@ -27,6 +29,10 @@ export const metadata: Metadata = {
 };
 
 export default function ProgressPage() {
+  // The file stays in git and the route stops existing. `notFound()` here also
+  // keeps the page out of `sitemap.ts`, which reads the same flag.
+  if (!PROGRESS_ENABLED) notFound();
+
   const sections = getSections();
 
   const rows: SectionProgress[] = sections.map((section) => ({

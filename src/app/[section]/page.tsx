@@ -10,6 +10,7 @@ import {
   getSubsectionCounts,
   getSubsectionTopics,
 } from "@/lib/content";
+import { PROGRESS_ENABLED } from "@/lib/flags";
 
 /**
  * ② Section — PRD §4, "what's inside this subject?"
@@ -97,9 +98,16 @@ export default async function SectionPage({
           // a row on that page, so it belongs in both sides of the progress
           // fraction. Its slug is outside the subsection's prefix, so it has to
           // travel as a list.
-          const sharedSlugs = getSubsectionTopics(subsection)
-            .filter((topic) => topic.shared)
-            .map((topic) => topic.slug);
+          //
+          // It feeds nothing but the meter, so with progress off this is a
+          // `getSubsectionTopics()` call per subsection at build — 74 of them —
+          // and up to nine slugs per row serialised into the RSC payload, for a
+          // component that renders null.
+          const sharedSlugs = PROGRESS_ENABLED
+            ? getSubsectionTopics(subsection)
+                .filter((topic) => topic.shared)
+                .map((topic) => topic.slug)
+            : [];
           return (
             <li key={subsection.slug}>
               <SubsectionRow

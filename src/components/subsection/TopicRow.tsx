@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { TopicTitle } from "@/components/nav/TopicTitle";
-import { CoveredMark } from "@/components/progress/CoveredMark";
+import { Mark } from "@/components/progress/Mark";
 import { TopicChips } from "@/components/topic/TopicChips";
 import type { Topic } from "@/lib/types";
 
@@ -32,7 +32,7 @@ export function TopicRow({ topic }: { topic: Topic }) {
           minutes={topic.minutes}
           shared={topic.shared}
         />
-        <CoveredMark slug={topic.slug} />
+        <Mark slug={topic.slug} />
       </div>
     </Link>
   );

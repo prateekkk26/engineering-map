@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Breadcrumb } from "@/components/nav/Breadcrumb";
-import { ProgressMeter } from "@/components/progress/ProgressMeter";
+import { Meter } from "@/components/progress/Meter";
 import { Page } from "@/components/shell/Page";
 import { TopicRow } from "@/components/subsection/TopicRow";
 import { TopicView } from "@/components/topic/TopicView";
@@ -173,7 +173,7 @@ export default async function SubsectionPage({
             ? `${written} ${written === 1 ? "topic" : "topics"}`
             : `${written} of ${planned} topics written`}
         </p>
-        <ProgressMeter
+        <Meter
           prefix={subsection.slug}
           total={topics.length}
           extraSlugs={topics.filter((t) => t.shared).map((t) => t.slug)}

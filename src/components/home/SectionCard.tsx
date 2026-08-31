@@ -1,7 +1,7 @@
 import { createElement } from "react";
 import Link from "next/link";
 
-import { ProgressMeter } from "@/components/progress/ProgressMeter";
+import { Meter } from "@/components/progress/Meter";
 import { iconFor } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import type { Section } from "@/lib/types";
@@ -68,7 +68,7 @@ export function SectionCard({ section }: { section: Section }) {
         {/* Reader progress sits under the content counts, not instead of them:
             "40 of 207 covered" only means something next to how much of the
             section is written. */}
-        <ProgressMeter
+        <Meter
           prefix={section.slug}
           total={section.topicCount}
           className="pt-1"

@@ -1,6 +1,6 @@
 import { Breadcrumb, type Crumb } from "@/components/nav/Breadcrumb";
 import { TopicTitle } from "@/components/nav/TopicTitle";
-import { CoveredToggle } from "@/components/progress/CoveredToggle";
+import { Toggle } from "@/components/progress/Toggle";
 import { Page } from "@/components/shell/Page";
 import { LookItUp } from "@/components/topic/LookItUp";
 import { PrevNext } from "@/components/topic/PrevNext";
@@ -87,7 +87,7 @@ export function TopicView({
         <div className="mt-10 space-y-10 xl:col-start-1 xl:row-start-2 xl:max-w-[54rem]">
           {/* After the reading, before the way out. Marking is the last thing
               you do on the page, and prev/next is what you do after that. */}
-          <CoveredToggle slug={topic.slug} />
+          <Toggle slug={topic.slug} />
           <PrevNext previous={previous} next={next} />
         </div>
       </div>

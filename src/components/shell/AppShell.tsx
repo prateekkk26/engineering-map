@@ -10,6 +10,7 @@ import { CommandPalette } from "@/components/shell/CommandPalette";
 import { Logo } from "@/components/shell/Logo";
 import { SidebarTree } from "@/components/shell/SidebarTree";
 import { SiteFooter } from "@/components/shell/SiteFooter";
+import { PROGRESS_ENABLED } from "@/lib/flags";
 import type { NavTree } from "@/lib/nav-tree";
 
 /**
@@ -52,14 +53,18 @@ function SidebarHeader({ onSearch }: { onSearch: () => void }) {
       </button>
 
       {/* The only nav entry that isn't part of the content tree, so it sits
-          with the search button rather than in the tree below it. */}
-      <Link
-        href="/progress"
-        className="mt-2 flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-sm text-muted-foreground outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
-      >
-        <CircleDashed className="size-4 shrink-0" aria-hidden />
-        Progress
-      </Link>
+          with the search button rather than in the tree below it. Folds away
+          entirely when progress is off — the route 404s in that build, and a
+          rail that links to a 404 is worse than one that doesn't mention it. */}
+      {PROGRESS_ENABLED ? (
+        <Link
+          href="/progress"
+          className="mt-2 flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-sm text-muted-foreground outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <CircleDashed className="size-4 shrink-0" aria-hidden />
+          Progress
+        </Link>
+      ) : null}
     </div>
   );
 }
