@@ -75,6 +75,18 @@ Everything optional is behind a build-time flag, and **every flag defaults to of
 
 **If you enable Google Analytics**, also turn on *GA4 Admin → Data Streams → Enhanced Measurement → "Page changes based on browser history events"*. Without it GA records only the landing page, because every navigation after that is client-side. Do not add manual pageview events to compensate — they double-count the moment someone flips the setting on.
 
+### Setting up the optional services
+
+Each is independent, and the site is complete without any of them.
+
+**The like count** needs a Redis store. Vercel dashboard → Storage → Marketplace → Upstash → create a database → connect it to the project, then `vercel env pull .env.local`. Set `LIKES_IP_SALT` to any long random string (`openssl rand -hex 32`) — it salts the per-visitor hash that rate-limits the button, and the raw address is never stored.
+
+**The visitor count** reads the Google Analytics Data API, so the number on the page matches the dashboard. Create a Google Cloud project, enable the *Google Analytics Data API*, create a service account and download its JSON key, then add that service account's email as a **Viewer** under GA4 Admin → Property Access Management. `GA_SA_PRIVATE_KEY` holds the key with escaped newlines; the route unescapes them, which is the failure everyone hits first.
+
+**The support link** needs no code and no secret. In Polar: create a one-time product with *pay what you want* pricing, name it exactly what the button says, then Products → Checkout Links → New Link and put that URL in `NEXT_PUBLIC_POLAR_CHECKOUT_URL`.
+
+Every one of these degrades to *nothing rendered* if its service is unreachable. There is no state in which a counter shows a zero or an error.
+
 ## Contributing
 
 Corrections, dead links and better resources are welcome — open an issue or a PR. New topics are a harder yes: the map is deliberately bounded by the selection rule above, so a topic needs an answer to *which interview round asks this, and what does the question sound like?* Read [`docs/_meta/CONVENTIONS.md`](docs/_meta/CONVENTIONS.md) first — it is the schema of record, and `npm run check:docs` enforces most of it.
