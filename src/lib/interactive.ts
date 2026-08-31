@@ -26,9 +26,9 @@ export const surface = cva(
     variants: {
       level: {
         /** A destination. Section cards on home. */
-        card: "p-4 ring-1 ring-border hover:bg-accent/40 hover:ring-foreground/20",
+        card: "bg-card p-4 ring-1 ring-border hover:bg-accent/40 hover:ring-foreground/20",
         /** A row in a list you own. Subsection rows, progress rows. */
-        row: "p-4 ring-1 ring-border/60 hover:bg-accent/40",
+        row: "bg-card/60 p-4 ring-1 ring-border hover:bg-accent/40",
         /** A line in a list. Topic rows, search results. No resting chrome. */
         line: "p-4 hover:bg-accent/40",
         /** A compact line in the rail column. Resources, related, prev/next. */

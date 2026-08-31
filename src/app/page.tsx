@@ -36,7 +36,7 @@ export default function Page() {
       <Hero stats={stats} />
       <SectionGrid sections={sections} />
 
-      <div className="border-y border-border bg-accent/20">
+      <div className="border-y border-border bg-sidebar">
         <div className="mx-auto w-full max-w-5xl px-5">
           <SamplePreview />
         </div>

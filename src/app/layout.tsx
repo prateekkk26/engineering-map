@@ -53,9 +53,13 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   // PRD §7: respect system light/dark, no theme switcher. Two entries so the
   // browser chrome follows the OS the same way the page tokens do.
+  // The literal sRGB of `--background` in each scheme. Browser chrome cannot
+  // read a CSS variable, so these are the one place the palette is duplicated —
+  // change them with the tokens in `globals.css` or the address bar stops
+  // matching the page.
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e1215" },
   ],
 };
 
