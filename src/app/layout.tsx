@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { AppShell } from "@/components/shell/AppShell";
-import { SITE_URL } from "@/lib/flags";
+import { ANALYTICS_ENABLED, GA_ID, SITE_URL } from "@/lib/flags";
 import { getNavTree } from "@/lib/nav-tree";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -78,6 +79,19 @@ export default function RootLayout({
       <body className="min-h-dvh">
         <AppShell tree={tree}>{children}</AppShell>
       </body>
+      {/* Both conditions fold at build, so with either off there is no script
+          tag in the document at all — gtag.js is never requested, rather than
+          loaded and told to do nothing.
+
+          No route-change wiring, deliberately: GA4 records a pageview on every
+          `history` state change, which is exactly what an App Router client
+          navigation is. The one thing that has to be true lives in the GA
+          console, not here — Admin → Data Streams → Enhanced Measurement →
+          "Page changes based on browser history events". With it off the site
+          appears to record only the landing page, and the natural fix is
+          manual pageview events, which then double-count the moment anyone
+          turns the setting on. */}
+      {ANALYTICS_ENABLED ? <GoogleAnalytics gaId={GA_ID} /> : null}
     </html>
   );
 }

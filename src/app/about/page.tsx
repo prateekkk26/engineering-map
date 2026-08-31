@@ -5,6 +5,7 @@ import { Breadcrumb } from "@/components/nav/Breadcrumb";
 import { PageHeader } from "@/components/nav/PageHeader";
 import { StatsLine } from "@/components/home/StatsLine";
 import { Page } from "@/components/shell/Page";
+import { SupportCta } from "@/components/support/SupportCta";
 import { ANALYTICS_ENABLED, PROGRESS_ENABLED } from "@/lib/flags";
 import { formatCount, getSiteStats } from "@/lib/stats";
 
@@ -142,6 +143,8 @@ export default function AboutPage() {
           </p>
         ) : null}
       </Section>
+
+      <SupportCta variant="full" className="mt-10" />
 
       <Section title="Who made it">
         <p>

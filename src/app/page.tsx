@@ -6,6 +6,7 @@ import { HowItWorks } from "@/components/home/HowItWorks";
 import { SamplePreview } from "@/components/home/SamplePreview";
 import { SectionGrid } from "@/components/home/SectionGrid";
 import { SiteFooter } from "@/components/shell/SiteFooter";
+import { SupportCta } from "@/components/support/SupportCta";
 import { buttonVariants } from "@/components/ui/button";
 import { getSections } from "@/lib/content";
 import { getSiteStats } from "@/lib/stats";
@@ -61,6 +62,12 @@ export default function Page() {
           Browse the map
           <ArrowRight aria-hidden />
         </Link>
+
+        {/* Below the section grid, the sample and the how-to — after the value
+            has been shown, never before it. */}
+        <div className="mt-6 flex justify-center">
+          <SupportCta variant="inline" />
+        </div>
       </section>
 
       <SiteFooter className="max-w-5xl px-5" />
