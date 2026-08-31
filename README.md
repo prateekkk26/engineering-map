@@ -2,7 +2,7 @@
 
 A knowledge map of what a senior engineer is expected to know — the browser, React, backend, data, distributed systems, and building with models — written as short pages that each say what a thing is, why it matters, and where to go next.
 
-**[engineering-map.vercel.app](https://engineering-map.vercel.app)**
+**[theengmap.vercel.app](https://theengmap.vercel.app)**
 
 573 topics · 74 subsections · 8 sections · 1,415 hand-picked outbound links.
 

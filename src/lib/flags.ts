@@ -50,7 +50,7 @@ export const POLAR_CHECKOUT_URL =
 
 /** Absolute origin, no trailing slash. Feeds `metadataBase` and the sitemap. */
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://engineering-map.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://theengmap.vercel.app";
 
 /**
  * A flag plus the configuration it cannot work without.
