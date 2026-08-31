@@ -8,6 +8,8 @@ A knowledge map of what a senior engineer is expected to know — the browser, R
 
 It was written for one person preparing for senior and staff-leaning interviews, which is why it takes positions instead of hedging. It is open because the content stopped being private the day the repository was.
 
+Free to read, no sign-up, nothing to install. The writing is [CC BY-NC-SA](docs/LICENSE); the code is [MIT](LICENSE).
+
 ---
 
 ## What it is
