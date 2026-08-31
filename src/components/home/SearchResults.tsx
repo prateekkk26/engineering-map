@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { TopicTitle } from "@/components/nav/TopicTitle";
 import { Badge } from "@/components/ui/badge";
+import { surface } from "@/lib/interactive";
 import type { SearchEntry } from "@/lib/types";
 
 /**
@@ -37,7 +38,7 @@ export function SearchResults({
           <li key={entry.slug}>
             <Link
               href={`/${entry.slug}`}
-              className="block rounded-lg p-4 outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
+              className={surface({ level: "line" })}
             >
               <p className="text-xs text-muted-foreground">
                 {entry.sectionTitle}

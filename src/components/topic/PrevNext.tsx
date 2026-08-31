@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { TopicTitle } from "@/components/nav/TopicTitle";
+import { surface } from "@/lib/interactive";
 import type { Topic } from "@/lib/types";
 
 /**
@@ -31,7 +32,7 @@ export function PrevNext({
         <Link
           href={`/${previous.slug}`}
           rel="prev"
-          className="flex flex-1 items-center gap-2 rounded-lg p-3 outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
+          className={surface({ level: "inset", className: "flex flex-1 items-center gap-2" })}
         >
           <ChevronLeft
             className="size-4 shrink-0 text-muted-foreground"
@@ -56,7 +57,7 @@ export function PrevNext({
         <Link
           href={`/${next.slug}`}
           rel="next"
-          className="flex flex-1 items-center justify-end gap-2 rounded-lg p-3 text-right outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
+          className={surface({ level: "inset", className: "flex flex-1 items-center justify-end gap-2 text-right" })}
         >
           <span className="min-w-0">
             <span className="block text-xs text-muted-foreground">Next</span>

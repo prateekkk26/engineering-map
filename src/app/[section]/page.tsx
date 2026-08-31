@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Breadcrumb } from "@/components/nav/Breadcrumb";
+import { PageHeader } from "@/components/nav/PageHeader";
 import { SubsectionRow } from "@/components/section/SubsectionRow";
 import { Page } from "@/components/shell/Page";
 import {
@@ -10,6 +11,8 @@ import {
   getSubsectionCounts,
   getSubsectionTopics,
 } from "@/lib/content";
+import { PROGRESS_ENABLED } from "@/lib/flags";
+import { pageMetadata } from "@/lib/metadata";
 
 /**
  * ② Section — PRD §4, "what's inside this subject?"
@@ -55,10 +58,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const section = getSection((await params).section);
   if (!section) return {};
-  return {
-    title: `${section.title} — Engineering Map`,
+  return pageMetadata({
+    title: section.title,
     description: section.description,
-  };
+    path: `/${section.slug}`,
+  });
 }
 
 export default async function SectionPage({
@@ -78,14 +82,9 @@ export default async function SectionPage({
         ]}
       />
 
-      <header className="pb-6">
-        <h1 className="text-2xl leading-tight font-medium tracking-tight text-balance">
-          {section.title}
-        </h1>
-        <p className="mt-2 leading-relaxed text-muted-foreground">
-          {section.description}
-        </p>
-      </header>
+      <PageHeader tone="section" lead={section.description} className="pb-6">
+        {section.title}
+      </PageHeader>
 
       <ul className="space-y-2">
         {section.subsections.map((subsection) => {
@@ -97,9 +96,16 @@ export default async function SectionPage({
           // a row on that page, so it belongs in both sides of the progress
           // fraction. Its slug is outside the subsection's prefix, so it has to
           // travel as a list.
-          const sharedSlugs = getSubsectionTopics(subsection)
-            .filter((topic) => topic.shared)
-            .map((topic) => topic.slug);
+          //
+          // It feeds nothing but the meter, so with progress off this is a
+          // `getSubsectionTopics()` call per subsection at build — 74 of them —
+          // and up to nine slugs per row serialised into the RSC payload, for a
+          // component that renders null.
+          const sharedSlugs = PROGRESS_ENABLED
+            ? getSubsectionTopics(subsection)
+                .filter((topic) => topic.shared)
+                .map((topic) => topic.slug)
+            : [];
           return (
             <li key={subsection.slug}>
               <SubsectionRow

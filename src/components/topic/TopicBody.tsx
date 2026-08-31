@@ -35,23 +35,72 @@ const components: Components = {
   strong: ({ children }) => (
     <strong className="font-medium text-foreground">{children}</strong>
   ),
-  code: ({ children }) => (
-    <code className="rounded bg-muted px-1 py-0.5 font-mono text-[0.85em]">
-      {children}
-    </code>
-  ),
+  code: ({ className, children }) => {
+    // `language-*` is only ever on a fenced block's inner <code>; inline code
+    // carries no class. That is the reliable discriminator, and without it a
+    // fenced block got `bg-muted px-1` from this rule *inside* the `bg-muted
+    // p-4` from `pre` below — a visible double background.
+    if (typeof className === "string" && className.startsWith("language-")) {
+      return <code className={className}>{children}</code>;
+    }
+    return (
+      <code className="rounded bg-muted px-1 py-0.5 font-mono text-[0.85em]">
+        {children}
+      </code>
+    );
+  },
   pre: ({ children }) => (
-    <pre className="mt-4 overflow-x-auto rounded-lg bg-muted p-3 text-sm first:mt-0">
+    <pre className="mt-4 overflow-x-auto rounded-lg bg-muted p-4 font-mono text-[0.8125rem] leading-relaxed ring-1 ring-border first:mt-0">
       {children}
     </pre>
   ),
   a: ({ href, children }) => (
     <a
       href={href}
-      className="underline underline-offset-4 hover:text-muted-foreground"
+      className="underline underline-offset-4 hover:text-brand"
     >
       {children}
     </a>
+  ),
+  table: ({ children }) => (
+    // The negative margin lets a wide table scroll to the container edge on a
+    // phone instead of being clipped inside the reading measure.
+    <div className="mt-4 -mx-4 overflow-x-auto px-4 first:mt-0">
+      <table className="w-full border-collapse text-sm">{children}</table>
+    </div>
+  ),
+  thead: ({ children }) => (
+    <thead className="border-b border-border text-left">{children}</thead>
+  ),
+  tbody: ({ children }) => (
+    <tbody className="divide-y divide-border/60">{children}</tbody>
+  ),
+  th: ({ children }) => (
+    <th className="py-2 pr-4 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+      {children}
+    </th>
+  ),
+  td: ({ children }) => (
+    <td className="py-2 pr-4 align-top leading-relaxed">{children}</td>
+  ),
+  // Nothing in `docs/` uses the next three today — zero images, zero `####`,
+  // and every `---` in the tree is a frontmatter delimiter that `gray-matter`
+  // strips before this runs. Handled anyway, so the first author to reach for
+  // one gets the page's type scale instead of the browser's.
+  hr: () => <hr className="my-8 border-t border-border" />,
+  h4: ({ children }) => (
+    <h4 className="mt-4 text-sm font-medium first:mt-0">{children}</h4>
+  ),
+  img: ({ src, alt }) => (
+    // A plain <img>, not next/image: the src comes from authored markdown, so
+    // there is no build-time width to hand the optimiser and no fixed set of
+    // remote hosts to allowlist.
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={typeof src === "string" ? src : ""}
+      alt={alt ?? ""}
+      className="mt-4 h-auto w-full rounded-lg ring-1 ring-border first:mt-0"
+    />
   ),
   blockquote: ({ children }) => (
     <blockquote className="mt-4 border-l-2 border-border pl-4 text-muted-foreground first:mt-0">
@@ -65,7 +114,14 @@ const components: Components = {
   ),
 };
 
-function Prose({ markdown, lead }: { markdown: string; lead: boolean }) {
+/**
+ * One block of topic prose, through the component map above.
+ *
+ * Exported so the home page's sample can render a real lead paragraph with the
+ * same pipeline the topic page uses — a second renderer would drift, and
+ * rendering the markdown as plain text showed the backticks.
+ */
+export function Prose({ markdown, lead }: { markdown: string; lead: boolean }) {
   return (
     <div className={cn("text-sm", lead && "text-base leading-relaxed")}>
       <Markdown remarkPlugins={[remarkGfm]} components={components}>

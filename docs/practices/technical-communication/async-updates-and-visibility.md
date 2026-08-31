@@ -12,8 +12,8 @@ related:
   - practices/code-review/giving-review-feedback
 
 resources:
-  - title: GitLab — Asynchronous communication
-    url: https://handbook.gitlab.com/handbook/company/culture/all-remote/asynchronous/
+  - title: GitLab — Asynchronous and non-linear working
+    url: https://handbook.gitlab.com/handbook/company/culture/all-remote/non-linear-workday/
     source: GitLab
     type: docs
     minutes: 25

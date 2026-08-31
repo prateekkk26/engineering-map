@@ -7,9 +7,10 @@ import { Dialog } from "radix-ui";
 import { CircleDashed, Menu, Search } from "lucide-react";
 
 import { CommandPalette } from "@/components/shell/CommandPalette";
+import { LandingHeader } from "@/components/shell/LandingHeader";
 import { Logo } from "@/components/shell/Logo";
 import { SidebarTree } from "@/components/shell/SidebarTree";
-import { SiteFooter } from "@/components/shell/SiteFooter";
+import { PROGRESS_ENABLED } from "@/lib/flags";
 import type { NavTree } from "@/lib/nav-tree";
 
 /**
@@ -52,14 +53,18 @@ function SidebarHeader({ onSearch }: { onSearch: () => void }) {
       </button>
 
       {/* The only nav entry that isn't part of the content tree, so it sits
-          with the search button rather than in the tree below it. */}
-      <Link
-        href="/progress"
-        className="mt-2 flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-sm text-muted-foreground outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
-      >
-        <CircleDashed className="size-4 shrink-0" aria-hidden />
-        Progress
-      </Link>
+          with the search button rather than in the tree below it. Folds away
+          entirely when progress is off — the route 404s in that build, and a
+          rail that links to a 404 is worse than one that doesn't mention it. */}
+      {PROGRESS_ENABLED ? (
+        <Link
+          href="/progress"
+          className="mt-2 flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-sm text-muted-foreground outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <CircleDashed className="size-4 shrink-0" aria-hidden />
+          Progress
+        </Link>
+      ) : null}
     </div>
   );
 }
@@ -73,6 +78,25 @@ export function AppShell({
 }) {
   const pathname = usePathname();
   const [paletteOpen, setPaletteOpen] = useState(false);
+
+  /**
+   * The landing page is not a reading page, so it does not get the reading
+   * frame.
+   *
+   * The rail exists to make 74 subsections reachable while you are already deep
+   * in the tree. On the one page someone arrives at from a link, before they
+   * know what any of those words mean, it is a wall of unexplained vocabulary
+   * competing with the sentence that explains the site — and it also caps the
+   * page at a single column when the landing wants the full width.
+   *
+   * So `/` renders bare: its own header, no rail, no drawer. `/map` is the
+   * browsable index and carries the shell like every other page.
+   *
+   * Matched on the pathname rather than split into a route group, because the
+   * palette's state lives here and both layouts need it. ⌘K works on the
+   * landing exactly as it does everywhere else.
+   */
+  const landing = pathname === "/";
 
   /**
    * The drawer is open *for a particular page*.
@@ -89,12 +113,21 @@ export function AppShell({
   const setDrawerOpen = (open: boolean) =>
     setOpenedAt(open ? pathname : undefined);
 
+  if (landing) {
+    return (
+      <>
+        <LandingHeader onSearch={() => setPaletteOpen(true)} />
+        {children}
+        <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} />
+      </>
+    );
+  }
+
   return (
     <div className="lg:grid lg:grid-cols-[19rem_minmax(0,1fr)] 2xl:grid-cols-[21rem_minmax(0,1fr)]">
       <aside className="sticky top-0 hidden h-dvh flex-col border-r border-border bg-sidebar text-sidebar-foreground lg:flex">
         <SidebarHeader onSearch={() => setPaletteOpen(true)} />
         <SidebarTree tree={tree} />
-        <SiteFooter />
       </aside>
 
       <div className="min-w-0">
@@ -132,10 +165,15 @@ export function AppShell({
           of those are worth reimplementing. */}
       <Dialog.Root open={drawerOpen} onOpenChange={setDrawerOpen}>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 z-40 bg-black/40 lg:hidden" />
+          {/* The one animation in the app, and PRD §7 allows it because it is
+              explaining a state change rather than decorating one: a panel that
+              slides in from the left is telling you where it came from and
+              where dismissing it will put it back. `tw-animate-css` supplies
+              the keyframes; Radix supplies the data-state. */}
+          <Dialog.Overlay className="fixed inset-0 z-40 bg-black/40 duration-200 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0 lg:hidden" />
           <Dialog.Content
             aria-describedby={undefined}
-            className="fixed inset-y-0 left-0 z-50 flex w-[19rem] max-w-[85vw] flex-col bg-sidebar text-sidebar-foreground shadow-xl outline-none lg:hidden"
+            className="fixed inset-y-0 left-0 z-50 flex w-[19rem] max-w-[85vw] flex-col bg-sidebar text-sidebar-foreground shadow-xl outline-none duration-200 data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:animate-in data-[state=open]:slide-in-from-left lg:hidden"
           >
             <Dialog.Title className="sr-only">Navigation</Dialog.Title>
             <SidebarHeader
@@ -145,7 +183,6 @@ export function AppShell({
               }}
             />
             <SidebarTree tree={tree} />
-            <SiteFooter />
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>

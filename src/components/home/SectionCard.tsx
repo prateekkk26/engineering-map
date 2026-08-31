@@ -1,9 +1,9 @@
 import { createElement } from "react";
 import Link from "next/link";
 
-import { ProgressMeter } from "@/components/progress/ProgressMeter";
-import { Card } from "@/components/ui/card";
+import { Meter } from "@/components/progress/Meter";
 import { iconFor } from "@/lib/icons";
+import { surface } from "@/lib/interactive";
 import { cn } from "@/lib/utils";
 import type { Section } from "@/lib/types";
 
@@ -30,19 +30,32 @@ function countLine(section: Section): string {
   return `${subsections} · ${topics}`;
 }
 
+/**
+ * One section, as a row on the home page.
+ *
+ * Every section is authored now, so this is always a link. The card used to
+ * carry an unlinked variant for sections that had no content yet — a link to
+ * an empty page is the dead end PRD §7 exists to prevent — but all eight are
+ * written, so that branch could not run and the `<Link>`-wrapping-`<Card>`
+ * shape it forced is gone with it.
+ *
+ * Flattened deliberately rather than using shadcn's `Card`: that is
+ * `rounded-xl` with a ring, which reads as a box in a grid, and PRD §7 wants
+ * lists. `p-4` clears the 44px tap target.
+ */
 export function SectionCard({ section }: { section: Section }) {
-  const body = (
-    <>
+  return (
+    <Link
+      href={`/${section.slug}`}
+      className={surface({ level: "card", className: "flex flex-row items-start gap-3" })}
+    >
       {/* `createElement` rather than assigning to `<Icon />`: the icon comes
           from a lookup, and react-hooks/static-components reads a capitalised
           local as a component defined during render. The lookup returns a
           stable reference out of a frozen map, so the warning is a false
           positive — this avoids it without switching the rule off. */}
       {createElement(iconFor(section.icon), {
-        className: cn(
-          "mt-0.5 size-5 shrink-0",
-          section.specified ? "text-foreground" : "text-muted-foreground",
-        ),
+        className: cn("mt-0.5 size-5 shrink-0 text-foreground"),
         "aria-hidden": true,
       })}
       <div className="min-w-0 space-y-1">
@@ -51,48 +64,17 @@ export function SectionCard({ section }: { section: Section }) {
           {section.description}
         </p>
         <p className="text-xs text-muted-foreground tabular-nums">
-          {section.specified ? countLine(section) : "Not yet specified"}
+          {countLine(section)}
         </p>
         {/* Reader progress sits under the content counts, not instead of them:
             "40 of 207 covered" only means something next to how much of the
             section is written. */}
-        {section.specified ? (
-          <ProgressMeter
-            prefix={section.slug}
-            total={section.topicCount}
-            className="pt-1"
-          />
-        ) : null}
+        <Meter
+          prefix={section.slug}
+          total={section.topicCount}
+          className="pt-1"
+        />
       </div>
-    </>
-  );
-
-  // Flattened deliberately: shadcn's Card is rounded-xl with a ring, which
-  // reads as a box in a grid. PRD §7 wants lists, not grids — so it keeps the
-  // hairline and loses the rest. `py-4 px-4` clears the 44px tap target.
-  const shell = "flex flex-row items-start gap-3 rounded-lg p-4";
-
-  // Six of eight sections have no content yet. They render, because the eight
-  // sections are the claim about what a senior should know and hiding them
-  // would misrepresent the map — but they are not links, because a link to an
-  // empty page is the dead end PRD §7 exists to prevent.
-  if (!section.specified) {
-    return (
-      <Card className={cn(shell, "bg-transparent opacity-60 ring-border")}>
-        {body}
-      </Card>
-    );
-  }
-
-  // Card is a plain div in this version of shadcn — no `asChild`/Slot — so the
-  // link wraps it rather than the other way round. The whole row is the hit
-  // area, not just the title.
-  return (
-    <Link
-      href={`/${section.slug}`}
-      className="block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring"
-    >
-      <Card className={cn(shell, "ring-border hover:bg-accent/40")}>{body}</Card>
     </Link>
   );
 }

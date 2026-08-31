@@ -1,5 +1,6 @@
 import { MessageSquare, Search } from "lucide-react";
 
+import { surface } from "@/lib/interactive";
 import type { Topic } from "@/lib/types";
 
 /**
@@ -9,18 +10,22 @@ import type { Topic } from "@/lib/types";
  * typed. This is the escape hatch from a page that didn't go deep enough, not
  * a toolbar — anything else added here has to pass the §7 test first.
  *
- * The Claude prompt carries the section and summary as well as the title,
- * because "explain closures" and "explain closures, as asked in a senior
- * frontend interview" get materially different answers. PRD §2 rules out AI
- * *features*; a pre-filled link to a chat is a link.
+ * The prompt carries the section and summary as well as the title, because
+ * "explain closures" and "explain closures, as a JavaScript topic, at this
+ * altitude" get materially different answers. PRD §2 rules out AI *features*;
+ * a pre-filled link to a chat is a link.
+ *
+ * It is addressed to the model and says nothing about who is reading. It used
+ * to open with "I'm preparing for senior frontend and full-stack interviews",
+ * which was true of exactly one reader and wrong for everyone else.
  */
 function claudePrompt(topic: Topic, sectionTitle: string): string {
   return [
-    `Explain "${topic.title}" to me.`,
+    `Explain "${topic.title}".`,
     topic.summary,
     "",
-    `Context: I'm preparing for senior frontend and full-stack interviews, and this is a ${sectionTitle} topic.`,
-    "Assume I'm a competent engineer. Go deeper than an overview: cover the mechanism, the failure modes, and what a strong answer to an interview follow-up sounds like.",
+    `This is a ${sectionTitle} topic from an engineering knowledge map.`,
+    "Assume the reader is a competent engineer. Go deeper than an overview: cover the mechanism, the failure modes, and what a strong answer sounds like when someone pushes back on it.",
   ].join("\n");
 }
 
@@ -40,7 +45,7 @@ function ActionRow({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="flex items-center gap-3 rounded-lg p-3 outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring"
+      className={surface({ level: "inset", className: "flex items-center gap-3" })}
     >
       <Icon className="size-4 shrink-0 text-muted-foreground" aria-hidden />
       <span className="min-w-0">

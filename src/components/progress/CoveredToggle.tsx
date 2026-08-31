@@ -46,13 +46,15 @@ export function CoveredToggle({ slug }: { slug: string }) {
       </span>
 
       <span className="min-w-0 text-sm">
+        {/* Neutral, and it leads with where the mark goes. The privacy fact is
+            worth more to a first-time reader than an exhortation is — it is the
+            obvious question about a checkbox on a public site, and answering it
+            in place beats making anyone look for `/about`. */}
         <span className="block font-medium">
-          {covered ? "You've covered this" : "I understand this thoroughly"}
+          {covered ? "Marked as covered" : "Mark as covered"}
         </span>
         <span className="block text-muted-foreground">
-          {covered
-            ? "Tap to unmark if it stops feeling true."
-            : "Only tick it when you could explain it under follow-up."}
+          Stored in this browser only — nothing is sent anywhere.
         </span>
       </span>
     </button>

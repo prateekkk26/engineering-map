@@ -1,0 +1,28 @@
+Engineering Map — content licence
+
+Copyright (c) 2026 Prateek Rawat
+
+The writing in this directory — every topic page, and the section and
+subsection descriptions in the `_meta.yaml` files — is licensed under the
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+licence (CC BY-NC-SA 4.0).
+
+  https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+In short, you are free to:
+
+  Share   — copy and redistribute the material in any medium or format
+  Adapt   — remix, transform, and build upon the material
+
+Under the following terms:
+
+  Attribution   — give appropriate credit, link to the licence, and say if
+                  changes were made
+  NonCommercial — not for commercial purposes
+  ShareAlike    — distribute contributions under the same licence
+
+The linked resources are not covered by this licence. Each one belongs to
+whoever wrote it, and is referenced here by URL only.
+
+The source code that renders these files is licensed separately under the MIT
+licence — see `../LICENSE`.

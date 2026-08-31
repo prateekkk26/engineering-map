@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import { Breadcrumb } from "@/components/nav/Breadcrumb";
 import {
@@ -7,6 +8,7 @@ import {
 } from "@/components/progress/ProgressOverview";
 import { Page } from "@/components/shell/Page";
 import { getSections, getSharedTopics } from "@/lib/content";
+import { PROGRESS_ENABLED } from "@/lib/flags";
 
 /**
  * The one place that answers "how far in am I, and how much is left?"
@@ -22,11 +24,15 @@ import { getSections, getSharedTopics } from "@/lib/content";
  * about what has been covered exists in the prerendered HTML.
  */
 export const metadata: Metadata = {
-  title: "Progress — Engineering Map",
+  title: "Progress",
   description: "How much of the map you've covered, and what's left.",
 };
 
 export default function ProgressPage() {
+  // The file stays in git and the route stops existing. `notFound()` here also
+  // keeps the page out of `sitemap.ts`, which reads the same flag.
+  if (!PROGRESS_ENABLED) notFound();
+
   const sections = getSections();
 
   const rows: SectionProgress[] = sections.map((section) => ({
@@ -40,7 +46,6 @@ export default function ProgressPage() {
         subsection.topics.reduce((sum, topic) => sum + topic.minutes, 0),
       0,
     ),
-    specified: section.specified,
   }));
 
   // `_shared/` topics are not in any section's count (they are not in a

@@ -40,8 +40,8 @@ function ancestorsOf(pathname: string): string[] {
 
 function rowClasses(active: boolean): string {
   return cn(
-    "flex min-w-0 flex-1 items-center gap-2 rounded-md px-2 py-1.5 text-left outline-none hover:bg-accent/60 focus-visible:ring-2 focus-visible:ring-ring",
-    active && "bg-accent font-medium text-accent-foreground",
+    "flex min-w-0 flex-1 items-center gap-2 rounded-md border-l-2 border-transparent px-2 py-1.5 text-left outline-none hover:bg-accent/60 focus-visible:ring-2 focus-visible:ring-ring",
+    active && "border-brand bg-accent font-medium text-accent-foreground",
   );
 }
 
@@ -103,23 +103,6 @@ function SubsectionRow({
       ? `${subsection.planned}`
       : `${subsection.written}/${subsection.planned}`;
 
-  // Same rule the section page applies to its rows: a subsection with nothing
-  // written renders, because the plan is part of the claim about what a senior
-  // should know — but it is not a link, because the page it would open is
-  // empty.
-  if (subsection.written === 0) {
-    return (
-      <li className="flex items-center gap-1 pl-5 opacity-50">
-        <span className="flex min-w-0 flex-1 items-center gap-2 px-2 py-1.5 text-sm">
-          <span className="truncate">{subsection.title}</span>
-        </span>
-        <span className="shrink-0 pr-1 text-xs text-muted-foreground tabular-nums">
-          {subsection.planned}
-        </span>
-      </li>
-    );
-  }
-
   return (
     <li>
       <div className="flex items-center gap-1 pl-3">
@@ -166,26 +149,9 @@ function SectionRow({
   const open = expanded.has(section.slug);
 
   const icon = createElement(iconFor(section.icon), {
-    className: cn(
-      "size-4 shrink-0",
-      section.specified ? "text-muted-foreground" : "text-muted-foreground/70",
-    ),
+    className: cn("size-4 shrink-0 text-muted-foreground"),
     "aria-hidden": true,
   });
-
-  // Six of the eight sections have no content yet. Shown, muted, unclickable —
-  // the same trade the home page makes.
-  if (!section.specified) {
-    return (
-      <li className="flex items-center gap-1 opacity-50">
-        <span className="w-[1.4rem] shrink-0" />
-        <span className="flex min-w-0 flex-1 items-center gap-2 px-2 py-1.5 text-sm">
-          {icon}
-          <span className="truncate">{section.title}</span>
-        </span>
-      </li>
-    );
-  }
 
   return (
     <li>

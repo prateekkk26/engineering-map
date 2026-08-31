@@ -2,6 +2,7 @@ import { createElement } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import { iconForResource } from "@/lib/icons";
+import { surface } from "@/lib/interactive";
 import { cn } from "@/lib/utils";
 import type { Resource } from "@/lib/types";
 
@@ -31,8 +32,8 @@ function ResourceRow({
       target="_blank"
       rel="noreferrer"
       className={cn(
-        "flex items-start gap-3 rounded-lg p-3 outline-none hover:bg-accent/40 focus-visible:ring-2 focus-visible:ring-ring",
-        emphasis && "ring-1 ring-border",
+        surface({ level: "inset", className: "flex items-start gap-3" }),
+        emphasis && "bg-brand-muted ring-1 ring-brand/30",
       )}
     >
       {createElement(iconForResource(resource.type), {

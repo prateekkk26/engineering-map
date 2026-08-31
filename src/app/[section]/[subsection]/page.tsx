@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Breadcrumb } from "@/components/nav/Breadcrumb";
-import { ProgressMeter } from "@/components/progress/ProgressMeter";
+import { PageHeader } from "@/components/nav/PageHeader";
+import { Meter } from "@/components/progress/Meter";
 import { Page } from "@/components/shell/Page";
 import { TopicRow } from "@/components/subsection/TopicRow";
 import { TopicView } from "@/components/topic/TopicView";
+import { pageMetadata } from "@/lib/metadata";
 import {
   SHARED_SECTION_TITLE,
   getSection,
@@ -87,19 +89,23 @@ export async function generateMetadata({
   if (section === SHARED) {
     const topic = getTopic(`${SHARED}/${subsection}`);
     return topic
-      ? {
-          title: `${plainTitle(topic.title)} — Engineering Map`,
+      ? pageMetadata({
+          title: plainTitle(topic.title),
           description: topic.summary,
-        }
+          kicker: SHARED_SECTION_TITLE,
+          path: `/${topic.slug}`,
+        })
       : {};
   }
 
   const found = getSubsection(section, subsection);
   return found
-    ? {
-        title: `${found.title} — Engineering Map`,
+    ? pageMetadata({
+        title: found.title,
         description: found.description,
-      }
+        kicker: getSection(section)?.title,
+        path: `/${found.slug}`,
+      })
     : {};
 }
 
@@ -161,25 +167,28 @@ export default async function SubsectionPage({
         ]}
       />
 
-      <header className="pb-4">
-        <h1 className="text-2xl leading-tight font-medium tracking-tight text-balance">
-          {subsection.title}
-        </h1>
-        <p className="mt-2 leading-relaxed text-muted-foreground">
-          {subsection.description}
-        </p>
-        <p className="mt-2 text-xs text-muted-foreground tabular-nums">
-          {written === planned
-            ? `${written} ${written === 1 ? "topic" : "topics"}`
-            : `${written} of ${planned} topics written`}
-        </p>
-        <ProgressMeter
-          prefix={subsection.slug}
-          total={topics.length}
-          extraSlugs={topics.filter((t) => t.shared).map((t) => t.slug)}
-          className="mt-3 max-w-sm"
-        />
-      </header>
+      <PageHeader
+        tone="subsection"
+        lead={subsection.description}
+        className="pb-4"
+        chips={
+          <>
+            <p className="text-xs text-muted-foreground tabular-nums">
+              {written === planned
+                ? `${written} ${written === 1 ? "topic" : "topics"}`
+                : `${written} of ${planned} topics written`}
+            </p>
+            <Meter
+              prefix={subsection.slug}
+              total={topics.length}
+              extraSlugs={topics.filter((t) => t.shared).map((t) => t.slug)}
+              className="mt-3 max-w-sm"
+            />
+          </>
+        }
+      >
+        {subsection.title}
+      </PageHeader>
 
       <ul>
         {topics.map((topic) => (

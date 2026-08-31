@@ -1,6 +1,7 @@
 import { Breadcrumb, type Crumb } from "@/components/nav/Breadcrumb";
+import { PageHeader } from "@/components/nav/PageHeader";
 import { TopicTitle } from "@/components/nav/TopicTitle";
-import { CoveredToggle } from "@/components/progress/CoveredToggle";
+import { Toggle } from "@/components/progress/Toggle";
 import { Page } from "@/components/shell/Page";
 import { LookItUp } from "@/components/topic/LookItUp";
 import { PrevNext } from "@/components/topic/PrevNext";
@@ -41,18 +42,19 @@ export function TopicView({
     <Page wide>
       <Breadcrumb trail={trail} />
 
-      <header className="pb-8">
-        <h1 className="text-2xl leading-tight font-medium tracking-tight text-balance">
-          <TopicTitle>{topic.title}</TopicTitle>
-        </h1>
-        <div className="mt-3">
+      <PageHeader
+        tone="topic"
+        className="pb-8"
+        chips={
           <TopicChips
             level={topic.level}
             minutes={topic.minutes}
             shared={topic.shared}
           />
-        </div>
-      </header>
+        }
+      >
+        <TopicTitle>{topic.title}</TopicTitle>
+      </PageHeader>
 
       {/* One grid, two placements. Below `xl` the aside is the second row and
           reads exactly as it always has: prose, rule, links. At `xl` the same
@@ -87,7 +89,7 @@ export function TopicView({
         <div className="mt-10 space-y-10 xl:col-start-1 xl:row-start-2 xl:max-w-[54rem]">
           {/* After the reading, before the way out. Marking is the last thing
               you do on the page, and prev/next is what you do after that. */}
-          <CoveredToggle slug={topic.slug} />
+          <Toggle slug={topic.slug} />
           <PrevNext previous={previous} next={next} />
         </div>
       </div>

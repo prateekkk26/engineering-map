@@ -14,6 +14,15 @@
 @theme inline {
     --font-heading: var(--font-sans);
     --font-sans: var(--font-sans);
+    /* Mapped so Tailwind's `font-mono` resolves to the next/font variable set
+     * in `layout.tsx`. Without this line the utility falls through to
+     * Tailwind's own default stack, which is the system monospace — it works,
+     * but it puts a second, unowned typeface on a page that otherwise ships
+     * one. */
+    --font-mono: var(--font-mono);
+    --color-brand: var(--brand);
+    --color-brand-foreground: var(--brand-foreground);
+    --color-brand-muted: var(--brand-muted);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -54,74 +63,109 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* The palette: one hue, and a neutral ramp that leans on it.
+ *
+ * The accent is stated as a hue plus lightness/chroma pairs rather than two
+ * hardcoded colours, so the dark block shifts L and C without the two schemes
+ * drifting apart. Changing the site's personality is one number.
+ *
+ * THE ACCENT IS PERMITTED ON, AND ONLY ON: focus rings, the active nav row,
+ * the primary resource on a topic page, the support button, and link hover in
+ * prose. A sixth use means amending PRD §7 first.
+ *
+ * **The neutrals carry a trace of the same hue** — chroma 0.004 to 0.012,
+ * far below the threshold where anything reads as coloured. Stock shadcn is
+ * chroma-zero throughout, which in dark mode is a flat near-black that the
+ * landing page's one warm surface made look like a different site. This costs
+ * nothing and makes every page belong to the same one.
+ *
+ * **Surfaces are ordered, and ordered the same way in both schemes.** The rail
+ * recedes, the page is the reading surface, a card sits above it:
+ *
+ *     sidebar  <  background  <  card / popover     (dark: darker → lighter)
+ *     sidebar  <  background  <  card / popover     (light: greyer → whiter)
+ *
+ * Stock shadcn gets this backwards in one scheme — its dark `--sidebar`
+ * (0.205) is *lighter* than its `--background` (0.145) while its light sidebar
+ * is darker than its background — so the rail advanced in dark mode and
+ * receded in light. */
 :root {
+    --brand-hue: 250;
+    --brand: oklch(0.52 0.15 var(--brand-hue));
+    --brand-foreground: oklch(0.985 0 0);
+    --brand-muted: oklch(0.52 0.15 var(--brand-hue) / 12%);
+
     --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
+    --foreground: oklch(0.16 0.008 var(--brand-hue));
     --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
+    --card-foreground: oklch(0.16 0.008 var(--brand-hue));
     --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.16 0.008 var(--brand-hue));
+    --primary: oklch(0.21 0.01 var(--brand-hue));
     --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.968 0.005 var(--brand-hue));
+    --secondary-foreground: oklch(0.21 0.01 var(--brand-hue));
+    --muted: oklch(0.968 0.005 var(--brand-hue));
+    --muted-foreground: oklch(0.552 0.014 var(--brand-hue));
+    --accent: oklch(0.965 0.007 var(--brand-hue));
+    --accent-foreground: oklch(0.21 0.01 var(--brand-hue));
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
+    --border: oklch(0.918 0.006 var(--brand-hue));
+    --input: oklch(0.918 0.006 var(--brand-hue));
+    --ring: var(--brand);
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
     --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar: oklch(0.978 0.005 var(--brand-hue));
+    --sidebar-foreground: oklch(0.16 0.008 var(--brand-hue));
+    --sidebar-primary: oklch(0.21 0.01 var(--brand-hue));
     --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+    --sidebar-accent: oklch(0.945 0.008 var(--brand-hue));
+    --sidebar-accent-foreground: oklch(0.21 0.01 var(--brand-hue));
+    --sidebar-border: oklch(0.912 0.006 var(--brand-hue));
+    --sidebar-ring: var(--brand);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
+    --brand: oklch(0.72 0.14 var(--brand-hue));
+    --brand-foreground: oklch(0.205 0 0);
+    --brand-muted: oklch(0.72 0.14 var(--brand-hue) / 18%);
+
+    --background: oklch(0.178 0.009 var(--brand-hue));
+    --foreground: oklch(0.975 0.003 var(--brand-hue));
+    --card: oklch(0.216 0.012 var(--brand-hue));
+    --card-foreground: oklch(0.975 0.003 var(--brand-hue));
+    --popover: oklch(0.216 0.012 var(--brand-hue));
+    --popover-foreground: oklch(0.975 0.003 var(--brand-hue));
+    --primary: oklch(0.922 0.004 var(--brand-hue));
+    --primary-foreground: oklch(0.216 0.012 var(--brand-hue));
+    --secondary: oklch(0.268 0.014 var(--brand-hue));
+    --secondary-foreground: oklch(0.975 0.003 var(--brand-hue));
+    --muted: oklch(0.262 0.013 var(--brand-hue));
+    --muted-foreground: oklch(0.72 0.017 var(--brand-hue));
+    --accent: oklch(0.272 0.015 var(--brand-hue));
+    --accent-foreground: oklch(0.975 0.003 var(--brand-hue));
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
+    --border: oklch(1 0 0 / 9%);
+    --input: oklch(1 0 0 / 14%);
+    --ring: var(--brand);
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --sidebar: oklch(0.152 0.008 var(--brand-hue));
+    --sidebar-foreground: oklch(0.975 0.003 var(--brand-hue));
+    --sidebar-primary: var(--brand);
+    --sidebar-primary-foreground: oklch(0.216 0.012 var(--brand-hue));
+    --sidebar-accent: oklch(0.252 0.014 var(--brand-hue));
+    --sidebar-accent-foreground: oklch(0.975 0.003 var(--brand-hue));
+    --sidebar-border: oklch(1 0 0 / 8%);
+    --sidebar-ring: var(--brand);
   }
 }
 
